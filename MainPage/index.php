@@ -41,15 +41,11 @@
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
 			          <li class="menu-active"><a href="#home">Home</a></li>
-			          <li><a href="#service">Services</a></li>
-			          <li><a href="#feature">Features</a></li>
+			          <li><a href="#service">Service</a></li>
+			          <li><a href="../VehicleManagement/viewvehicles.php">Car List</a></li>
 			          <li><a href="#testimonail">Testimonail</a></li>
 			          <li><a href="#contact">Contact</a></li>
-			          <li class="menu-has-children"><a href="">Pages</a>
-			            <ul>
-			              <li><a href="generic.html">Generic</a></li>
-			              <li><a href="elements.html">Elements</a></li>
-			            </ul>
+			          <li class="menu-has-children"><a href="../Login/login.php">Login</a>			   
 			          </li>
 			        </ul>
 			      </nav><!-- #nav-menu-container -->		    		
@@ -135,54 +131,7 @@
 			</section>
 			<!-- End cat Area -->			
 					
-			<!-- Start feature Area -->
-			<section class="feature-area relative" id="feature">
-				<img class="feature-img" src="img/f1.jpg" alt="">
-				<div class="container">				
-					<div class="row align-items-center">
-						<div class="col-lg-8 offset-lg-4 feature-right section-gap">
-							<div class="row single-feature-wrap justify-content-end">
-								<div class="title-wrap col-lg-10 col-sm-12">
-									<h1>Features That make us Unique</h1>
-									<p>
-										Who are in extremely love with eco friendly system.
-									</p>									
-								</div>
-
-								<div class="col-lg-5">
-									<div class="single-feature">
-										<h4>Multiple Layouts</h4>
-										<p>
-											Usage of the Internet is becoming more common due to rapid advancement of technology and the power of globalization.
-										</p>
-									</div>
-									<div class="single-feature">
-										<h4>Clean Coding</h4>
-										<p>
-											Usage of the Internet is becoming more common due to rapid advancement of technology and the power of globalization.
-										</p>
-									</div>								
-								</div>
-								<div class="col-lg-5">
-									<div class="single-feature">
-										<h4>Endless Features</h4>
-										<p>
-											Usage of the Internet is becoming more common due to rapid advancement of technology and the power of globalization.
-										</p>
-									</div>
-									<div class="single-feature">
-										<h4>Fully Customizable</h4>
-										<p>
-											Usage of the Internet is becoming more common due to rapid advancement of technology and the power of globalization.
-										</p>
-									</div>								
-								</div>									
-							</div>						
-						</div>
-					</div>
-				</div>	
-			</section>
-			<!-- End feature Area -->
+			
 							
 			<!-- Start counter Area -->
 			<section class="counter-area section-gap" id="counter">

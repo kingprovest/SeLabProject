@@ -10,7 +10,7 @@
 		$Username=$_POST['username'];
 		$Password =$_POST['password'];
 		
-		$sql = "SELECT * FROM login WHERE Username='$Username' AND Password='$Password'";
+		$sql = "SELECT * FROM register WHERE Username='$Username' AND Password='$Password'";
 		//echo $sql;
 		$result = mysqli_query($conn, $sql);
 		if(!$row = mysqli_fetch_assoc($result))
@@ -23,10 +23,17 @@
 		else
 		{
 			
-			 $_SESSION['user'] =$row['Id'];
-				
-			header("refresh:2; url='carlist.php'");
-			//echo $_SESSION['user'];
+			 $_SESSION['user'] =$row['Username'];
+			 $_SESSION['userID'] = $row['Id'];
+			if ($_SESSION['user']== "admin")
+			{
+				 header("refresh:2; url='../AdminManagement/adminpage.php'");
+			}
+			else{
+				header("refresh:2; url='../VehicleManagement/bookcar.php'");
+			}
+			 
+			 echo $_SESSION['user'];
 			//echo ("{$_SESSION['user']}"."<br />");
 			//var_dump($_SESSION);
 
