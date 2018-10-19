@@ -90,7 +90,7 @@
 			   <div class="col-md-6 login-left wow fadeInLeft" data-wow-delay="0.4s">
 			  	 <div class='row'>
                 <div class='col-sm-2'> 
-                    <h3><strong>Customer List</strong></h3>
+                    <h3><strong>Delete Car Booking</strong></h3>
                 </div>
             </div>
             <br>
@@ -110,6 +110,7 @@
 					  <th scope="col">EndDate</th>
 					  <th scope="col">PickUpPoint</th>
 					  <th scope="col">Payment</th>
+					  <th scope="col">Action</th>
 					</tr>
 				  </thead>
 				  <tbody>

@@ -17,7 +17,7 @@
 				}
 				else
 				{
-					echo 'User Deleted';
+					echo 'Care Booking Deleted';
 					header("refresh:2; url='deletebooking.php'");
 				}
 ?>

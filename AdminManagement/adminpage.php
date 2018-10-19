@@ -100,8 +100,7 @@
 				 
 				 <h2>Booking Management</h2>
 				  <div class='row'>
-				 <a class="acount-btn" href="viewbooking.php">View Booking</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				 <a class="acount-btn" href="addbooking.php"> Add Booking</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <a class="acount-btn" href="viewbooking.php">View Booking</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				
 				 <a class="acount-btn" href="editbooking.php">Edit Booking</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				 <a class="acount-btn" href="deletebooking.php">Delete Booking</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								 

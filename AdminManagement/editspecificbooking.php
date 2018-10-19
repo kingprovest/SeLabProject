@@ -22,7 +22,6 @@
 			============================================= -->
 			<link rel="stylesheet" href="css/linearicons.css">
 			<link rel="stylesheet" href="css/font-awesome.min.css">
-			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/magnific-popup.css">
 			<link rel="stylesheet" href="css/nice-select.css">
 			<link rel="stylesheet" href="css/hexagons.min.css">										
@@ -81,6 +80,8 @@
 			<!-- End banner Area -->
 			
 			
+					
+					
 			
 			
 			<!-- Start quote Area -->
@@ -89,32 +90,15 @@
 					 <div class="account_grid">
 			   <div class="col-md-6 login-left wow fadeInLeft" data-wow-delay="0.4s">
 			  	 <div class='row'>
-                <div class='col-sm-2'> 
-                    <h3><strong>Customer List</strong></h3>
+                <div class='col-sm-8'> 
+                    <h3><strong> Edit Bookings</strong></h3>
                 </div>
             </div>
             <br>
+			<?php
 			
-			<form class='form-horizontal lg-2' action="editspecificbooking.php" method="post" >
-                <br>
-				
-				<table class="table table-striped">
-				  <thead>
-					<tr>
-					  <th scope="col">BookingID</th>
-					  <th scope="col">User</th>
-					  <th scope="col">Brand</th>
-					  <th scope="col">Model</th>
-					  <th scope="col">PlateNumber</th>					  
-					  <th scope="col">StartDate</th>
-					  <th scope="col">EndDate</th>
-					  <th scope="col">PickUpPoint</th>
-					  <th scope="col">Payment</th>
-					  <th scope="col">Action</th>
-					</tr>
-				  </thead>
-				  <tbody>
-            <?php
+			$bookingid = array_search("Edit", $_POST);
+			
 				$con=mysqli_connect('127.0.0.1','root','', 'selabdb');
 				if(!$con)
 				{
@@ -128,40 +112,87 @@
 				}
 				
 				$sql ="SELECT carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.Price,carbooking.BookingID,
+				carbooking.Id,carbooking.CarID,
 				vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,register.Username
 				FROM carbooking
 				INNER JOIN vehiclelist ON carbooking.CarID = vehiclelist.CarID
-				INNER JOIN register ON carbooking.Id = register.Id";
+				INNER JOIN register ON carbooking.Id = register.Id
+				WHERE carbooking.BookingID = '$bookingid'";
 				
 				
 				$records = mysqli_query($con,$sql);
 				if(mysqli_num_rows($records)>0){
-					while($row = mysqli_fetch_assoc($records))
-					{						
-							  echo "<tr>";
-							  echo "<th scope=\"row\">".$row['BookingID']."</th>";
-							  echo "<td>".$row['Username']."</td>";
-							  echo "<td>".$row['Brand']."</td>";
-							  echo "<td>".$row['Model']."</td>";
-							  echo "<td>".$row['PlateNumber']."</td>";							
-							  echo "<td>".$row['StartDate']."</td>";
-							  echo "<td>".$row['EndDate']."</td>";
-							  echo "<td>".$row['PickUpPoint']."</td>";
-							  echo "<td>".$row['Price']."</td>";
-							  echo "<td>";
-							  echo "<p data-placement=\"top\" data-toggle=\"tooltip\" title=\"Edit\">";
-							  echo "<button class=\"btn btn-danger btn-xs \" name=\"".$row['BookingID']."\" value=\"Edit\" href =\"editspecificbooking.php\" data-toggle=\"modal\" data-target=\"#delete\" >Edit</button>";
-							  echo "</p>";
-						      echo "</td>";
-							  echo "<tr>";						
+					$row = mysqli_fetch_assoc($records);
+					
+					
+						echo "<form action=\"editspecificbooking_process.php\" method=\"post\">";				
+						echo "<div class=\"form-group row\">";
+						echo "<div class=\"col-5\">";
+						echo "<label for=\"exampleFormControlInput1\">User</label>";
+						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" value=".$row['Username']." name=\"brand\" readonly>";
+						echo "</div>";
+						echo "<div class=\"col-5\">";
+						echo "<label for=\"exampleFormControlInput1\">Brand</label>";
+						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" value=".$row['Brand']." name=\"model\" readonly>";
+						echo "</div>";
+						echo "</div>";
+
+						echo "<div class=\"form-group row\">";
+						echo "<div class=\"col-5\">";
+						echo "<label for=\"exampleFormControlInput1\">Model</label>";
+						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" value=".$row['Model']." name=\"platenumber\" readonly>";
+						echo "</div>";
+						echo "<div class=\"col-5\">";
+						echo "<label for=\"exampleFormControlInput1\">PlateNumber</label>";
+						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" value=".$row['PlateNumber']." name=\"perhourrate\" readonly>";
+						echo "</div>";
+						echo "</div>";
+
+						echo "<div class=\"form-group row\">";
+						echo "<div class=\"col-5\">";
+						echo "<label for=\"exampleFormControlInput1\">StartDate</label>";
+						?>
+						<input type="model" class="form-control" id="startdatePicker" value="<?php echo $row['StartDate']?>" name="startdate">
+						</div>
+						<div class="col-5">
+						<label for="exampleFormControlInput1">EndDate</label>
+						<input type="model" class="form-control" id="enddatePicker" value="<?php echo $row['EndDate']?>" name="enddate">
+						</div>
+						</div>
+						<?php
+						echo "<div class=\"form-group row\">";
+						echo "<div class=\"col-5\">";
+						echo "<label for=\"exampleFormControlInput1\">PickUpPoint</label>";
+						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" value=".$row['PickUpPoint']." name=\"pickuppoint\">" ;
+						echo "</div>";
+						echo "<div class=\"col-5\">";
+						echo "<label for=\"exampleFormControlInput1\">Payment</label>";
+						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" value=".$row['Price']." name=\"noofseat\" readonly>";
+						echo "</div>";
+						echo "</div>";
 											
-					}
+						
+						
+						 echo "<th><input type = hidden name=\"bookingid\" value='".$row['BookingID']."'</th>";
+						 echo "<th><input type = hidden name=\"userid\" value='".$row['Id']."'</th>";
+						 echo "<th><input type = hidden name=\"carid\" value='".$row['CarID']."'</th>";
+											
+						echo "<div class=\"form-group\">";
+						echo "<button type=\"submit\" name=\"Edit\" value=\"Edit\" class=\"btn btn-default btn-primary\"
+							style=\"background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%)\"; border: \"#6493c4\">Edit</button>";
+						echo "</div>";
+						
+											
+						 echo "</form>";
 				}
+				
 			?>
-            
-			 </tbody>
-			</table>
+			
+			
+			
 			</div>
+			
+	
 				
 			</section>
 			<section class="quote-area pt-100">
@@ -203,11 +234,19 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			</footer>	
 			<!-- End footer Area -->	
 
-			<script src="js/vendor/jquery-2.2.4.min.js"></script>
+			<link href="Bootstrap.Datepicker.1.7.1/content/Content/bootstrap.min.css" rel="stylesheet" />
+			<link href="Bootstrap.Datepicker.1.7.1/content/Content/jquery-ui.css" rel="stylesheet" />
+			<link href="Bootstrap.Datepicker.1.7.1/content/Content/bootstrap-datepicker3.css" rel="stylesheet" />
+			
+			<script src="Bootstrap.Datepicker.1.7.1/content/Scripts/jquery.min.js"></script>	
+			<script src="Bootstrap.Datepicker.1.7.1/content/Scripts/bootstrap.min.js"></script>
+			<script src="Bootstrap.Datepicker.1.7.1/content/Scripts/bootstrap-datepicker.js"></script>					
+			<script src="Bootstrap.Datepicker.1.7.1/content/Scripts/jquery-ui.js"></script>	
+			<script src="Bootstrap.Datepicker.1.7.1/content/Scripts/moment.min.js"></script>	
+			
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-			<script src="js/vendor/bootstrap.min.js"></script>			
 			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-  			<script src="js/easing.min.js"></script>			
+			<script src="js/easing.min.js"></script>			
 			<script src="js/hoverIntent.js"></script>
 			<script src="js/superfish.min.js"></script>	
 			<script src="js/jquery.ajaxchimp.min.js"></script>
@@ -220,6 +259,25 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<script src="js/jquery.counterup.min.js"></script>						
 			<script src="js/mail-script.js"></script>	
 			<script src="js/main.js"></script>	
+			
+			<script type="text/javascript">
+			
+			$(function() {
+			('#startdatePicker').datepicker({
+				autoclose: true,
+				dateFormat: 'dd-mm-yy',
+				minDate: new Date()
+			  });
+
+
+			  $('#enddatePicker').datepicker({
+				autoclose: true,
+				dateFormat: 'dd-mm-yy',
+				minDate: new Date()
+			  });
+			  
+			});
+			
+			</script>
 		</body>
 	</html>
-
