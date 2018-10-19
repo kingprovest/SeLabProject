@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 22, 2018 at 11:44 AM
+-- Generation Time: Oct 19, 2018 at 09:05 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -19,26 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `selabdb`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `login`
---
-
-CREATE TABLE `login` (
-  `Id` int(128) NOT NULL,
-  `Username` varchar(128) NOT NULL,
-  `Password` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `login`
---
-
-INSERT INTO `login` (`Id`, `Username`, `Password`) VALUES
-(1, 'hello', 'hello'),
-(2, 'pig', 'pig');
 
 -- --------------------------------------------------------
 
@@ -60,17 +40,13 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`Id`, `FullName`, `Username`, `HpNo`, `EmailAddress`, `Password`) VALUES
-(1, 'a', 'a', 'a', 'a', 'a');
+(1, 'admin', 'admin', '5678', '5678@gmail.com', 'admin'),
+(2, 'Piggy', 'pig', '012232345', 'pig@gmail.com', 'pig'),
+(3, 'Big bear', 'bear', '0164533423', 'bear@gmail.com', 'bear');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `login`
---
-ALTER TABLE `login`
-  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indexes for table `register`
@@ -83,15 +59,10 @@ ALTER TABLE `register`
 --
 
 --
--- AUTO_INCREMENT for table `login`
---
-ALTER TABLE `login`
-  MODIFY `Id` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `Id` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
