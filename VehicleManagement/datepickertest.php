@@ -53,7 +53,7 @@
 						 }
 						
 						?></a></li>
-			          <li><a href="bookcar.php">Car List</a></li>
+			          <li><a href="selectbrand.php">Car List</a></li>
 			          <li><a href="custbookingDetails.php">Manage My Bookings</a></li>
 			          <li><a href="#contact">Contact</a></li>
 						<li><a href="../Login/logout_process.php">Logout</a></li>						

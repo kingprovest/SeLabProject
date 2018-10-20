@@ -33,6 +33,14 @@
 			<link href="css/styleadminbootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		</head>
 		<body>
+		<style>
+		.row1{
+				display: flex;
+				flex-direction: row;
+				align-items: flex-start
+				}
+		
+		</style>
 
 		  <header id="header" id="home">
 		    <div class="container">
@@ -54,12 +62,44 @@
 						 else{
 							 echo"You are not logged in";
 						 }
+						 
+						 $conn=mysqli_connect('127.0.0.1','root','', 'selabdb');
+							if(!$conn)
+							{
+								echo 'Not Connected To Server';
+							}
+							
+							if(!mysqli_select_db($conn,'selabdb'))
+							{
+								
+								echo'Database not selected';
+							}
+							error_reporting(0);
+							ini_set('display_errors', 0);
+							$sql1= "SELECT DISTINCT Brand from vehiclelist";
+							$result1 = mysqli_query($conn,$sql1);
+							
+							 if(isset($_POST['search']))
+							{
+								$brand = mysqli_real_escape_string($conn,$_POST['brand']);								
+								$sql2 = "SELECT * FROM vehiclelist WHERE Brand='$brand'";
+								
+							}
+							
+							$result2 = mysqli_query($conn,$sql2);
+						 
 						?></a></li>
 			          
-			          <li><a href="selectbrand.php">Car List</a></li>
+			          <li><a href="bookcar.php">Car List</a></li>
 			          <li><a href="custbookingDetails.php">Manage My Bookings</a></li>
 			          <li><a href="#contact">Contact</a></li>
-						<li><a href="../Login/logout_process.php">Logout</a></li>						
+					   <li class="menu-has-children"><a href="">Account</a>
+			            <ul>
+			              <li><a href="../Login/forgotpassword.php">Change Password</a></li>
+			              <li><a href="../Login/logout_process.php">Logout</a></li>
+			            </ul>
+			          </li>
+												
 			        </ul>
 			      </nav><!-- #nav-menu-container -->		    		
 		    	</div>
@@ -89,77 +129,69 @@
 			<!-- Start quote Area -->
 			<section class="quote-area pt-100">
 				<div class="container">
-					 <div class="account_grid">
+				<div class="account_grid">
 			   <div class="col-md-6 login-left wow fadeInLeft" data-wow-delay="0.4s">
-			  	 <div class='row'>
-                <div class='col-5'> 
-                    <h3><strong>Manage Your Bookings</strong></h3>
-                </div>
+			    <form class='form-horizontal' method="post" action="">
+			   <h3><strong>Choose Brand&nbsp</strong></h3>
+			  	 <div class='row1'>
+               
+									
+                    
+					
+					<select class='form-control' name="brand">
+						<?php
+						while($row1 = mysqli_fetch_array($result1,MYSQLI_ASSOC))
+						{
+						?>
+						<option value="<?php echo $row1['Brand'] ?>"><?php echo $row1['Brand'] ?></option>
+						<?php
+						}
+						?>
+					</select>
+					
+					<div class='col-sm-2'>
+                <button type='submit' name='search' value='search' class='btn btn-default btn-primary'
+                        style=" background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4"
+                >Search</button>
             </div>
+					
+                
+            </div>
+			 </form>
             <br>
 			
-						<form class='form-horizontal lg-2' action="bookspecificcar.php" method="post" >
+			
+			<form class='form-horizontal lg-2' action="datepickertest.php" method="post" >
                 <br>
-				
-				<table class="table table-striped">
-				  <thead>
-					<tr>
-					  <th scope="col">#</th>
-					  <th scope="col">Brand</th>
-					  <th scope="col">Model</th>
-					  <th scope="col">PlateNumber</th>
-					  <th scope="col">NoOfSeat</th>
-					  <th scope="col">StartDate</th>
-					  <th scope="col">EndDate</th>
-					  <th scope="col">PickUpPoint</th>
-					  <th scope="col">Payment</th>
-					</tr>
-				  </thead>
-				  <tbody>
             <?php
-				$con=mysqli_connect('127.0.0.1','root','', 'selabdb');
-				if(!$con)
-				{
-					echo 'Not Connected To Server';
-				}
-				
-				if(!mysqli_select_db($con,'selabdb'))
-				{
-					
-					echo'Database not selected';
-				}
-				$userid = $_SESSION['userID'];
-				
-				
-				$sql ="SELECT carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.Price,
-				vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,vehiclelist.NoOfSeat
-				FROM carbooking
-				INNER JOIN vehiclelist ON carbooking.CarID = vehiclelist.CarID
-				WHERE carbooking.Id = ".$userid.";";
-				
-				$count = 1;
-				$records = mysqli_query($con,$sql);
-				if(mysqli_num_rows($records)>0){
-					while($row = mysqli_fetch_assoc($records))
-					{						
-							echo "<tr>";
-							   echo "<th scope=\"row\">$count</th>";
-							  echo "<td>".$row['Brand']."</td>";
-							  echo "<td>".$row['Model']."</td>";
-							  echo "<td>".$row['PlateNumber']."</td>";
-							  echo "<td>".$row['NoOfSeat']."</td>";
-							  echo "<td>".$row['StartDate']."</td>";
-							  echo "<td>".$row['EndDate']."</td>";
-							  echo "<td>".$row['PickUpPoint']."</td>";
-							  echo "<td>".$row['Price']."</td>";
-							echo "<tr>";						
-						    $count += 1;
+			
+										
+					while($row = mysqli_fetch_array($result2,MYSQLI_ASSOC))
+					{
+						
+                            
+						echo "<div class=\"row\">";			
+						echo " <div class=\"col-sm-4\">";
+						echo "<img class=\"img-responsive img-thumbnail center-block\" style=\"background-color: white\" src=\"img/".$row['ImagePath']."\" width=\"300\" height=\"300\">";
+						echo "</div>";
+						echo " <div class=\"col-sm-4\">";
+						echo "<h3 class=\"text-center\">".$row['Brand']."</h3>";
+						echo "<p class=\"text-center\"><strong>Model:</strong>".$row['Model']."</p>";
+						echo "<p class=\"text-center\"><strong>Plate Number:</strong>".$row['PlateNumber']."</p>";
+						echo "<p class=\"text-center\"><strong>PerHourRate:</strong>".$row['PerHourRate']."</p>";
+						echo "<p class=\"text-center\"><strong>PerDayRate:</strong>".$row['PerDayRate']."</p>";
+						echo "<p class=\"text-center\"><strong>NoOfSeat:</strong>".$row['NoOfSeat']."</p>";
+						echo "</div>";
+						echo " <div class=\"col-sm-4\">";				
+						echo "<input value=\"Book\" name=\"".$row['CarID']."\" type=\"submit\">";			
+						echo "</div>";																									
+						echo "</div>";
+						
 					}
-				}
+				
 			?>
             
-			 </tbody>
-			</table>
+
 			</div>
 				
 			</section>

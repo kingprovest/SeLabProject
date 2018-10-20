@@ -30,7 +30,7 @@
 				 header("refresh:2; url='../AdminManagement/adminpage.php'");
 			}
 			else{
-				header("refresh:2; url='../VehicleManagement/bookcar.php'");
+				header("refresh:2; url='../VehicleManagement/selectbrand.php'");
 			}
 			 
 			 echo $_SESSION['user'];
