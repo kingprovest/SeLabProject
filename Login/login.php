@@ -67,7 +67,7 @@
 							Forgot
 						</span>
 
-						<a href="forgotpassword.php" class="txt2">
+						<a href="" class="txt2">
 							Password?
 						</a>
 					</div>

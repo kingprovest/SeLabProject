@@ -28,7 +28,7 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	
+
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -37,12 +37,13 @@
 						Change Your Password
 					</span>
 					
-					<div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
-						<input id="first-name" class="input100" type="text" name="username" placeholder="User name">
+					
+					<div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type old password">
+						<input class="input100" type="password" name="password" placeholder="Old Password">
 						<span class="focus-input100"></span>
 					</div>
-					<div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
-						<input class="input100" type="password" name="password" placeholder="New Password">
+					<div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type new password">
+						<input class="input100" type="password" name="newpassword" placeholder="New Password">
 						<span class="focus-input100"></span>
 					</div>
 					
@@ -63,16 +64,11 @@
 					
 					<div class="w-full text-center p-t-27 p-b-239">
 						
-						<a href="../Registration/Register.php" class="txt2">
-							Sign Up?
+						<a href="../VehicleManagement/bookcar.php" class="txt2">
+							Return to Main Page
 						</a>
 					</div>
-					
-					<div class="w-full text-center">
-						<a href="login.php" class="txt3">
-							Login
-						</a>
-					</div>
+										
 				</form>
 
 				<div class="login100-more" style="background-image: url('images/bg-01.jpg');"></div>

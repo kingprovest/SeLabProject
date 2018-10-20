@@ -7,23 +7,35 @@
 			die("Connection failed:".mysqli_connect_error());
 		}
 		
-		$Username=$_POST['username'];
 		$Password =$_POST['password'];
+		$NewPassword =$_POST['newpassword'];
 		
-		$sql = "UPDATE register SET Password = '$Password' WHERE Username ='$Username'";
+		$sql2 = "SELECT Password FROM register WHERE Id =".$_SESSION['userID']." AND Password = '$Password'";
 		
 		
-		if(!mysqli_query($conn,$sql))
+		
+		if(!mysqli_query($conn,$sql2))
 		{
 		
-			echo "<script type='text/javascript'>alert('Password Reset Failed! Please Retry')</script>";						
+			echo "<script type='text/javascript'>alert('Old password didn't match')</script>";						
 			header("refresh:3; url='forgotpassword.php'");
 		}
 		else
 		{
+			$sql1 = "UPDATE register SET Password = '$NewPassword' WHERE Id =".$_SESSION['userID']."";
+			if(!mysqli_query($conn,$sql1))
+			{
+				header("refresh:0.1; url='forgotpassword.php'");
+				echo "<script type='text/javascript'>alert('Change Password Failed')</script>";		
+			}
 			
-			header("refresh:0.1; url='login.php'");
-			echo "<script type='text/javascript'>alert('Password Successfully Reseted!')</script>";		
+			else 
+			{
+				echo "<script type='text/javascript'>alert('Password Successfully Reseted!')</script>";	
+								
+				header("refresh:0.1; url='forgotpassword.php'");
+			}
+			
 			
 		}
 			

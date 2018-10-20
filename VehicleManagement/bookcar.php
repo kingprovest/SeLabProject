@@ -59,7 +59,13 @@
 			          <li><a href="bookcar.php">Car List</a></li>
 			          <li><a href="custbookingDetails.php">Manage My Bookings</a></li>
 			          <li><a href="#contact">Contact</a></li>
-						<li><a href="../Login/logout_process.php">Logout</a></li>						
+					   <li class="menu-has-children"><a href="">Account</a>
+			            <ul>
+			              <li><a href="../Login/forgotpassword.php">Change Password</a></li>
+			              <li><a href="../Login/logout_process.php">Logout</a></li>
+			            </ul>
+			          </li>
+												
 			        </ul>
 			      </nav><!-- #nav-menu-container -->		    		
 		    	</div>
