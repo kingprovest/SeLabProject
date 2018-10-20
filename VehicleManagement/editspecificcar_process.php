@@ -32,8 +32,8 @@
 				}
 				else
 				{
-					echo 'Updated';
-					header("refresh:2; url='editvehicles.php'");
+					echo "<script type='text/javascript'>alert('Update Success!')</script>";
+					header("refresh:0.1; url='editvehicles.php'");
 				}
 				mysqli_close($con);
 				

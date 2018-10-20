@@ -32,9 +32,9 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" action="login_process.php" method="post">
+				<form class="login100-form validate-form" action="forgotpassword_process.php" method="post">
 					<span class="login100-form-title p-b-34">
-						Account Login
+						Change Your Password
 					</span>
 					
 					<div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
@@ -42,13 +42,13 @@
 						<span class="focus-input100"></span>
 					</div>
 					<div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
-						<input class="input100" type="password" name="password" placeholder="Password">
+						<input class="input100" type="password" name="password" placeholder="New Password">
 						<span class="focus-input100"></span>
 					</div>
 					
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
-							Sign in
+							Reset Password
 						</button>
 					</div>
 					 <?php
@@ -61,20 +61,16 @@
 					// }
 					// ?>
 					
-
 					<div class="w-full text-center p-t-27 p-b-239">
-						<span class="txt1">
-							Forgot
-						</span>
-
-						<a href="forgotpassword.php" class="txt2">
-							Password?
+						
+						<a href="../Registration/Register.php" class="txt2">
+							Sign Up?
 						</a>
 					</div>
-
+					
 					<div class="w-full text-center">
-						<a href="../Registration/Register.php" class="txt3">
-							Sign Up
+						<a href="login.php" class="txt3">
+							Login
 						</a>
 					</div>
 				</form>
