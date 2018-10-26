@@ -17,7 +17,8 @@
 	$HpNo =$_POST['phonenumber'];
 	$EmailAddress =$_POST['emailaddress'];
 	$Password =$_POST['password'];
-	$sql ="INSERT INTO register(FullName,Username,HpNo,EmailAddress,Password) VALUES ('$FullName','$Username','$HpNo','$EmailAddress','$Password')";
+	$AccessLevel = "User";
+	$sql ="INSERT INTO register(FullName,Username,HpNo,EmailAddress,Password,AccessLevel) VALUES ('$FullName','$Username','$HpNo','$EmailAddress','$Password','$AccessLevel')";
 	
 	if(!mysqli_query($con,$sql))
 	{

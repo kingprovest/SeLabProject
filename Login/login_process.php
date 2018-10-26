@@ -25,17 +25,21 @@
 			
 			 $_SESSION['user'] =$row['Username'];
 			 $_SESSION['userID'] = $row['Id'];
-			if ($_SESSION['user']== "admin")
+			 $_SESSION['accesslevel'] = $row['AccessLevel'];
+			if ($_SESSION['accesslevel']== "Manager")
 			{
-				 header("refresh:2; url='../AdminManagement/adminpage.php'");
+				 header("refresh:2; url='../AdminManagement/managerpage.php'");
+			}
+			else if($_SESSION['accesslevel']== "Employee")
+			{
+				header("refresh:2; url='../AdminManagement/adminpage.php'");
 			}
 			else{
 				header("refresh:2; url='../VehicleManagement/selectbrand.php'");
 			}
 			 
 			 echo $_SESSION['user'];
-			//echo ("{$_SESSION['user']}"."<br />");
-			//var_dump($_SESSION);
+			
 
 		}
 ?>
