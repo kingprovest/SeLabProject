@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 19, 2018 at 10:22 AM
+-- Generation Time: Oct 26, 2018 at 12:23 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -58,17 +58,19 @@ CREATE TABLE `register` (
   `Username` varchar(128) NOT NULL,
   `HpNo` varchar(128) NOT NULL,
   `EmailAddress` varchar(128) NOT NULL,
-  `Password` varchar(128) NOT NULL
+  `Password` varchar(128) NOT NULL,
+  `AccessLevel` varchar(125) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `register`
 --
 
-INSERT INTO `register` (`Id`, `FullName`, `Username`, `HpNo`, `EmailAddress`, `Password`) VALUES
-(1, 'admin', 'admin', '5678', '5678@gmail.com', 'admin'),
-(2, 'Piggy', 'pig', '012232345', 'pig@gmail.com', 'pig'),
-(3, 'Big bear', 'bear', '0164533423', 'bear@gmail.com', 'bear');
+INSERT INTO `register` (`Id`, `FullName`, `Username`, `HpNo`, `EmailAddress`, `Password`, `AccessLevel`) VALUES
+(1, 'admin', 'admin', '5678', '5678@gmail.com', 'admin', 'Manager'),
+(2, 'Piggy', 'pig', '012232345', 'pig@gmail.com', 'pig', 'Employee'),
+(3, 'Big bear', 'bear', '0164533423', 'bear@gmail.com', 'bear', 'User'),
+(4, 'Chicken', 'chick', '012-4672374', 'chich@gmail.com', 'chick', 'User');
 
 -- --------------------------------------------------------
 
@@ -94,7 +96,8 @@ CREATE TABLE `vehiclelist` (
 INSERT INTO `vehiclelist` (`CarID`, `Brand`, `Model`, `PlateNumber`, `PerHourRate`, `PerDayRate`, `NoOfSeat`, `ImagePath`) VALUES
 (1, 'Proton', 'Saga', '12345', 8, 80, 8, 't3.png'),
 (2, 'Toyota', 'Vios', '34567', 10, 100, 4, 'header-bg.jpg'),
-(3, 'BMW', 'M2', 'M8888', 50, 960, 5, 'index.jpg');
+(3, 'BMW', 'M2', 'M8888', 50, 960, 5, 'index.jpg'),
+(4, 'Toyota', 'BX', 'RX2000', 8, 300, 6, '8198.jpg');
 
 --
 -- Indexes for dumped tables
@@ -133,12 +136,12 @@ ALTER TABLE `carbooking`
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `Id` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `vehiclelist`
 --
 ALTER TABLE `vehiclelist`
-  MODIFY `CarID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `CarID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Constraints for dumped tables
 --
