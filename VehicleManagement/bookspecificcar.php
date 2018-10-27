@@ -169,6 +169,8 @@
 				<input class="form-control" id="enddatePicker" name="enddate" type="text"/>
 				<label class="control-label " for="name">Pick Up Point</label>
 				<input class="form-control" id="name" name="pickuppoint" type="text"/>
+				<label class="control-label " for="name">Dorp Off Point</label>
+				<input class="form-control" id="name" name="dropoffpoint" type="text"/>
 				<br>
 				<button type='submit' name='add' value='add'  class='btn btn-default btn-primary'
                         style=" background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4"

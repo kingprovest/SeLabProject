@@ -169,7 +169,9 @@
 				<label class="control-label " for="name">End Date</label>
 				<input class="form-control" id="enddatePicker" name="enddate" type="text" required/>
 				<label class="control-label " for="name">Pick Up Point</label>
-				<input class="form-control" id="name" name="pickuppoint" type="text" required/>				
+				<input class="form-control" id="name" name="pickuppoint" type="text" required/>
+				<label class="control-label " for="name">Drop Off Point</label>
+				<input class="form-control" id="name" name="dropoffpoint" type="text" required/>					
 				<label class="control-label " for="name">Price</label>
 				<input class="form-control" id="rentingprice" name="price" type="text" required readonly/>
 				<input id="calculate" type="button" value="Calculate" />
