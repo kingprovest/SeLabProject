@@ -20,7 +20,7 @@
 					<div class="row fullscreen d-flex align-items-center justify-content-start">
 						<div class="banner-content col-lg-9 col-md-12">
 							<h1 class="text-white text-uppercase">
-								List of Vehicles			
+								Bookings			
 							</h1>
 							
 						</div>											
@@ -42,7 +42,7 @@
             </div>
             <br>
 			
-						<form class='form-horizontal lg-2' action="bookspecificcar.php" method="post" >
+				
                 <br>
 				
 				<table class="table table-striped">
@@ -57,6 +57,7 @@
 					  <th scope="col">EndDate</th>
 					  <th scope="col">PickUpPoint</th>
 					  <th scope="col">Payment</th>
+					  <th scope="col">Invoice</th>
 					</tr>
 				  </thead>
 				  <tbody>
@@ -72,10 +73,10 @@
 					
 					echo'Database not selected';
 				}
+				
 				$userid = $_SESSION['userID'];
 				
-				
-				$sql ="SELECT carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.Price,
+				$sql ="SELECT carbooking.BookingID,carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.Price,
 				vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,vehiclelist.NoOfSeat
 				FROM carbooking
 				INNER JOIN vehiclelist ON carbooking.CarID = vehiclelist.CarID
@@ -83,21 +84,31 @@
 				
 				$count = 1;
 				$records = mysqli_query($con,$sql);
-				if(mysqli_num_rows($records)>0){
+				if(mysqli_num_rows($records)>0)
+				{
 					while($row = mysqli_fetch_assoc($records))
 					{						
-							echo "<tr>";
-							   echo "<th scope=\"row\">$count</th>";
-							  echo "<td>".$row['Brand']."</td>";
-							  echo "<td>".$row['Model']."</td>";
-							  echo "<td>".$row['PlateNumber']."</td>";
-							  echo "<td>".$row['NoOfSeat']."</td>";
-							  echo "<td>".$row['StartDate']."</td>";
-							  echo "<td>".$row['EndDate']."</td>";
-							  echo "<td>".$row['PickUpPoint']."</td>";
-							  echo "<td>".$row['Price']."</td>";
-							echo "<tr>";						
-						    $count += 1;
+						echo "<tr>";
+							echo "<th scope=\"row\">$count</th>";
+							echo "<td>".$row['Brand']."</td>";
+							echo "<td>".$row['Model']."</td>";
+							echo "<td>".$row['PlateNumber']."</td>";
+							echo "<td>".$row['NoOfSeat']."</td>";
+							echo "<td>".$row['StartDate']."</td>";
+							echo "<td>".$row['EndDate']."</td>";
+							echo "<td>".$row['PickUpPoint']."</td>";
+							echo "<td>".$row['Price']."</td>";
+			?>
+							
+							<td>
+								<form method="post" action="generateinvoice.php"> 
+									<input type="hidden" name="bookingNo" value="<?php echo $row['BookingID']; ?>">
+									<button type="submit" name="viewInvoiceBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4">View</button>
+								</form>
+							</td>
+						</tr>
+			<?php
+						$count += 1;
 					}
 				}
 			?>

@@ -1,11 +1,16 @@
 <?php
 
 	include ('header.php');
-
+	
+	if(isset($_POST['viewInvoiceBtn']))
+	{
+		$_SESSION['invoiceNo'] = $_POST['bookingNo'];
+	}
 ?>	
-
-			          <li><a href="../CarList/carlist.php">Car List</a></li>
-					  <li><a href="../Login/logout_process.php">Logout</a></li>						
+  
+			          <li><a href="selectbrand.php">Car List</a></li>
+			          <li><a href="custbookingDetails.php">Manage My Bookings</a></li>
+						<li><a href="../Login/logout_process.php">Logout</a></li>						
 			        </ul>
 			      </nav><!-- #nav-menu-container -->		    		
 
@@ -19,7 +24,7 @@
 					<div class="row fullscreen d-flex align-items-center justify-content-start">
 						<div class="banner-content col-lg-9 col-md-12">
 							<h1 class="text-white text-uppercase">
-								Invoice			
+								Bookings			
 							</h1>
 							
 						</div>											
@@ -150,7 +155,7 @@
 					$row = mysqli_fetch_assoc($result);
 				?>				
 				<div class="row" style="display:block;">
-					<div class="col-md-20">
+					<div class="col-md-12">
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<h3 class="panel-title"><strong>Car Rental summary</strong></h3>
