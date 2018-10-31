@@ -29,11 +29,11 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 </head>
-<body style="background-color: #999999;">
+<body style="background-color: #000000;">
 	
 	<div class="limiter">
 		<div class="container-login100">
-			<div class="login100-more" style="background-image: url('images/bg-01.jpg');"></div>
+			<div class="login100-more" style="background-image: url('img/businesslogo.png');"></div>
 
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
 				<form class="login100-form validate-form" action="register_process.php" method="post">
@@ -104,6 +104,16 @@
 			</div>
 		</div>
 	</div>
+	
+	
+			<!-- start footer Area -->				
+				<?php
+
+				include ('footer.php');
+
+				?>
+			<!-- End footer Area -->					
+				
 	
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>

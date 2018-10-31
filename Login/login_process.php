@@ -28,7 +28,7 @@
 			 $_SESSION['accesslevel'] = $row['AccessLevel'];
 			if ($_SESSION['accesslevel']== "Manager")
 			{
-				 header("refresh:2; url='../AdminManagement/managerpage.php'");
+				header("refresh:2; url='../AdminManagement/managerpage.php'");
 			}
 			else if($_SESSION['accesslevel']== "Employee")
 			{

@@ -32,8 +32,8 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" action="forgotpassword_process.php" method="post">
-					<span class="login100-form-title p-b-34">
+				<form class="login100-form validate-form" action="forgotpassword_process.php" method="post" style="margin-top: -140px">
+					<span class="login100-form-title p-b-40" style="font-size: 38px; font-weight:bold">
 						Change Your Password
 					</span>
 					
@@ -48,7 +48,7 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" style="font-size: 20px">
 							Reset Password
 						</button>
 					</div>
@@ -62,20 +62,29 @@
 					// }
 					// ?>
 					
-					<div class="w-full text-center p-t-27 p-b-239">
+					<div class="w-full text-center p-t-27 p-b-189">
 						
-						<a href="../VehicleManagement/bookcar.php" class="txt2">
+						<a href="../VehicleManagement/bookcar.php" class="txt2" style="font-size: 22px">
 							Return to Main Page
 						</a>
 					</div>
 										
 				</form>
 
-				<div class="login100-more" style="background-image: url('images/bg-01.jpg');"></div>
+				<div class="login100-more" style="background-image: url('img/businesslogo.png')"></div>
 			</div>
 		</div>
 	</div>
 	
+	
+			<!-- start footer Area -->				
+				<?php
+
+				include ('footer.php');
+
+				?>
+			<!-- End footer Area -->					
+				
 	
 
 	<div id="dropDownSelect1"></div>

@@ -29,28 +29,53 @@
 			<link rel="stylesheet" href="css/animate.min.css">
 			<link rel="stylesheet" href="css/owl.carousel.css">
 			<link rel="stylesheet" href="css/main.css">
+			
+			<style>
+				#logo
+				{
+					padding: 0 0 0 80px;
+				}
+				
+				#header .nav-menu
+				{
+					float: right;
+					margin-top: -80px;
+				}
+				
+				#header .nav-menu a
+				{
+					font-size: 20px;
+					padding-left: 20px;
+					text-decoration: none;
+				}
+				
+				#header .nav-menu a:hover
+				{
+					color: blue;
+					font-size: 150%;
+				}
+			</style>
 		</head>
 		<body>
 
 		  <header id="header" id="home">
-		    <div class="container">
-		    	<div class="row align-items-center justify-content-between d-flex">
+
 			      <div id="logo">
-			        <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+			        <a href="#index"><img src="img/businesslogo.png" alt="" title="" style="width:140px;height:140px"/></a>
 			      </div>
+				  
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
 			          <li class="menu-active"><a href="#home">Home</a></li>
 			          <li><a href="#service">Service</a></li>
+					  <li><a href="#testimonail">Testimonial</a></li>
 			          <li><a href="../VehicleManagement/viewvehicles.php">Car List</a></li>
-			          <li><a href="#testimonail">Testimonail</a></li>
 			          <li><a href="#contact">Contact</a></li>
 			          <li class="menu-has-children"><a href="../Login/login.php">Login</a>			   
 			          </li>
 			        </ul>
-			      </nav><!-- #nav-menu-container -->		    		
-		    	</div>
-		    </div>
+			      </nav><!-- #nav-menu-container -->	
+
 		  </header><!-- #header -->
 
 
@@ -59,12 +84,12 @@
 				<div class="overlay overlay-bg"></div>
 				<div class="container">
 					<div class="row fullscreen d-flex align-items-center justify-content-start">
-						<div class="banner-content col-lg-9 col-md-12">
+						<div class="banner-content col-lg-12 col-md-12" style="margin-top: 100px">
 							<h1 class="text-white text-uppercase">
 								We’ve got you a car			
 							</h1>
-							<p class="text-white">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.  sed do eiusmod tempor incididunt.
+							<p class="text-white" style="font-size: 22px; line-height:1.5">
+								Need a car? Book your car now. . . Anytime, anywhere. . . <br> We serve the right car for you.
 							</p>
 							<a href="../Login/login.php" class="primary-btn text-uppercase">BOOK A CAR TODAY</a>
 						</div>											
@@ -80,14 +105,17 @@
 					<div class="row align-items-center">
 						<div class="col-lg-5 col-sm-12 quote-left">
 							<h2 class="text-right">
-								<span>Plumbing</span> for those Area<br>
-								where like to change<br>
-								<span>Nowhere</span>.
+								<span>Baymax Car Rental </span> ease you with the<br>
+								<span>user-friendly</span>
+								<br> booking experience.
 							</h2>
 						</div>
 						<div class="col-lg-7 col-sm-12 quote-right">
-							<p class="text-left">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+							<p class="text-left" style="font-size: 18px">
+								You can always access to our website to book your car. We'll be always available to serve you. 
+								We committed to make you to have the best car booking experience ever!
+								We provide you with various vehicles to meet your requirements. 
+								With the user friendly system, you can get your right car at your fingertip! It's easy to use. 
 							</p>
 						</div>
 					</div>
@@ -104,25 +132,25 @@
 								<a href="#" class="hb-sm-margin mx-auto d-block"><span class="hb hb-sm inv hb-facebook-inv"><span class="lnr lnr-magic-wand"></span></span></a>
 								<h4 class="mb-20" style="margin-top: 23px;">Maintenance</h4>
 								<p>
-									inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why.
+									We service our vehicles every 10,000 km mileage for your safety.
 								</p>
 							</div>															
 						</div>
 						<div class="col-lg-4">	
 							<div class="single-cat">
 								<a href="#" class="hb-sm-margin mx-auto d-block"><span class="hb hb-sm inv hb-facebook-inv"><span class="lnr lnr-rocket"></span></span></a>
-								<h4 class="mt-40 mb-20">Residental Service</h4>
+								<h4 class="mt-40 mb-20">Fast</h4>
 								<p>
-									inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why.
+									We provide you with fast and easy booking experience.
 								</p>
 							</div>															
 						</div>
 						<div class="col-lg-4">
 							<div class="single-cat">
 								<a href="#" class="hb-sm-margin mx-auto d-block"><span class="hb hb-sm inv hb-facebook-inv"><span class="lnr lnr-bug"></span></span></a>
-								<h4 class="mt-40 mb-20">Commercial Service</h4>
+								<h4 class="mt-40 mb-20">Availability</h4>
 								<p>
-									inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why.
+									We are available anytime and anywhere as we provide 24/7 services.
 								</p>
 							</div>							
 						</div>
@@ -136,74 +164,30 @@
 			<!-- Start counter Area -->
 			<section class="counter-area section-gap" id="counter">
 				<div class="container">
-					<div class="row">
+					<div class="row" style="margin: -170px 0 0 200px; ">
 						<div class="col-lg-3 col-md-6">
 							<div class="single-counter">
 								<h1 class="counter">2536</h1>
 								<p>Happy Clients</p>								
 							</div>
 						</div>
-						<div class="col-lg-3 col-md-6">
-							<div class="single-counter">
-								<h1 class="counter">6784</h1>
-								<p>Total Projects</p>								
-							</div>
-						</div>
+						
 						<div class="col-lg-3 col-md-6">
 							<div class="single-counter">
 								<h1 class="counter">1059</h1>
-								<p>Cups Coffee</p>								
+								<p>Regular Customers (continue to use our services)</p>								
 							</div>
 						</div>
 						<div class="col-lg-3 col-md-6">
 							<div class="single-counter">
 								<h1 class="counter">12239</h1>
-								<p>Tickets Submitted</p>								
+								<p>Average Booking Records per Year</p>								
 							</div>
 						</div>												
 					</div>
 				</div>	
 			</section>
 			<!-- end counter Area -->	
-
-			<!-- Start video Area -->
-			<section class="video-area pb-100" id="video">
-				<div class="container">
-					<div class="row justify-content-center">
-						<div class="video-section section-gap col-lg-12">
-							<div class="text-wrap">
-								<h1 class="text-white">Explore ourself in a new way</h1>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore <br> magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-								</p>
-								<div class="play-btn-wrap">
-									<a href="http://www.youtube.com/watch?v=0O2aH4XLbto" class="play-btn">
-									
-									<img src="img/play-btn.png" alt=""> Watch Video
-									</a>
-								</div>								
-							</div>
-						</div>
-					</div>
-				</div>	
-			</section>
-			<!-- End video Area -->
-															
-			<!-- Start callto-action-area Area -->
-			<section class="callto-action-area section-gap">
-				<div class="container">
-					<div class="row justify-content-center">
-						<div class="col-lg-9">
-							<h1 class="text-white">Got Impressed to our features</h1>
-							<p class="text-white">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-							</p>
-							<a class="primary-btn" href="#">Get a free Quote</a>							
-						</div>
-					</div>
-				</div>	
-			</section>
-			<!-- End callto-action-area Area -->
 
 
 			<!-- Start testomial Area -->
@@ -213,7 +197,7 @@
 						<div class="menu-content pb-60 col-lg-8">
 							<div class="title text-center">
 								<h1 class="mb-10">What our Client’s Say about us</h1>
-								<p>Who are in extremely love with eco friendly system.</p>
+								<p>Who are in extremely love with user friendly system.</p>
 							</div>
 						</div>
 					</div>						
@@ -222,93 +206,65 @@
 							<div class="single-testimonial item">
 								<img class="mx-auto" src="img/t1.png" alt="">
 								<p class="desc">
-									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware and more. laptop accessory
+									I have always believed that Baymax Car Rental has the best planning module, and the best web booking module.
 								</p>
-								<h4>Mark Alviro Wiens</h4>
+								<h4>Angel Grenville</h4>
 								<p>
-									CEO at Google
+									CEO of 24 Services Sdn. Bhd.
 								</p>
 							</div>
 							<div class="single-testimonial item">
-								<img class="mx-auto" src="img/t2.png" alt="">
+								<img class="mx-auto" src="img/andrew.jpg" alt="" style="width:100px; height:100px">
 								<p class="desc">
-									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware and more. laptop accessory
+									We have been using Baymax Car Rental since years ago and have never looked  back. The functionality and reporting features make it a valuable and essential tool for our business.
 								</p>
-								<h4>Mark Alviro Wiens</h4>
+								<h4>Andrew McGregor</h4>
 								<p>
-									CEO at Google
+									Director of Escape Campervans
 								</p>
 							</div>
 							<div class="single-testimonial item">
 								<img class="mx-auto" src="img/t3.png" alt="">
 								<p class="desc">
-									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware and more. laptop accessory
+									It’s the best product we know on the market to run an efficient and successful car rental operation.
 								</p>
-								<h4>Mark Alviro Wiens</h4>
+								<h4>Stephanie Ng</h4>
 								<p>
-									CEO at Google
+									Manager of RentCar Ltd.
 								</p>
 							</div>	
 							<div class="single-testimonial item">
-								<img class="mx-auto" src="img/t1.png" alt="">
+								<img class="mx-auto" src="img/mark_lee.jpg" alt="" style="width:100px; height:100px">
 								<p class="desc">
-									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware and more. laptop accessory
+									The system and support has been good and helped develop our car rental business online.
 								</p>
-								<h4>Mark Alviro Wiens</h4>
+								<h4>Mark Lee</h4>
 								<p>
-									CEO at Google
+									Supervisor of REntal S/B
 								</p>
 							</div>
 							<div class="single-testimonial item">
 								<img class="mx-auto" src="img/t2.png" alt="">
 								<p class="desc">
-									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware and more. laptop accessory
+									New functionality is always considered and most concepts are accepted and developed to continue to improve the system for us and other users
 								</p>
-								<h4>Mark Alviro Wiens</h4>
+								<h4>Kingsley Ho</h4>
 								<p>
-									CEO at Google
+									Owner of MaxSys Company Bhd.
 								</p>
 							</div>
 							<div class="single-testimonial item">
-								<img class="mx-auto" src="img/t3.png" alt="">
+								<img class="mx-auto" src="img/john.jpg" alt="">
 								<p class="desc">
-									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware and more. laptop accessory
+									 I have found the system to be very efficient and reliable and I particularly like the flexible approach in customising to suit my sometimes unique requirements. 
+									 The approachable and friendly staff gets the job done with minimum cost and fuss.
 								</p>
-								<h4>Mark Alviro Wiens</h4>
+								<h4>John Donovan</h4>
 								<p>
-									CEO at Google
+									Director of RentforLess
 								</p>
 							</div>															
-							<div class="single-testimonial item">
-								<img class="mx-auto" src="img/t1.png" alt="">
-								<p class="desc">
-									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware and more. laptop accessory
-								</p>
-								<h4>Mark Alviro Wiens</h4>
-								<p>
-									CEO at Google
-								</p>
-							</div>
-							<div class="single-testimonial item">
-								<img class="mx-auto" src="img/t2.png" alt="">
-								<p class="desc">
-									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware and more. laptop accessory
-								</p>
-								<h4>Mark Alviro Wiens</h4>
-								<p>
-									CEO at Google
-								</p>
-							</div>
-							<div class="single-testimonial item">
-								<img class="mx-auto" src="img/t3.png" alt="">
-								<p class="desc">
-									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware and more. laptop accessory
-								</p>
-								<h4>Mark Alviro Wiens</h4>
-								<p>
-									CEO at Google
-								</p>
-							</div>														
+																	
 						</div>
 					</div>
 				</div>	
@@ -324,10 +280,11 @@
 								<div style=" width:100%;height: 545px;" id="map"></div>
 							</div>
 							<div class="col-lg-7 contact-right">
+							<p style="font-size:24px; font-weight:bold; color: black; padding-left: 40px">Contact us now!</p>
 								<form class="form-area" id="myForm" action="mail.php" method="post" class="contact-form text-right">
 									<input name="fname" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mt-10" required="" type="text">
 									<input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="common-input mt-10" required="" type="email">
-									<textarea class="common-textarea mt-10" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
+									<textarea class="common-textarea mt-10" name="message" placeholder="Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
 									<button class="primary-btn mt-20">Send Message<span class="lnr lnr-arrow-right"></span></button>
 									<div class="alert-msg">
 									</div>
@@ -338,58 +295,16 @@
 				</div>	
 			</section>
 			<!-- End contact Area -->
+					
 			
-			
-			<!-- start footer Area -->		
-			<footer class="footer-area section-gap">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-5 col-md-6 col-sm-6">
-							<div class="single-footer-widget">
-								<h6>About Us</h6>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.
-								</p>
-								<p class="footer-text">
-									<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> Re-distributed by <a target="_blank" href="www.Themewagon.com">Themewagon</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								</p>								
-							</div>
-						</div>
-						<div class="col-lg-5  col-md-6 col-sm-6">
-							<div class="single-footer-widget">
-								<h6>Newsletter</h6>
-								<p>Stay update with our latest</p>
-								<div class="" id="mc_embed_signup">
-									<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
-										<input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
-			                            	<button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
-			                            	<div style="position: absolute; left: -5000px;">
-												<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-											</div>
+			<!-- start footer Area -->				
+				<?php
 
-										<div class="info"></div>
-									</form>
-								</div>
-							</div>
-						</div>						
-						<div class="col-lg-2 col-md-6 col-sm-6 social-widget">
-							<div class="single-footer-widget">
-								<h6>Follow Us</h6>
-								<p>Let us be social</p>
-								<div class="footer-social d-flex align-items-center">
-									<a href="#"><i class="fa fa-facebook"></i></a>
-									<a href="#"><i class="fa fa-twitter"></i></a>
-									<a href="#"><i class="fa fa-dribbble"></i></a>
-									<a href="#"><i class="fa fa-behance"></i></a>
-								</div>
-							</div>
-						</div>							
-					</div>
-				</div>
-			</footer>	
+				include ('footer.php');
+
+				?>
 			<!-- End footer Area -->	
+			
 
 			<script src="js/vendor/jquery-2.2.4.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

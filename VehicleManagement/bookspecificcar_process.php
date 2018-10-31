@@ -20,12 +20,15 @@
 	$StartDate =$_POST['startdate'];
 	$EndDate =$_POST['enddate'];
 	$PickUpPoint =$_POST['pickuppoint'];
+	$DropOffPoint =$_POST['dropoffpoint'];
 	$Price =$_POST['price'];
 	$UserId = $_SESSION['userID']; 
 	$CarId = $_SESSION['carID'];
+	$ReserveDate = date("d-m-Y");
 	$Runner = "None";
 	
-	$sql ="INSERT INTO carbooking(StartDate,EndDate,PickUpPoint,Id,CarID,Price,Runner) VALUES ('$StartDate','$EndDate','$PickUpPoint','$UserId','$CarId','$Price','$Runner')";
+	
+	$sql ="INSERT INTO carbooking(ReserveDate,StartDate,EndDate,PickUpPoint,DropOffPoint,Id,CarID,Price,Runner) VALUES ('$ReserveDate','$StartDate','$EndDate','$PickUpPoint','$DropOffPoint','$UserId','$CarId','$Price','$Runner')";
 	
 	if(!mysqli_query($con,$sql))
 	{
@@ -33,8 +36,20 @@
 	}
 	else
 	{
-	echo 'Inserted';
+	
+		echo 'Inserted';
+		
+		$sql = "SELECT BookingID from carbooking WHERE Id = '$UserId' AND StartDate = '$StartDate' AND EndDate = '$EndDate' AND CarID = '$CarId'";
+		
+		$result = mysqli_query($con,$sql);
+		
+		$row = mysqli_fetch_assoc($result);
+		
+		$_SESSION['invoiceNo'] = $row['BookingID'];
+	
+		echo $_SESSION ['invoiceNo'];
 	}
 	mysqli_close($con);
-	 header("refresh:2; url='bookcar.php'");
+	
+	 header("refresh:2; url='generateinvoice.php'");
 ?>
