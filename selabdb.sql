@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2018 at 12:23 PM
+-- Generation Time: Oct 31, 2018 at 11:23 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -33,18 +33,20 @@ CREATE TABLE `carbooking` (
   `PickUpPoint` varchar(128) NOT NULL,
   `Price` int(128) NOT NULL,
   `Id` int(128) DEFAULT NULL,
-  `CarID` int(128) NOT NULL
+  `CarID` int(128) NOT NULL,
+  `Runner` varchar(125) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `carbooking`
 --
 
-INSERT INTO `carbooking` (`BookingID`, `StartDate`, `EndDate`, `PickUpPoint`, `Price`, `Id`, `CarID`) VALUES
-(21, '16-10-2018', '18-10-2018', 'Pavilion2', 1920, 2, 3),
-(22, '29-10-2018', '31-10-2018', 'Sakura', 160, 2, 1),
-(23, '17-10-2018', '19-10-2018', 'Unijaya', 160, 2, 1),
-(24, '24-10-2018', '31-10-2018', 'Autumn', 6720, 3, 3);
+INSERT INTO `carbooking` (`BookingID`, `StartDate`, `EndDate`, `PickUpPoint`, `Price`, `Id`, `CarID`, `Runner`) VALUES
+(21, '16-10-2018', '18-10-2018', 'Pavilion2', 1920, 2, 3, 'Chicken'),
+(22, '29-10-2018', '31-10-2018', 'Sakura', 160, 2, 1, 'Piggy'),
+(23, '17-10-2018', '19-10-2018', 'Unijaya', 160, 2, 1, 'Piggy'),
+(24, '24-10-2018', '31-10-2018', 'Autumn', 6720, 3, 3, 'Chicken'),
+(25, '31-10-2018', '01-11-2018', 'Sakura', 80, 3, 1, 'Piggy');
 
 -- --------------------------------------------------------
 
@@ -70,7 +72,7 @@ INSERT INTO `register` (`Id`, `FullName`, `Username`, `HpNo`, `EmailAddress`, `P
 (1, 'admin', 'admin', '5678', '5678@gmail.com', 'admin', 'Manager'),
 (2, 'Piggy', 'pig', '012232345', 'pig@gmail.com', 'pig', 'Employee'),
 (3, 'Big bear', 'bear', '0164533423', 'bear@gmail.com', 'bear', 'User'),
-(4, 'Chicken', 'chick', '012-4672374', 'chich@gmail.com', 'chick', 'User');
+(4, 'Chicken', 'chick', '012-4672374', 'chich@gmail.com', 'chick', 'Employee');
 
 -- --------------------------------------------------------
 
@@ -131,7 +133,7 @@ ALTER TABLE `vehiclelist`
 -- AUTO_INCREMENT for table `carbooking`
 --
 ALTER TABLE `carbooking`
-  MODIFY `BookingID` int(222) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `BookingID` int(222) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `register`
 --
