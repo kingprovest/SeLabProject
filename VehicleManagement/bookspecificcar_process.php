@@ -23,8 +23,9 @@
 	$Price =$_POST['price'];
 	$UserId = $_SESSION['userID']; 
 	$CarId = $_SESSION['carID'];
+	$Runner = "None";
 	
-	$sql ="INSERT INTO carbooking(StartDate,EndDate,PickUpPoint,Id,CarID,Price) VALUES ('$StartDate','$EndDate','$PickUpPoint','$UserId','$CarId',$Price)";
+	$sql ="INSERT INTO carbooking(StartDate,EndDate,PickUpPoint,Id,CarID,Price,Runner) VALUES ('$StartDate','$EndDate','$PickUpPoint','$UserId','$CarId','$Price','$Runner')";
 	
 	if(!mysqli_query($con,$sql))
 	{

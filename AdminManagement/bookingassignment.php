@@ -78,10 +78,7 @@
 					</div>
 				</div>
 			</section>
-			<!-- End banner Area -->
-			
-			
-			
+			<!-- End banner Area -->			
 			
 			<!-- Start quote Area -->
 			<section class="quote-area pt-100">
@@ -90,12 +87,12 @@
 			   <div class="col-md-6 login-left wow fadeInLeft" data-wow-delay="0.4s">
 			  	 <div class='row'>
                 <div class='col-sm-2'> 
-                    <h3><strong>View Booking</strong></h3>
+                    <h3><strong>Booking Assignment</strong></h3>
                 </div>
             </div>
             <br>
 			
-			<form class='form-horizontal lg-2' action="bookspecificcar.php" method="post" >
+			<form class='form-horizontal lg-2' action="editbookingassignment.php" method="post" >
                 <br>
 				
 				<table class="table table-striped">
@@ -111,6 +108,7 @@
 					  <th scope="col">PickUpPoint</th>
 					  <th scope="col">Payment</th>
 					  <th scope="col">Runner</th>
+					  <th scope="col">Action</th>
 					</tr>
 				  </thead>
 				  <tbody>
@@ -138,7 +136,7 @@
 				if(mysqli_num_rows($records)>0){
 					while($row = mysqli_fetch_assoc($records))
 					{						
-							echo "<tr>";
+							  echo "<tr>";
 							  echo "<th scope=\"row\">".$row['BookingID']."</th>";
 							  echo "<td>".$row['Username']."</td>";
 							  echo "<td>".$row['Brand']."</td>";
@@ -149,7 +147,12 @@
 							  echo "<td>".$row['PickUpPoint']."</td>";
 							  echo "<td>".$row['Price']."</td>";
 							  echo "<td>".$row['Runner']."</td>";
-							echo "<tr>";						
+							  echo "<td>";
+							  echo "<p data-placement=\"top\" data-toggle=\"tooltip\" title=\"Assign\">";
+							  echo "<button class=\"btn btn-success btn-xs \" name=\"".$row['BookingID']."\" value=\"AssignRunner\" href =\"editbookingassignment.php\" data-toggle=\"modal\" data-target=\"#delete\" >Assign Runner</button>";
+							  echo "</p>";
+						      echo "</td>";
+							  echo "<tr>";						
 											
 					}
 				}

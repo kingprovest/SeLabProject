@@ -31,6 +31,12 @@
 			<link rel="stylesheet" href="css/main.css">
 			<link href="css/styleadminbootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		</head>
+		<style>
+			
+				#runner{
+					width:130px;
+				}
+			</style>
 		<body>
 
 		  <header id="header" id="home">
@@ -78,10 +84,7 @@
 					</div>
 				</div>
 			</section>
-			<!-- End banner Area -->
-			
-			
-			
+			<!-- End banner Area -->			
 			
 			<!-- Start quote Area -->
 			<section class="quote-area pt-100">
@@ -90,12 +93,12 @@
 			   <div class="col-md-6 login-left wow fadeInLeft" data-wow-delay="0.4s">
 			  	 <div class='row'>
                 <div class='col-sm-2'> 
-                    <h3><strong>View Booking</strong></h3>
+                    <h3><strong>Booking Assignment</strong></h3>
                 </div>
             </div>
             <br>
 			
-			<form class='form-horizontal lg-2' action="bookspecificcar.php" method="post" >
+			<form class='form-horizontal lg-2' action="editbookingassignment_process.php" method="post" >
                 <br>
 				
 				<table class="table table-striped">
@@ -111,10 +114,16 @@
 					  <th scope="col">PickUpPoint</th>
 					  <th scope="col">Payment</th>
 					  <th scope="col">Runner</th>
+					  <th scope="col">Select Runner</th>
+					  <th scope="col">Action</th>
 					</tr>
 				  </thead>
 				  <tbody>
             <?php
+			
+				$bookingid = array_search("AssignRunner", $_POST);
+				echo "$bookingid";
+				$employee = "Employee";
 				$con=mysqli_connect('127.0.0.1','root','', 'selabdb');
 				if(!$con)
 				{
@@ -131,14 +140,20 @@
 				vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,register.Username
 				FROM carbooking
 				INNER JOIN vehiclelist ON carbooking.CarID = vehiclelist.CarID
-				INNER JOIN register ON carbooking.Id = register.Id";
+				INNER JOIN register ON carbooking.Id = register.Id
+				WHERE carbooking.BookingId = '$bookingid'";
+			
+				$sql1 ="SELECT FullName from register WHERE AccessLevel= '$employee'";
+											
 				
-				
+				$records1 = mysqli_query($con,$sql1);
 				$records = mysqli_query($con,$sql);
-				if(mysqli_num_rows($records)>0){
+				
+				
+				if(mysqli_num_rows($records)>0 && mysqli_num_rows($records)>0){
 					while($row = mysqli_fetch_assoc($records))
 					{						
-							echo "<tr>";
+							  echo "<tr>";
 							  echo "<th scope=\"row\">".$row['BookingID']."</th>";
 							  echo "<td>".$row['Username']."</td>";
 							  echo "<td>".$row['Brand']."</td>";
@@ -149,12 +164,26 @@
 							  echo "<td>".$row['PickUpPoint']."</td>";
 							  echo "<td>".$row['Price']."</td>";
 							  echo "<td>".$row['Runner']."</td>";
-							echo "<tr>";						
+							  echo "<td>";
+							  echo "<select class=\"form-control\" id=\"runner\" name=\"runnername\">";
+							while($row2 = mysqli_fetch_assoc($records1))			
+							{									
+							  echo "<option>".$row2['FullName']."</option>";	
+							}							  
+							  echo "</select>";
+							  echo "</td>";
+							  echo "<td>";
+							  echo "<p data-placement=\"top\" data-toggle=\"tooltip\" title=\"Assign\">";
+							  echo "<button class=\"btn btn-success btn-xs \" name=\"".$row['BookingID']."\" value=\"Assign\" href =\"editbookingassignment_process.php\" data-toggle=\"modal\" data-target=\"#delete\" >Assign Runner</button>";
+							  echo "<th><input type = hidden name=\"bookingid\" value='".$row['BookingID']."'</th>";
+							  echo "</p>";
+						      echo "</td>";
+							  echo "<tr>";						
 											
 					}
 				}
 			?>
-            
+           
 			 </tbody>
 			</table>
 			</div>

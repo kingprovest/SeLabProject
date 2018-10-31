@@ -90,7 +90,7 @@
 			   <div class="col-md-6 login-left wow fadeInLeft" data-wow-delay="0.4s">
 			  	 <div class='row'>
                 <div class='col-sm-2'> 
-                    <h3><strong>Customer List</strong></h3>
+                    <h3><strong>Edit Booking</strong></h3>
                 </div>
             </div>
             <br>
@@ -150,7 +150,7 @@
 							  echo "<td>".$row['Price']."</td>";
 							  echo "<td>";
 							  echo "<p data-placement=\"top\" data-toggle=\"tooltip\" title=\"Edit\">";
-							  echo "<button class=\"btn btn-danger btn-xs \" name=\"".$row['BookingID']."\" value=\"Edit\" href =\"editspecificbooking.php\" data-toggle=\"modal\" data-target=\"#delete\" >Edit</button>";
+							  echo "<button class=\"btn btn-primary btn-xs \" name=\"".$row['BookingID']."\" value=\"Edit\" href =\"editspecificbooking.php\" data-toggle=\"modal\" data-target=\"#delete\" >Edit</button>";
 							  echo "</p>";
 						      echo "</td>";
 							  echo "<tr>";						
@@ -158,7 +158,7 @@
 					}
 				}
 			?>
-            
+      
 			 </tbody>
 			</table>
 			</div>

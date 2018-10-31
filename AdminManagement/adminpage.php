@@ -102,9 +102,13 @@
 				  <div class='row'>
 				 <a class="acount-btn" href="viewbooking.php">View Booking</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				
 				 <a class="acount-btn" href="editbooking.php">Edit Booking</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				 <a class="acount-btn" href="deletebooking.php">Delete Booking</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								 
+				 <a class="acount-btn" href="bookingassignment.php">Runner Assignment</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 			 								 
 				 </div>
+				 <br>	
+				 <div class='row'>
+				 <a class="acount-btn" href="deletebooking.php">Delete Booking</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+				  </div>
 			   </div>
 			   <div class ='row'></div>
 			   <div class="clearfix"> </div>
