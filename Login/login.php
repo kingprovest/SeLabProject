@@ -28,12 +28,11 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	
-	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" action="login_process.php" method="post">
-					<span class="login100-form-title p-b-34">
+			
+				<form class="login100-form validate-form" action="login_process.php" method="post" style="margin-top: -160px">
+					<span class="login100-form-title p-b-28" style="font-size: 38px; font-weight:bold">
 						Account Login
 					</span>
 					
@@ -46,8 +45,8 @@
 						<span class="focus-input100"></span>
 					</div>
 					
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+					<div class="container-login100-form-btn" >
+						<button class="login100-form-btn" style="font-size: 24px; font-weight:bold">
 							Sign in
 						</button>
 					</div>
@@ -62,29 +61,34 @@
 					// ?>
 					
 
-					<div class="w-full text-center p-t-27 p-b-239">
-						<span class="txt1">
-							Forgot
-						</span>
+					<div class="w-full text-center p-t-27 p-b-169" style="margin:50px">
 
-						<a href="" class="txt2">
-							Password?
+						<a href="" class="txt2" style="font-size: 22px; font-weight:bold">
+							Forgot Password?
 						</a>
 					</div>
 
-					<div class="w-full text-center">
-						<a href="../Registration/Register.php" class="txt3">
-							Sign Up
+					<div class="w-full text-center" style="margin:-180px 0 0 0">
+						<p style="font-size:36px">Not yet sign up?</p>
+						<a href="../Registration/Register.php" class="txt3" style="font-size: 28px; font-weight:bold">
+							Sign Up Now
 						</a>
 					</div>
 				</form>
 
-				<div class="login100-more" style="background-image: url('images/bg-01.jpg');"></div>
+				<div class="login100-more" style="background-image: url('img/businesslogo.png')"></div>
 			</div>
 		</div>
-	</div>
 	
 	
+			<!-- start footer Area -->				
+				<?php
+
+				include ('footer.php');
+
+				?>
+			<!-- End footer Area -->					
+				
 
 	<div id="dropDownSelect1"></div>
 	

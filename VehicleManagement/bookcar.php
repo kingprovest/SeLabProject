@@ -1,65 +1,12 @@
-	
-	<!DOCTYPE html>
-	<html lang="zxx" class="no-js">
-	<head>
-		<!-- Mobile Specific Meta -->
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<!-- Favicon-->
-		<link rel="shortcut icon" href="img/fav.png">
-		<!-- Author Meta -->
-		<meta name="author" content="codepixer">
-		<!-- Meta Description -->
-		<meta name="description" content="">
-		<!-- Meta Keyword -->
-		<meta name="keywords" content="">
-		<!-- meta character set -->
-		<meta charset="UTF-8">
-		<!-- Site Title -->
-		<title>Car Rental</title>
+<?php
 
-		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-			<!--
-			CSS
-			============================================= -->
-			<link rel="stylesheet" href="css/linearicons.css">
-			<link rel="stylesheet" href="css/font-awesome.min.css">
-			<link rel="stylesheet" href="css/bootstrap.css">
-			<link rel="stylesheet" href="css/magnific-popup.css">
-			<link rel="stylesheet" href="css/nice-select.css">
-			<link rel="stylesheet" href="css/hexagons.min.css">										
-			<link rel="stylesheet" href="css/animate.min.css">
-			<link rel="stylesheet" href="css/owl.carousel.css">
-			<link rel="stylesheet" href="css/main.css">
-			<link href="css/styleadminbootstrap.css" rel="stylesheet" type="text/css" media="all" />
-		</head>
-		<body>
+	include ('header.php');
 
-		  <header id="header" id="home">
-		    <div class="container">
-		    	<div class="row align-items-center justify-content-between d-flex">
-			      <div id="logo">
-			        <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
-			      </div>
-			      <nav id="nav-menu-container">
-			        <ul class="nav-menu">
-			          <li class="menu-active"><a href="bookcar.php">Welcome Back, 
-					  <?php
-	
-						session_start();
-						 if(isset($_SESSION['user']))
-						 {
-							 echo $_SESSION['user'];
-						 }
-						 
-						 else{
-							 echo"You are not logged in";
-						 }
-						?></a></li>
-			          
-			          <li><a href="bookcar.php">Car List</a></li>
-			          <li><a href="custbookingDetails.php">Manage My Bookings</a></li>
-			          <li><a href="#contact">Contact</a></li>
-					   <li class="menu-has-children"><a href="">Account</a>
+?>	
+
+						<li><a href="bookcar.php">Car List</a></li>
+						<li><a href="custbookingDetails.php">Manage My Bookings</a></li>
+						<li class="menu-has-children"><a href="">Account</a>
 			            <ul>
 			              <li><a href="../Login/forgotpassword.php">Change Password</a></li>
 			              <li><a href="../Login/logout_process.php">Logout</a></li>
@@ -68,8 +15,7 @@
 												
 			        </ul>
 			      </nav><!-- #nav-menu-container -->		    		
-		    	</div>
-		    </div>
+
 		  </header><!-- #header -->
 
 
@@ -133,18 +79,21 @@
 						echo " <div class=\"col-sm-4\">";
 						echo "<img class=\"img-responsive img-thumbnail center-block\" style=\"background-color: white\" src=\"img/".$row['ImagePath']."\" width=\"300\" height=\"300\">";
 						echo "</div>";
-						echo " <div class=\"col-sm-4\">";
-						echo "<h3 class=\"text-center\">".$row['Brand']."</h3>";
-						echo "<p class=\"text-center\"><strong>Model:</strong>".$row['Model']."</p>";
-						echo "<p class=\"text-center\"><strong>Plate Number:</strong>".$row['PlateNumber']."</p>";
-						echo "<p class=\"text-center\"><strong>PerHourRate:</strong>".$row['PerHourRate']."</p>";
-						echo "<p class=\"text-center\"><strong>PerDayRate:</strong>".$row['PerDayRate']."</p>";
-						echo "<p class=\"text-center\"><strong>NoOfSeat:</strong>".$row['NoOfSeat']."</p>";
-						echo "</div>";
+						echo " <div class=\"col-sm-8\" style=\"margin:-100px 0 50px 200px\">";
+						echo "<table style=\"border-collapse:collapse\" border=\"1px solid black\">";
+						echo "<h3 class=\"text-left\">".$row['Brand']."</h3>";
+						echo "<tr><th class=\"text-center\" style=\"padding: 10px\"><strong>Model:</strong></th>			<td class=\"text-center\" style=\"padding: 10px\">".$row['Model']."</td></tr>";
+						echo "<tr><th class=\"text-center\" style=\"padding: 10px\"><strong>Plate Number:</strong></th> 	<td class=\"text-center\" style=\"padding: 10px\">".$row['PlateNumber']."</td></tr>";
+						echo "<tr><th class=\"text-center\" style=\"padding: 10px\"><strong>Per Hour Rate:</strong></th>	<td class=\"text-center\" style=\"padding: 10px\">".$row['PerHourRate']."</td></tr>";
+						echo "<tr><th class=\"text-center\" style=\"padding: 10px\"><strong>Per Day Rate:</strong></th>		<td class=\"text-center\" style=\"padding: 10px\">".$row['PerDayRate']."</td></tr>";
+						echo "<tr><th class=\"text-center\" style=\"padding: 10px\"><strong>No. Of Seat:</strong></th>		<td class=\"text-center\" style=\"padding: 10px\">".$row['NoOfSeat']."</td></tr>";
+						echo "</table>";
+						
 						echo " <div class=\"col-sm-4\">";
 						// echo "<form action=\"addvehicles.php\" method=\"post\">";
-						echo "<input value=\"Book\" name=\"".$row['CarID']."\" type=\"submit\">";
+						echo "<input value=\"Book\" name=\"".$row['CarID']."\" type=\"submit\" style=\"padding: 10px 50px\">";
 						// echo "</form>";
+						echo "</div>";
 						echo "</div>";
 						echo "</div>";
 					}
@@ -159,41 +108,17 @@
 			</section>
 			<!-- End quote Area -->
 			
-			<!-- start footer Area -->	
-			<footer class="footer-area section-gap">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-5 col-md-6 col-sm-6">
-							<div class="single-footer-widget">
-								<h6>About Us</h6>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.
-								</p>
-								<p class="footer-text">
-									<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> Re-distributed by <a target="_blank" href="www.Themewagon.com">Themewagon</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								</p>								
-							</div>
-						</div>
-											
-						<div class="col-lg-2 col-md-6 col-sm-6 social-widget">
-							<div class="single-footer-widget">
-								<h6>Follow Us</h6>
-								<p>Let us be social</p>
-								<div class="footer-social d-flex align-items-center">
-									<a href="#"><i class="fa fa-facebook"></i></a>
-									<a href="#"><i class="fa fa-twitter"></i></a>
-									<a href="#"><i class="fa fa-dribbble"></i></a>
-									<a href="#"><i class="fa fa-behance"></i></a>
-								</div>
-							</div>
-						</div>							
-					</div>
-				</div>
-			</footer>	
+			
+			<!-- start footer Area -->				
+				<?php
+
+				include ('footer.php');
+
+				?>
 			<!-- End footer Area -->	
 
+			
+			
 			<script src="js/vendor/jquery-2.2.4.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 			<script src="js/vendor/bootstrap.min.js"></script>			
