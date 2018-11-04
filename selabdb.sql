@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2018 at 11:23 AM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- Generation Time: Oct 31, 2018 at 12:22 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -28,9 +30,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `carbooking` (
   `BookingID` int(222) NOT NULL,
+  `ReserveDate` varchar(128) NOT NULL,
   `StartDate` varchar(128) NOT NULL,
   `EndDate` varchar(128) NOT NULL,
   `PickUpPoint` varchar(128) NOT NULL,
+  `DropOffPoint` varchar(128) NOT NULL,
   `Price` int(128) NOT NULL,
   `Id` int(128) DEFAULT NULL,
   `CarID` int(128) NOT NULL,
@@ -41,12 +45,13 @@ CREATE TABLE `carbooking` (
 -- Dumping data for table `carbooking`
 --
 
-INSERT INTO `carbooking` (`BookingID`, `StartDate`, `EndDate`, `PickUpPoint`, `Price`, `Id`, `CarID`, `Runner`) VALUES
-(21, '16-10-2018', '18-10-2018', 'Pavilion2', 1920, 2, 3, 'Chicken'),
-(22, '29-10-2018', '31-10-2018', 'Sakura', 160, 2, 1, 'Piggy'),
-(23, '17-10-2018', '19-10-2018', 'Unijaya', 160, 2, 1, 'Piggy'),
-(24, '24-10-2018', '31-10-2018', 'Autumn', 6720, 3, 3, 'Chicken'),
-(25, '31-10-2018', '01-11-2018', 'Sakura', 80, 3, 1, 'Piggy');
+INSERT INTO `carbooking` (`BookingID`, `ReserveDate`, `StartDate`, `EndDate`, `PickUpPoint`, `DropOffPoint`, `Price`, `Id`, `CarID`, `Runner`) VALUES
+(21, '', '16-10-2018', '18-10-2018', 'Pavilion2', '', 1920, 2, 3, 'Chicken'),
+(22, '', '29-10-2018', '31-10-2018', 'Sakura', '', 160, 2, 1, 'Piggy'),
+(23, '', '17-10-2018', '19-10-2018', 'Unijaya', '', 160, 2, 1, 'Piggy'),
+(24, '', '24-10-2018', '31-10-2018', 'Autumn', '', 6720, 3, 3, 'Chicken'),
+(25, '', '31-10-2018', '01-11-2018', 'Sakura', '', 80, 3, 1, 'Piggy'),
+(26, '31-10-2018', '01-12-2018', '02-12-2018', 'UNIMAS FIT', 'CAIS UNIMAS', 960, 3, 3, 'None');
 
 -- --------------------------------------------------------
 
@@ -133,17 +138,20 @@ ALTER TABLE `vehiclelist`
 -- AUTO_INCREMENT for table `carbooking`
 --
 ALTER TABLE `carbooking`
-  MODIFY `BookingID` int(222) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `BookingID` int(222) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
 --
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
   MODIFY `Id` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `vehiclelist`
 --
 ALTER TABLE `vehiclelist`
   MODIFY `CarID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- Constraints for dumped tables
 --
@@ -154,6 +162,7 @@ ALTER TABLE `vehiclelist`
 ALTER TABLE `carbooking`
   ADD CONSTRAINT `carbooking_ibfk_1` FOREIGN KEY (`Id`) REFERENCES `register` (`Id`),
   ADD CONSTRAINT `carbooking_ibfk_2` FOREIGN KEY (`CarID`) REFERENCES `vehiclelist` (`CarID`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

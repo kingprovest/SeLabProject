@@ -58,11 +58,11 @@
 				}
 				
 				$sql ="SELECT * FROM vehiclelist where CarID =".$id.";";
-				$sql2 ="SELECT * FROM carbooking where CarID =".$id.";";
+				$sql2 ="SELECT StartDate,EndDate FROM carbooking where CarID =".$id.";";
 				
 				 $_SESSION["carID"]= $id;
 				$records = mysqli_query($con,$sql);
-				 $records2 = mysqli_query($con,$sql2);
+				 // $records2 = mysqli_query($con,$sql2);
 				if(mysqli_num_rows($records)>0){
 					$row = mysqli_fetch_assoc($records);
 					
@@ -80,15 +80,11 @@
 						echo "</div>";	
 															
 				}
-				
-				
-						$row2 = mysqli_fetch_assoc($records2);
 						
-						$period = new DatePeriod(
-								 new DateTime($row2['StartDate']),
-								 new DateInterval('P1D'),
-								 new DateTime($row2['EndDate'])
-							);
+				
+						
+						
+						
 						// $disabledate = $row2['StartDate'] .''. $row2['EndDate'];
 						// echo $disabledate;
 						// $str = implode(' ', array($row2['StartDate'], $row2['EndDate']));
@@ -100,14 +96,14 @@
 					  // }
 					
 				
-				// var array = ["2013-03-14","2013-03-15","2013-03-16"]
+								// var array = ["2013-03-14","2013-03-15","2013-03-16"]
 
-// $('input').datepicker({
-    // beforeShowDay: function(date){
-        // var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-        // return [ array.indexOf(string) == -1 ]
-    // }
-// });
+				// $('input').datepicker({
+					// beforeShowDay: function(date){
+						// var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+						// return [ array.indexOf(string) == -1 ]
+					// }
+				// });
 				
 				
 			?>
@@ -123,7 +119,7 @@
 				<label class="control-label " for="name">Drop Off Point</label>
 				<input class="form-control" id="name" name="dropoffpoint" type="text" required/>					
 				<label class="control-label " for="name">Price</label>
-				<input class="form-control" id="rentingprice" name="price" type="text" required readonly/>
+				<input class="form-control" id="rentingprice" name="price" type="text" autocomplete="off" required />
 				<input id="calculate" type="button" value="Calculate" />
 				<br>
 				<button type='submit' name='add' value='add'  class='btn btn-default btn-primary'
@@ -181,16 +177,20 @@
   		
 			<script type="text/javascript">
 			
+			$("#rentingprice").keypress(function(e){
+				e.preventDefault();
+			});
 			
 			$(function() {
 				
 				var totalSum = 0;
 				var dayRate = <?php echo $row['PerDayRate'] ?>;
-
+				
 			  $('#startdatePicker').datepicker({
 				autoclose: true,
 				dateFormat: 'dd-mm-yy',
-				minDate: new Date()
+				minDate: new Date(),
+				    
 			  });
 
 
@@ -205,7 +205,7 @@
 				var fromDate = moment($('#startdatePicker').val(), 'DD-MM-YYYY');
 				var toDate = moment($('#enddatePicker').val(), 'DD-MM-YYYY'); 
 
-				if (fromDate.isValid() && toDate.isValid() && toDate.diff(fromDate)>0) {
+				if (fromDate.isValid() && toDate.isValid() && fromDate.isBefore(toDate)) {
 
 				  var duration = moment.duration(toDate.diff(fromDate));
 				  // $('#rentingprice').val( duration.days() + ' Day(s)');
@@ -217,118 +217,10 @@
 					alert('Invalid date input. Please try again!!')    
 
 				}
-
 			  });
 
+			});					 				 							
 
-			});
-		
-			// $(function(){
-				
-			// $("#startdatePicker").datepicker({
-				
-				// dateFormat:'dd-mm-yy',
-				// todayHighlight:'TRUE',
-				// autoclose: true							
-											
-			// }).on('changeDate', function (ev) {
-				
-				// $("#enddatePicker").datepicker('setStartDate',$("startdatePicker").val());
-				
-			// });
-			
-			// $("#enddatePicker").datepicker({
-				
-				// dateFormat: "dd-mm-yy",
-				// todayHighlight:'TRUE',
-				// autoclose: true
-				
-			// }).on('changeDate', function (ev) {
-				
-				// var start = $("#startdatePicker").val();
-				// console.log(start);
-				// var startD = parseDMY(start);
-				// var end = $("enddatePicker").val();
-				// var endD = parseDMY(end);
-				
-				// const utc1 = Date.UTC(startD.getFullYear(), startD.getMonth(), startD.getDate());
-				// const utc2 = Date.UTC(endD.getFullYear(), endD.getMonth(), endD.getDate());
-					
-				// var diff = Math.floor((utc2 - utc1) / (24*3600*1000));
-				
-				// document.getElementById('rentingprice').value = "1";
-				
-				
-			// });
-				 // $("#enddatePicker").val(diff);
-			// });
-			
-			
-			// $(function(){
-				
-			// $("#startdatePicker").datepicker({
-				
-				// dateFormat:'dd-mm-yy',
-				// todayHighlight:'TRUE',
-				// autoclose: true	,
-				// onSelect: function(data){
-					// $("#enddatePicker").datepicker('setStartDate',$("startdatePicker").val());
-				// }
-											
-			// });
-			
-			// $("#enddatePicker").datepicker({
-				
-				// dateFormat: "dd-mm-yy",
-				// todayHighlight:'TRUE',
-				// autoclose: true,
-				// onSelect: function(data){
-				
-				
-				// var start = $("#startdatePicker").val();
-				// console.log(start);
-				// var startD = parseDMY(start);
-				// var end = $("enddatePicker").val();
-				// var endD = parseDMY(end);
-				
-				// const utc1 = Date.UTC(startD.getFullYear(), startD.getMonth(), startD.getDate());
-				// const utc2 = Date.UTC(endD.getFullYear(), endD.getMonth(), endD.getDate());
-					
-				// var diff = Math.floor((utc2 - utc1) / (24*3600*1000));
-				// console.log(diff);
-				// $("#rentingprice").val("1");
-				
-				// }
-				
-			// });
-			
-			// });
-			
-			 				 					
-			
-			
-	
-			
-			function dateDiff(startDate, endDate){
-				const _MS_PER_DAY = 1000 * 60 * 60 * 24;
-				
-				const utc1 = Date.UTC(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
-				const utc2 = Date.UTC(endDate.getFullYear(), endDate.getMonth(), endDate.getDate());
-				
-				 return Math.floor((utc2 - utc1) / _MS_PER_DAY);
-				
-				
-			}
-			
-			function parseDMY(value) 
-			{
-				
-				var date = value.split("-");
-				var d = parseInt(date[0], 10),
-					m = parseInt(date[1], 10),
-					y = parseInt(date[2], 10);
-				return new Date(y, m - 1, d);
-			}
 			</script>
 		</body>
 	</html>
