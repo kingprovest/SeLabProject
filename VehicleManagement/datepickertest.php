@@ -115,18 +115,18 @@
 			
 			<form class="form-group " method="post" action="bookspecificcar_process.php"> <!-- Name field -->
 				<label class="control-label " for="name">Start Date</label>
-				<input class="form-control" id="startdatePicker" name="startdate" type="text" required/>
+				<input class="form-control" id="startdatePicker" name="startdate" autocomplete="off" type="text" required/>
 				<label class="control-label " for="name">End Date</label>
-				<input class="form-control" id="enddatePicker" name="enddate" type="text" required/>
+				<input class="form-control" id="enddatePicker" name="enddate" autocomplete="off" type="text" required/>
 				<label class="control-label " for="name">Pick Up Point</label>
-				<input class="form-control" id="name" name="pickuppoint" type="text" required/>
+				<input class="form-control" id="name" name="pickuppoint" type="text" autocomplete="off" required/>
 				<label class="control-label " for="name">Drop Off Point</label>
-				<input class="form-control" id="name" name="dropoffpoint" type="text" required/>					
+				<input class="form-control" id="name" name="dropoffpoint" type="text" autocomplete="off" required/>					
 				<label class="control-label " for="name">Price</label>
 				<input class="form-control" id="rentingprice" name="price" type="text" required readonly/>
 				<input id="calculate" type="button" value="Calculate" />
 				<br>
-				<button type='submit' name='add' value='add'  class='btn btn-default btn-primary'
+				<button type='submit' name='add' value='add'  class='btn btn-default btn-primary' onclick="return confirm('Are you sure to add?')"
                         style=" background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; padding: 10px; margin-left:30px"
                 >Reserve Now!!</button>
 			</form>

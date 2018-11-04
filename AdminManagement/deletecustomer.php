@@ -57,7 +57,7 @@
 										echo "<td>".$row['EmailAddress']."</td>";
 										echo "<td>";
 										echo "<p data-placement=\"top\" data-toggle=\"tooltip\" title=\"Delete\">";
-										echo "<button class=\"btn btn-danger btn-xs \" name=\"".$row['Id']."\" value=\"Delete\" href =\"deletecustomer_process.php\" data-toggle=\"modal\" data-target=\"#delete\" >Delete</button>";							 
+										echo "<button class=\"btn btn-danger btn-xs \" name=\"".$row['Id']."\" value=\"Delete\" href =\"deletecustomer_process.php\" onclick=\"return confirm('Are you sure to delete?')\"data-toggle=\"modal\" data-target=\"#delete\" >Delete</button>";							 
 										echo "</p>";
 										echo "</td>";
 										echo "<tr>";						
