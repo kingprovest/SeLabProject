@@ -42,33 +42,33 @@
             
             
             
-            <form class='form-horizontal lg-2' method="post" action="gg.php">
+            <form class='form-horizontal lg-2' method="post" action="addvehicle_process.php">
                 <br>
            
             <div class="form-group"> <!-- Name field -->
 				<label class="control-label " for="name">Brand</label>
-				<input class="form-control" id="name" name="brand" type="text" required/>
+				<input class="form-control" id="name" name="brand" type="text"/>
 			</div>
 			
 			<div class="form-group"> <!-- Name field -->
 				<label class="control-label" for="name">Model</label>
-				<input class="form-control" id="name" name="model" type="text" required/>
+				<input class="form-control" id="name" name="model" type="text"/>
 			</div>
 			<div class="form-group"> <!-- Name field -->
 				<label class="control-label" for="name">Plate Number</label>
-				<input class="form-control" id="name" name="platenumber" type="text" required/>
+				<input class="form-control" id="name" name="platenumber" type="text"/>
 			</div>
 			<div class="form-group"> <!-- Name field -->
 				<label class="control-label" for="name">Per hour rate</label>
-				<input class="form-control" id="name" name="perhourrate" type="text" required/>
+				<input class="form-control" id="name" name="perhourrate" type="text"/>
 			</div>
 			<div class="form-group"> <!-- Name field -->
 				<label class="control-label" for="name">Per day rate</label>
-				<input class="form-control" id="name" name="perdayrate" type="text" required/>
+				<input class="form-control" id="name" name="perdayrate" type="text"/>
 			</div>
 			<div class="form-group"> <!-- Name field -->
 				<label class="control-label" for="name">No of Seat</label>
-				<input class="form-control" id="name" name="noofseat" type="text" required/>
+				<input class="form-control" id="name" name="noofseat" type="text"/>
 			</div>	
 			<div class="form-group"> <!-- Name field -->
 				<label class="control-label" for="name">Image:</label>
@@ -78,7 +78,7 @@
             <br>
             <div class='row'>
             <div class='col-sm-offset-7'>
-                <button type='submit' name='add' value='add' onclick="return confirm('Are you sure to add?')"class='btn btn-default btn-primary'
+                <button type='submit' name='add' value='add' class='btn btn-default btn-primary'
                         style=" background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; margin-left:50px; padding: 10px 30px"
                 >Add</button>
             </div>

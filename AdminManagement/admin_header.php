@@ -30,6 +30,12 @@
 			<link rel="stylesheet" href="css/owl.carousel.css">
 			<link rel="stylesheet" href="css/main.css">
 			<link href="css/styleadminbootstrap.css" rel="stylesheet" type="text/css" media="all" />
+			<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+			<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+			<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+			<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+			<link rel="stylesheet" type="text/css" href="css/table_util.css">
+			<link rel="stylesheet" type="text/css" href="css/table_main.css">
 			
 			<style>
 				#aclevel

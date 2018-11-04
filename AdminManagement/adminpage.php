@@ -91,10 +91,6 @@
 				 <a class="acount-btn" href="../VehicleManagement/addvehicles.php"> Add Vehicles</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				 <a class="acount-btn" href="../VehicleManagement/editvehicles.php">Edit Vehicles</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
 				 </div>
-				  <br>	
-				 <div class='row'>
-				 <a class="acount-btn" href="../VehicleManagement/deletevehicle.php">Delete Vehicle</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
-				  </div>
 				 
 				 <h2>Customer Management</h2>
 				 <div class='row'>

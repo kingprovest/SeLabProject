@@ -39,9 +39,6 @@
 				flex-direction: row;
 				align-items: flex-start
 				}
-
-				
-		
 		
 		</style>
 
