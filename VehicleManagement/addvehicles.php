@@ -42,7 +42,7 @@
             
             
             
-            <form class='form-horizontal lg-2' method="post" action="gg.php">
+            <form class='form-horizontal ' method="post" action="addvehicle_process.php">
                 <br>
            
             <div class="form-group"> <!-- Name field -->
@@ -78,7 +78,7 @@
             <br>
             <div class='row'>
             <div class='col-sm-offset-7'>
-                <button type='submit' name='add' value='add' onclick="return confirm('Are you sure to add?')"class='btn btn-default btn-primary'
+                <button type='submit' name='add' value='add' onclick="return confirm('Confirm Add?')" class='btn btn-default btn-primary'
                         style=" background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; margin-left:50px; padding: 10px 30px"
                 >Add</button>
             </div>

@@ -120,7 +120,7 @@
 						echo "<th><input type = hidden name=\"CarID\" value='".$row['CarID']."'</th>";
 											
 						echo "<div class=\"form-group\">";
-						echo "<button type=\"submit\" name=\"Edit\" value=\"Edit\" class=\"btn btn-default btn-primary\"
+						echo "<button type=\"submit\" name=\"Edit\" value=\"Edit\" onclick=\"return confirm('Confirm Edit?')\" class=\"btn btn-default btn-primary\"
 							style=\"background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%)\"; border: \"#6493c4\">Edit</button>";
 						echo "</div>";
 						

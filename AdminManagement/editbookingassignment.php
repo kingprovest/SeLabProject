@@ -174,7 +174,7 @@
 							  echo "</td>";
 							  echo "<td>";
 							  echo "<p data-placement=\"top\" data-toggle=\"tooltip\" title=\"Assign\">";
-							  echo "<button class=\"btn btn-success btn-xs \" name=\"".$row['BookingID']."\" value=\"Assign\" href =\"editbookingassignment_process.php\" data-toggle=\"modal\" data-target=\"#delete\" >Assign Runner</button>";
+							  echo "<button class=\"btn btn-success btn-xs \"  onclick=\"return confirm('Confirm Assignment?')\" name=\"".$row['BookingID']."\" value=\"Assign\" href =\"editbookingassignment_process.php\" data-toggle=\"modal\" data-target=\"#delete\" >Assign Runner</button>";
 							  echo "<th><input type = hidden name=\"bookingid\" value='".$row['BookingID']."'</th>";
 							  echo "</p>";
 						      echo "</td>";

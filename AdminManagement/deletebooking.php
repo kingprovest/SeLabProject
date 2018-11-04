@@ -70,7 +70,7 @@
 							  echo "<td>".$row['Price']."</td>";
 							  echo "<td>";
 							  echo "<p data-placement=\"top\" data-toggle=\"tooltip\" title=\"Delete\">";
-							  echo "<button class=\"btn btn-danger btn-xs \" name=\"".$row['BookingID']."\" value=\"Delete\" href =\"deletebooking_process.php\" data-toggle=\"modal\" data-target=\"#delete\" >Delete</button>";
+							  echo "<button class=\"btn btn-danger btn-xs \" name=\"".$row['BookingID']."\"  onclick=\"return confirm('Confirm Delete?')\"value=\"Delete\" href =\"deletebooking_process.php\" data-toggle=\"modal\" data-target=\"#delete\" >Delete</button>";
 							  echo "</p>";
 						      echo "</td>";
 							  echo "<tr>";						

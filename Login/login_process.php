@@ -18,7 +18,7 @@
 			echo "<script type='text/javascript'>alert('Login failed! Please Retry')</script>";
 			$_SESSION=array(); //unset data
 			session_destroy();			
-			header("refresh:3; url='login.php'");
+			header("refresh:0.3; url='login.php'");
 		}
 		else
 		{
@@ -28,14 +28,14 @@
 			 $_SESSION['accesslevel'] = $row['AccessLevel'];
 			if ($_SESSION['accesslevel']== "Manager")
 			{
-				header("refresh:2; url='../AdminManagement/managerpage.php'");
+				header("refresh:0.3; url='../AdminManagement/managerpage.php'");
 			}
 			else if($_SESSION['accesslevel']== "Employee")
 			{
-				header("refresh:2; url='../AdminManagement/adminpage.php'");
+				header("refresh:0.3; url='../AdminManagement/adminpage.php'");
 			}
 			else{
-				header("refresh:2; url='../VehicleManagement/selectbrand.php'");
+				header("refresh:0.3; url='../VehicleManagement/selectbrand.php'");
 			}
 			 
 			 echo $_SESSION['user'];

@@ -80,7 +80,7 @@
 						echo "</table>";
 						
 						echo " <div class=\"col-sm-4\">";
-						echo "<input value=\"Delete\" name=\"".$row['CarID']."\" type=\"submit\" onclick=\"return confirm('Are you sure to delete?')\" style=\"padding: 10px 50px\">";
+						echo "<input value=\"Delete\" name=\"".$row['CarID']."\" type=\"submit\" onclick=\"return confirm('Confirm delete vehicle?')\" style=\"padding: 10px 50px\">";
 						echo "</div>";
 						echo "</div>";
 						echo "</div>";
