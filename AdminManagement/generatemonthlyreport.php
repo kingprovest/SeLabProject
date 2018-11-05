@@ -71,10 +71,11 @@
 											<th class="cell100 column3">Start Date</th>
 											<th class="cell100 column4">End Date</th>
 											<th class="cell100 column5">Duration (Days)</th>
-											<th class="cell100 column6">Brand</th>
-											<th class="cell100 column7">Model</th>
-											<th class="cell100 column8">Runner</th>
-											<th class="cell100 column9">Price (RM)</th>
+											<th class="cell100 column6">Car Plate No.</th>
+											<th class="cell100 column7">Brand</th>
+											<th class="cell100 column8">Model</th>
+											<th class="cell100 column9">Runner</th>
+											<th class="cell100 column10">Price (RM)</th>
 										</tr>
 									</thead>
 								</table>
@@ -131,10 +132,11 @@
 														$diff=date_diff($date1,$date2);	
 													?>
 													<td class="cell100 column5"><?php echo $diff->format("%a"); ?></td>
-													<td class="cell100 column6"><?php echo $row['Brand']; ?></td>
-													<td class="cell100 column7"><?php echo $row['Model']; ?></td>
-													<td class="cell100 column8"><?php echo $row['Runner']; ?></td>
-													<td class="cell100 column9"><?php echo $row['Price'].".00"; ?></td>
+													<td class="cell100 column6"><?php echo $row['PlateNumber']; ?></td>
+													<td class="cell100 column7"><?php echo $row['Brand']; ?></td>
+													<td class="cell100 column8"><?php echo $row['Model']; ?></td>
+													<td class="cell100 column9"><?php echo $row['Runner']; ?></td>
+													<td class="cell100 column10"><?php echo $row['Price'].".00"; ?></td>
 												</tr>
 									<?php		
 												$count += 1;
@@ -156,8 +158,9 @@
 											<th class="cell100 column5"></th>
 											<th class="cell100 column6"></th>
 											<th class="cell100 column7"></th>
-											<th class="cell100 column8">Total</th>
-											<th class="cell100 column9"><?php echo $total.".00"; ?></th>
+											<th class="cell100 column8"></th>
+											<th class="cell100 column9">Total (RM)</th>
+											<th class="cell100 column10"><?php echo $total.".00"; ?></th>
 										</tr>
 									</tbody>
 								</table>

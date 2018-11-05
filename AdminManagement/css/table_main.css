@@ -175,41 +175,45 @@ th, td {
 }
 
 .column1 {
-  width: 4%;
+  width: 45px;
   padding-left: 10px;
 }
 
 .column2 {
-  width: 10%;
+  width: 110px;
 }
 
 .column3 {
-  width: 10%;
+  width: 115px;
 }
 
 .column4 {
-  width: 10%;
+  width: 100px;
 }
 
 .column5 {
-  width: 16%;
+  width: 160px;
   text-align: center;
 }
 
 .column6 {
-  width: 10%;
+  width: 140px;
 }
 
 .column7 {
-  width: 10%;
+  width: 100px;
 }
 
 .column8 {
-  width: 18%;
+  width: 100px;
 }
 
 .column9 {
-  width: 10%;
+  width: 170px;
+}
+
+.column10 {
+  width: 100px;
 }
 
 .table100-head th {
