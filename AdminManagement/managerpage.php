@@ -16,7 +16,7 @@
 				 <h2>Sales Report</h2>
 				 <div class='row' style="padding: 30px; margin-top: -30px">
 				 <a class="acount-btn" href="viewsalesreport.php">View Sales Report </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		
-				 <a class="acount-btn" href="deletecustomer.php">Statistics</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+				 <a class="acount-btn" href="viewstatistics.php">Statistics</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
 				 </div>
 				 
 	

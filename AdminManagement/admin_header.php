@@ -92,7 +92,7 @@
 							 header('Location: ../Login/login.php');
 						 }
 						?></a></li>
-					 <li class="menu-active"><a href="../AdminManagement/adminpage.php">Admin Homepage</a></li>		          
+					 <li class="menu-active"><a href="../AdminManagement/managerpage.php">Admin Homepage</a></li>		          
 			         <li><a href="../Login/logout_process.php">Logout</a></li>
 			        </ul>
 			      </nav><!-- #nav-menu-container -->		    		

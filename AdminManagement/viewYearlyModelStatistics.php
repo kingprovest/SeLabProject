@@ -10,29 +10,16 @@
 					<div class="col-md-20 login-left wow fadeInLeft" data-wow-delay="0.4s">
 						<div class='row'>
 							<div class='col-sm-20'> 
-								<h3><strong>View Monthly Sales Report</strong></h3>
+								<h3><strong>View Most Popular Car Model by Year</strong></h3>
 								<br>
-								<form method="post" action="generatemonthlyreport.php">
-									<select name="month" style="display: inline-block;">
-										<option value="1" selected>January</option>
-										<option value="2">February</option>
-										<option value="3">March</option>
-										<option value="4">April</option>
-										<option value="5">May</option>
-										<option value="6">June</option>
-										<option value="7">July</option>
-										<option value="8">August</option>
-										<option value="9">September</option>
-										<option value="10">October</option>
-										<option value="11">November</option>
-										<option value="12">December</option>		
-									</select>
-									
+								<form method="post" action="generateYearlyModelStatistics.php">
 									<select name="year" style="display: inline-block; margin-left: 50px;">
 										<option value="2018" selected>2018</option>
 										<?php 
 											$currentYear = date('Y');
 											$startYear = 2018;
+											
+											echo $currentYear + $startYear;
 											
 											while($startYear != $currentYear)
 											{
@@ -42,11 +29,13 @@
 										<?php		
 											}
 										?>
-									</select
+									</select>
 									<br><br><br>
 							
-									<button type="submit" name="viewMonthlyReportBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4">Generate Report</button>
+									<button type="submit" name="viewYearlyModelStatisticsBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4">View Statistics</button>
 								</form>
+								<br>
+								<button type="submit" name="backBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4" onclick="document.location.href='viewModelStatistics.php';">Back</button>
 							</div>
 						</div>
 					</div>

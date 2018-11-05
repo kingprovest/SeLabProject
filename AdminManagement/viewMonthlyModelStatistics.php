@@ -10,9 +10,9 @@
 					<div class="col-md-20 login-left wow fadeInLeft" data-wow-delay="0.4s">
 						<div class='row'>
 							<div class='col-sm-20'> 
-								<h3><strong>View Monthly Sales Report</strong></h3>
+								<h3><strong>View Most Popular Car Model by Month</strong></h3>
 								<br>
-								<form method="post" action="generatemonthlyreport.php">
+								<form method="post" action="generateMonthlyModelStatistics.php">
 									<select name="month" style="display: inline-block;">
 										<option value="1" selected>January</option>
 										<option value="2">February</option>
@@ -34,6 +34,8 @@
 											$currentYear = date('Y');
 											$startYear = 2018;
 											
+											echo $currentYear + $startYear;
+											
 											while($startYear != $currentYear)
 											{
 												$startYear++;
@@ -42,11 +44,13 @@
 										<?php		
 											}
 										?>
-									</select
+									</select>
 									<br><br><br>
 							
-									<button type="submit" name="viewMonthlyReportBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4">Generate Report</button>
+									<button type="submit" name="viewMonthlyModelStatisticsBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4">View Statistics</button>
 								</form>
+								<br>
+								<button type="submit" name="backBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4" onclick="document.location.href='viewModelStatistics.php';">Back</button>
 							</div>
 						</div>
 					</div>
