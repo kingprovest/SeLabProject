@@ -16,6 +16,8 @@
 		font-size:20px;
 		height: 50px;
 	}
+	
+	
 </style>
 		  
 		  <!-- start banner Area -->
@@ -188,7 +190,7 @@
 				
 				var totalSum = 0;
 				var dayRate = <?php echo $row['PerDayRate'] ?>;
-
+				
 			  $('#startdatePicker').datepicker({
 				autoclose: true,
 				dateFormat: 'dd-mm-yy',
@@ -201,7 +203,7 @@
 				dateFormat: 'dd-mm-yy',
 				minDate: new Date()
 			  });
-
+				$('div.ui-datepicker').css({ fontSize: '20px' });
 			  $('#calculate').on('click', function() {
 
 				var fromDate = moment($('#startdatePicker').val(), 'DD-MM-YYYY');
@@ -224,93 +226,9 @@
 
 
 			});
-		
-			// $(function(){
-				
-			// $("#startdatePicker").datepicker({
-				
-				// dateFormat:'dd-mm-yy',
-				// todayHighlight:'TRUE',
-				// autoclose: true							
-											
-			// }).on('changeDate', function (ev) {
-				
-				// $("#enddatePicker").datepicker('setStartDate',$("startdatePicker").val());
-				
-			// });
-			
-			// $("#enddatePicker").datepicker({
-				
-				// dateFormat: "dd-mm-yy",
-				// todayHighlight:'TRUE',
-				// autoclose: true
-				
-			// }).on('changeDate', function (ev) {
-				
-				// var start = $("#startdatePicker").val();
-				// console.log(start);
-				// var startD = parseDMY(start);
-				// var end = $("enddatePicker").val();
-				// var endD = parseDMY(end);
-				
-				// const utc1 = Date.UTC(startD.getFullYear(), startD.getMonth(), startD.getDate());
-				// const utc2 = Date.UTC(endD.getFullYear(), endD.getMonth(), endD.getDate());
-					
-				// var diff = Math.floor((utc2 - utc1) / (24*3600*1000));
-				
-				// document.getElementById('rentingprice').value = "1";
-				
-				
-			// });
-				 // $("#enddatePicker").val(diff);
-			// });
 			
 			
-			// $(function(){
-				
-			// $("#startdatePicker").datepicker({
-				
-				// dateFormat:'dd-mm-yy',
-				// todayHighlight:'TRUE',
-				// autoclose: true	,
-				// onSelect: function(data){
-					// $("#enddatePicker").datepicker('setStartDate',$("startdatePicker").val());
-				// }
-											
-			// });
-			
-			// $("#enddatePicker").datepicker({
-				
-				// dateFormat: "dd-mm-yy",
-				// todayHighlight:'TRUE',
-				// autoclose: true,
-				// onSelect: function(data){
-				
-				
-				// var start = $("#startdatePicker").val();
-				// console.log(start);
-				// var startD = parseDMY(start);
-				// var end = $("enddatePicker").val();
-				// var endD = parseDMY(end);
-				
-				// const utc1 = Date.UTC(startD.getFullYear(), startD.getMonth(), startD.getDate());
-				// const utc2 = Date.UTC(endD.getFullYear(), endD.getMonth(), endD.getDate());
-					
-				// var diff = Math.floor((utc2 - utc1) / (24*3600*1000));
-				// console.log(diff);
-				// $("#rentingprice").val("1");
-				
-				// }
-				
-			// });
-			
-			// });
-			
-			 				 					
-			
-			
-	
-			
+			 				 									
 			function dateDiff(startDate, endDate){
 				const _MS_PER_DAY = 1000 * 60 * 60 * 24;
 				
