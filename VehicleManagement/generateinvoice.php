@@ -140,7 +140,7 @@
 					</div>
 				</div>		
 				<?php
-					$sql="SELECT StartDate, EndDate, PickUpPoint, DropOffPoint, Price FROM carbooking WHERE BookingID = '$bookingId'";
+					$sql="SELECT StartDate, EndDate, PickUpPoint, DropOffPoint, PickUpTime, DropOffTime, Price FROM carbooking WHERE BookingID = '$bookingId'";
 					$result = mysqli_query($con,$sql);
 					$row = mysqli_fetch_assoc($result);
 				?>				
@@ -159,7 +159,9 @@
 												<td class="text-center">End Date</td>
 												<td class="text-center">Duration (Days)</td>
 												<td class="text-center">Pickup Location</td>
+												<td class="text-center">Pickup Time</td>
 												<td class="text-center">Dropoff Location</td>
+												<td class="text-center">Dropoff Time</td>
 											</tr>
 										</thead>
 										<tbody>
@@ -173,9 +175,13 @@
 												?>
 												<td class="text-center"><?php echo $diff->format("%a"); ?></td>
 												<td class="text-center"><?php echo $row['PickUpPoint'] ?></td>
+												<td class="text-center"><?php echo $row['PickUpTime'] ?></td>
 												<td class="text-center"><?php echo $row['DropOffPoint'] ?></td>
+												<td class="text-center"><?php echo $row['DropOffTime'] ?></td>
 											</tr>                       
 											<tr>
+												<td class="no-line"></td>
+												<td class="no-line"></td>
 												<td class="no-line"></td>
 												<td class="no-line"></td>
 												<td class="no-line"></td>
