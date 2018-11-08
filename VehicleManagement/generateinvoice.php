@@ -191,11 +191,9 @@
 				</div>
 			</div>
 			<form id="form1" runat='server'>		
-<<<<<<< HEAD
+				
 					<input type="button" value="Print" onclick="javascript:printDiv('invoice')" style="padding: 10px 30px; margin: 20px 500px" />    
-=======
-					<input type="button" value="Print" onclick="javascript:printDiv('invoice')" />    
->>>>>>> 081766cddb775ca762882e9bf2a10787a3cf06b0
+
 			</form>
 		</div>
 		
