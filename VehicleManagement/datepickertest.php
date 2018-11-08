@@ -123,7 +123,7 @@
 				<label class="control-label " for="name">Drop Off Point</label>
 				<input class="form-control" id="name" name="dropoffpoint" type="text" autocomplete="off" required/>					
 				<label class="control-label " for="name">Price</label>
-				<input class="form-control" id="rentingprice" name="price" type="text" required readonly/>
+				<input class="form-control" id="rentingprice" name="price" type="text" autocomplete="off" required />
 				<input id="calculate" type="button" value="Calculate" style="width:220px"/>
 				<br>
 				<button type='submit' name='add' value='add'  class='btn btn-default btn-primary' onclick="return confirm('Are you sure to add?')"
@@ -181,7 +181,9 @@
   		
 			<script type="text/javascript">
 			
-			
+			$("#rentingprice").keypress(function(e){
+							e.preventDefault();
+						});			
 			$(function() {
 				
 				var totalSum = 0;
@@ -205,7 +207,7 @@
 				var fromDate = moment($('#startdatePicker').val(), 'DD-MM-YYYY');
 				var toDate = moment($('#enddatePicker').val(), 'DD-MM-YYYY'); 
 
-				if (fromDate.isValid() && toDate.isValid() && toDate.diff(fromDate)>0) {
+				if (fromDate.isValid() && toDate.isValid() && fromDate.isBefore(toDate)) {
 
 				  var duration = moment.duration(toDate.diff(fromDate));
 				  // $('#rentingprice').val( duration.days() + ' Day(s)');
