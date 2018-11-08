@@ -17,9 +17,6 @@
 		<title>Car Rental</title>
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-		<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-		<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 			<!--
 			CSS
 			============================================= -->
@@ -33,16 +30,19 @@
 			<link rel="stylesheet" href="css/owl.carousel.css">
 			<link rel="stylesheet" href="css/main.css">
 			<link href="css/styleadminbootstrap.css" rel="stylesheet" type="text/css" media="all" />
-		</head>
-		<body>
-		<style>
-				.row1
+			<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+			<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+			<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+			<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+			<link rel="stylesheet" type="text/css" href="css/table_util.css">
+			<link rel="stylesheet" type="text/css" href="css/table_main.css">
+			
+			<style>
+				#aclevel
 				{
-				display: flex;
-				flex-direction: row;
-				align-items: flex-start
+					width:130px;
 				}
-	
+				
 				#logo
 				{
 					padding: 0 0 0 80px;
@@ -67,36 +67,24 @@
 					font-size: 150%;
 				}
 				
-				.control-label
+				#runner
 				{
-					font-weight: bold;
-					padding: 30px;
-					font-size: 22px;
+					width:130px;
 				}
-				
-				.form-control
-				{
-					margin: -20px 0 30px 30px;
-					padding: 30px;
-					font-size: 24px;
-				}
-				
-				#calculate
-				{
-					margin:30px;
-					padding: 10px;
-				}
-		</style>
+			</style>
+		</head>
+		<body>
 
-		  <header id="header" id="home">
+		  <header id="header" id="home" style="background-color: rgba(4,9,30,0.85)">
 
 			      <div id="logo">
-			        <a href="#index"><img src="img/businesslogo.png" alt="" title="" style="width:100px;height:100px"/></a>
+			         <a href="#index"><img src="img/businesslogo.png" alt="" title="" style="width:100px;height:100px"/></a>
 			      </div>
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
-			          <li class="menu-active"><a href="">Welcome, 
-					  	<?php
+			          
+			         <li class="menu-active"><a href="">Welcome, 
+					  <?php
 	
 						session_start();
 						 if(isset($_SESSION['user']))
@@ -105,22 +93,29 @@
 						 }
 						 
 						 else{
-							 echo"You are not logged in";
+							 echo"Please log in";
 							 header('Location: ../Login/login.php');
 						 }
 						?></a></li>
-						
-						
-						<li><a href="selectbrand.php">Car List</a></li>
-						<li><a href="custbookingDetails.php">Manage My Bookings</a></li>
-						<li class="menu-has-children"><a href="">Account</a>
-			            <ul>
-			              <li><a href="../Login/forgotpassword.php">Change Password</a></li>
-			              <li><a href="../Login/logout_process.php">Logout</a></li>
-			            </ul>
-			          </li>					
+					 <li class="menu-active"><a href="../AdminManagement/managerpage.php">Manager Homepage</a></li>		          
+			         <li><a href="../Login/logout_process.php">Logout</a></li>
 			        </ul>
 			      </nav><!-- #nav-menu-container -->		    		
-		    	
-		    
+
 		  </header><!-- #header -->
+		  
+		  	<!-- start banner Area -->
+			<section class="banner-area relative" id="home">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row fullscreen d-flex align-items-center justify-content-start">
+						<div class="banner-content col-lg-20 col-md-12">
+							<h1 class="text-white text-uppercase" style="font-family: PlayfairDisplay-Regular">
+								System Management			
+							</h1>
+							
+						</div>											
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->

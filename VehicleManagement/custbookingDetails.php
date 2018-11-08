@@ -4,15 +4,6 @@
 
 ?>	
 			          
-			          <li><a href="selectbrand.php">Car List</a></li>
-			          <li><a href="custbookingDetails.php">Manage My Bookings</a></li>
-						<li><a href="../Login/logout_process.php">Logout</a></li>						
-			        </ul>
-			      </nav><!-- #nav-menu-container -->		    		
-
-		  </header><!-- #header -->
-
-
 			<!-- start banner Area -->
 			<section class="banner-area relative" id="home">	
 				<div class="overlay overlay-bg"></div>
@@ -45,7 +36,7 @@
 				
                 <br>
 				
-				<table class="table table-striped">
+				<table class="table table-striped" style="font-size: 16px">
 				  <thead>
 					<tr>
 					  <th scope="col">#</th>
@@ -103,7 +94,7 @@
 							<td>
 								<form method="post" action="generateinvoice.php"> 
 									<input type="hidden" name="bookingNo" value="<?php echo $row['BookingID']; ?>">
-									<button type="submit" name="viewInvoiceBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4">View</button>
+									<button type="submit" name="viewInvoiceBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; padding: 10px 20px; font-size: 14px">View</button>
 								</form>
 							</td>
 						</tr>

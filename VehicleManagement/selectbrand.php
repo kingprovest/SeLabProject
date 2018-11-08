@@ -39,18 +39,47 @@
 				flex-direction: row;
 				align-items: flex-start
 				}
+		#logo
+				{
+					padding: 0 0 0 80px;
+				}
 		
+		#header .nav-menu
+				{
+					float: right;
+					margin-top: -80px;
+				}
+				
+		#header .nav-menu a
+				{
+					font-size: 20px;
+					padding-left: 20px;
+					text-decoration: none;
+				}
+				
+		#header .nav-menu a:hover
+				{
+					color: blue;
+					font-size: 150%;
+				}
+		
+		.control-label
+				{
+					font-weight: bold;
+					padding: 30px;
+					font-size: 20px;
+				}
+				
 		</style>
 
 		  <header id="header" id="home">
-		    <div class="container">
-		    	<div class="row align-items-center justify-content-between d-flex">
+		   
 			      <div id="logo">
-			        <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+			        <a href=""><img src="img/businesslogo.png" alt="" title="" style="width:100px;height:100px"/></a>
 			      </div>
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
-			          <li class="menu-active"><a href="">Welcome Back, 
+			          <li class="menu-active"><a href="">Welcome, 
 					  <?php
 	
 						session_start();
@@ -60,7 +89,7 @@
 						 }
 						 
 						 else{
-							 echo"You are not logged in";
+							 echo"Please log in";
 						 }
 						 
 						 $conn=mysqli_connect('127.0.0.1','root','', 'selabdb');
@@ -92,7 +121,6 @@
 			          
 			          <li><a href="bookcar.php">Car List</a></li>
 			          <li><a href="custbookingDetails.php">Manage My Bookings</a></li>
-			          <li><a href="#contact">Contact</a></li>
 					   <li class="menu-has-children"><a href="">Account</a>
 			            <ul>
 			              <li><a href="../Login/forgotpassword.php">Change Password</a></li>
@@ -102,8 +130,7 @@
 												
 			        </ul>
 			      </nav><!-- #nav-menu-container -->		    		
-		    	</div>
-		    </div>
+ 
 		  </header><!-- #header -->
 
 
@@ -130,14 +157,11 @@
 			<section class="quote-area pt-100">
 				<div class="container">
 				<div class="account_grid">
-			   <div class="col-md-6 login-left wow fadeInLeft" data-wow-delay="0.4s">
+			   <div class="col-md-15 login-left wow fadeInLeft" data-wow-delay="0.4s">
 			    <form class='form-horizontal' method="post" action="">
 			   <h3><strong>Choose Brand&nbsp</strong></h3>
-			  	 <div class='row1'>
-               
-									
-                    
-					
+			  	 <div class='row1' style="width:400px">
+		
 					<select class='form-control' name="brand">
 						<?php
 						while($row1 = mysqli_fetch_array($result1,MYSQLI_ASSOC))
@@ -159,39 +183,45 @@
             </div>
 			 </form>
             <br>
-			
-			
+			<br>
 			<form class='form-horizontal lg-2' action="datepickertest.php" method="post" >
                 <br>
+				
+				<table class="table table-striped" style="font-size: 18px">
+				  <thead>
+					<tr>
+					  <th scope="col">Car Image</th>
+					  <th scope="col">Brand</th>
+					  <th scope="col">Model</th>
+					  <th scope="col">Plate Number</th>
+					  <th scope="col">Per Hour Rate</th>
+					  <th scope="col">Per Day Rate</th>
+					  <th scope="col">No Of Seat</th>
+					  <th scope="col">Book Car</th>
+					</tr>
+				  </thead>
+				  <tbody>
+				  
             <?php
 			
 										
 					while($row = mysqli_fetch_array($result2,MYSQLI_ASSOC))
 					{
-						
-                            
-						echo "<div class=\"row\">";			
-						echo " <div class=\"col-sm-4\">";
-						echo "<img class=\"img-responsive img-thumbnail center-block\" style=\"background-color: white\" src=\"img/".$row['ImagePath']."\" width=\"300\" height=\"300\">";
-						echo "</div>";
-						echo " <div class=\"col-sm-4\">";
-						echo "<h3 class=\"text-center\">".$row['Brand']."</h3>";
-						echo "<p class=\"text-center\"><strong>Model:</strong>".$row['Model']."</p>";
-						echo "<p class=\"text-center\"><strong>Plate Number:</strong>".$row['PlateNumber']."</p>";
-						echo "<p class=\"text-center\"><strong>PerHourRate:</strong>".$row['PerHourRate']."</p>";
-						echo "<p class=\"text-center\"><strong>PerDayRate:</strong>".$row['PerDayRate']."</p>";
-						echo "<p class=\"text-center\"><strong>NoOfSeat:</strong>".$row['NoOfSeat']."</p>";
-						echo "</div>";
-						echo " <div class=\"col-sm-4\">";				
-						echo "<input value=\"Book\" name=\"".$row['CarID']."\" type=\"submit\">";			
-						echo "</div>";																									
-						echo "</div>";
-						
+						echo "<tr>";
+						echo "<td><img src=\"img/".$row['ImagePath']."\" width=\"300\" height=\"200\"</td>";
+						echo "<td>".$row['Brand']."</td>";
+						echo "<td>".$row['Model']."</td>";
+						echo "<td>".$row['PlateNumber']."</td>";
+						echo "<td>".$row['PerHourRate']."</td>";
+						echo "<td>".$row['PerDayRate']."</td>";
+						echo "<td>".$row['NoOfSeat']."</td>";				
+						echo "<td><input value=\"Book\" name=\"".$row['CarID']."\" type=\"submit\" style=\"padding: 10px 50px\" </td>";			
+						echo "</tr>";
 					}
 				
 			?>
-            
-
+            </tbody>
+			</table>
 			</div>
 				
 			</section>
@@ -199,40 +229,15 @@
 			</section>
 			<!-- End quote Area -->
 			
-			<!-- start footer Area -->	
-			<footer class="footer-area section-gap">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-5 col-md-6 col-sm-6">
-							<div class="single-footer-widget">
-								<h6>About Us</h6>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.
-								</p>
-								<p class="footer-text">
-									<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> Re-distributed by <a target="_blank" href="www.Themewagon.com">Themewagon</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								</p>								
-							</div>
-						</div>
-											
-						<div class="col-lg-2 col-md-6 col-sm-6 social-widget">
-							<div class="single-footer-widget">
-								<h6>Follow Us</h6>
-								<p>Let us be social</p>
-								<div class="footer-social d-flex align-items-center">
-									<a href="#"><i class="fa fa-facebook"></i></a>
-									<a href="#"><i class="fa fa-twitter"></i></a>
-									<a href="#"><i class="fa fa-dribbble"></i></a>
-									<a href="#"><i class="fa fa-behance"></i></a>
-								</div>
-							</div>
-						</div>							
-					</div>
-				</div>
-			</footer>	
+			
+			<!-- start footer Area -->				
+				<?php
+
+				include ('footer.php');
+
+				?>
 			<!-- End footer Area -->	
+			
 
 			<script src="js/vendor/jquery-2.2.4.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

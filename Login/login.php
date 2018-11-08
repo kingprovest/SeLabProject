@@ -63,7 +63,7 @@
 
 					<div class="w-full text-center p-t-27 p-b-169" style="margin:50px">
 
-						<a href="" class="txt2" style="font-size: 22px; font-weight:bold">
+						<a href="forgotpassword.php" class="txt2" style="font-size: 22px; font-weight:bold">
 							Forgot Password?
 						</a>
 					</div>
@@ -76,7 +76,7 @@
 					</div>
 				</form>
 
-				<div class="login100-more" style="background-image: url('img/businesslogo.png')"></div>
+				<div class="login100-more" style="background-image: url('img/v2.jpg')"></div>
 			</div>
 		</div>
 	

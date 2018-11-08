@@ -7,15 +7,6 @@
 		$_SESSION['invoiceNo'] = $_POST['bookingNo'];
 	}
 ?>	
-  
-			          <li><a href="selectbrand.php">Car List</a></li>
-			          <li><a href="custbookingDetails.php">Manage My Bookings</a></li>
-						<li><a href="../Login/logout_process.php">Logout</a></li>						
-			        </ul>
-			      </nav><!-- #nav-menu-container -->		    		
-
-		  </header><!-- #header -->
-
 
 			<!-- start banner Area -->
 			<section class="banner-area relative" id="home">	
@@ -36,23 +27,22 @@
 			<!-- Start quote Area -->
 			<section class="quote-area pt-100">
 				<div class="container">
-					 <div class="account_grid">
-				<div class="col-md-8 login-left wow fadeInLeft" data-wow-delay="0.4s">
-			  	 <div class='row'></div>
 				<br>
-				
+				<div id="invoice">
+				<br><br>
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="invoice-title">
-							<h1 class="text-center"><img src="img/businesslogo.png" height="200px" width="200px" border="1px">Invoice</h1>
+							<h1 class="text-center"><img src="img/businesslogo.png" height="150px" width="150px"></h1>
+							<h1 class="text-center" style="padding:10px;">Invoice</h1>
 							<hr>
 						</div>
 						<div class="row">
 							<div class="col-xs-6">
 								Baymax Car Rental
-								<br>Address Line 1
-								<br>Address Line 2
-								<br>baymax@gmail.com
+								<br>No.163, Jalan Samarax,
+								<br>94300 Kota Samarahan,
+								<br>Sarawak, Malaysia.
 								<br>http://baymaxcarrental.com
 							</div>
 							<div class="col-xs-6 text-right">
@@ -89,7 +79,7 @@
 					$result = mysqli_query($con,$sql);
 					$row = mysqli_fetch_assoc($result);
 				?>
-				<div class="row" style="width:50%; float:left;">
+				<div class="row" style="width:52%; float:left;">
 					<div class="col-md-12">
 						<div class="panel panel-default">
 							<div class="panel-heading">
@@ -122,7 +112,7 @@
 					$result = mysqli_query($con,$sql);
 					$row = mysqli_fetch_assoc($result);
 				?>
-				<div class="row" style="width:50%; float:right;">
+				<div class="row" style="width:52%; float:right;">
 					<div class="col-md-12">
 						<div class="panel panel-default">
 							<div class="panel-heading">
@@ -158,7 +148,7 @@
 					<div class="col-md-12">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<h3 class="panel-title"><strong>Car Rental summary</strong></h3>
+								<h3 class="panel-title"><strong>Car Rental Summary</strong></h3>
 							</div>
 							<div class="panel-body">
 								<div class="table-responsive">
@@ -200,37 +190,52 @@
 					</div>
 				</div>
 			</div>
-			</section>
-			<section class="quote-area pt-100">
-			</section>
-			<!-- End quote Area -->
+			<form id="form1" runat='server'>		
+					<input type="button" value="Print" onclick="javascript:printDiv('invoice')" style="padding: 10px 30px; margin: 20px 500px" />    
+			</form>
+		</div>
+		
+	</section>
+	<section class="quote-area pt-100"></section>
+	<!-- End quote Area -->
 			
+	<!-- start footer Area -->				
+	<?php
+		include ('footer.php');
+	?>
+	<!-- End footer Area -->					
 			
-			<!-- start footer Area -->				
-				<?php
+	<!--Javascript function to save data inside 'invoice' div -->
+	<script language="javascript" type="text/javascript">
+	function printDiv(divID) 
+	{
+		var divElements = document.getElementById(divID).innerHTML;
+		var oldPage = document.body.innerHTML;
+ 
+		document.body.innerHTML = "<html><head><title></title></head><body>" + divElements + "</body></html>";
+ 
+		window.print();
+ 
+		document.body.innerHTML = oldPage;
+	}
+	</script>
 
-				include ('footer.php');
-
-				?>
-			<!-- End footer Area -->					
-				
-
-			<script src="js/vendor/jquery-2.2.4.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-			<script src="js/vendor/bootstrap.min.js"></script>			
-			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-  			<script src="js/easing.min.js"></script>			
-			<script src="js/hoverIntent.js"></script>
-			<script src="js/superfish.min.js"></script>	
-			<script src="js/jquery.ajaxchimp.min.js"></script>
-			<script src="js/jquery.magnific-popup.min.js"></script>	
-			<script src="js/owl.carousel.min.js"></script>			
-			<script src="js/jquery.sticky.js"></script>
-			<script src="js/jquery.nice-select.min.js"></script>	
-			<script src="js/hexagons.min.js"></script>					
-			<script src="js/waypoints.min.js"></script>			
-			<script src="js/jquery.counterup.min.js"></script>						
-			<script src="js/mail-script.js"></script>	
-			<script src="js/main.js"></script>	
-		</body>
-	</html>
+	<script src="js/vendor/jquery-2.2.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="js/vendor/bootstrap.min.js"></script>			
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+  	<script src="js/easing.min.js"></script>			
+	<script src="js/hoverIntent.js"></script>
+	<script src="js/superfish.min.js"></script>	
+	<script src="js/jquery.ajaxchimp.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>	
+	<script src="js/owl.carousel.min.js"></script>			
+	<script src="js/jquery.sticky.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>	
+	<script src="js/hexagons.min.js"></script>					
+	<script src="js/waypoints.min.js"></script>			
+	<script src="js/jquery.counterup.min.js"></script>						
+	<script src="js/mail-script.js"></script>	
+	<script src="js/main.js"></script>	
+</body>
+</html>

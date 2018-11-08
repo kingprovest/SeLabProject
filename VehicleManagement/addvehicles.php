@@ -1,30 +1,8 @@
 <?php
-	include ('header.php');
-?>	
 
-						<li class="menu-active"><a href="../AdminManagement/adminpage.php">System Management</a></li>		          
-			          <li><a href="../Login/logout_process.php">Logout</a></li>
-			        </ul>
-			      </nav><!-- #nav-menu-container -->		    		
+	include ('admin_header.php');
 
-		  </header><!-- #header -->
-
-
-			<!-- start banner Area -->
-			<section class="banner-area relative" id="home">	
-				<div class="overlay overlay-bg"></div>
-				<div class="container">
-					<div class="row fullscreen d-flex align-items-center justify-content-start">
-						<div class="banner-content col-lg-9 col-md-12">
-							<h1 class="text-white text-uppercase">
-								System Management			
-							</h1>
-							
-						</div>											
-					</div>
-				</div>
-			</section>
-			<!-- End banner Area -->	
+?>
 
 			 <!-- Start quote Area -->
 			<section class="quote-area pt-100">
@@ -44,40 +22,40 @@
                 <br>
            
             <div class="form-group"> <!-- Name field -->
-				<label class="control-label " for="name">Brand</label>
+				<label class="control-label " for="name" style="font-weight:bold; font-size:20px">Brand</label>
 				<input class="form-control" id="name" name="brand" type="text" required/>
 			</div>
 			
 			<div class="form-group"> <!-- Name field -->
-				<label class="control-label" for="name">Model</label>
+				<label class="control-label" for="name" style="font-weight:bold; font-size:20px">Model</label>
 				<input class="form-control" id="name" name="model" type="text" required/>
 			</div>
 			<div class="form-group"> <!-- Name field -->
-				<label class="control-label" for="name">Plate Number</label>
+				<label class="control-label" for="name" style="font-weight:bold; font-size:20px">Plate Number</label>
 				<input class="form-control" id="name" name="platenumber" type="text" required/>
 			</div>
 			<div class="form-group"> <!-- Name field -->
-				<label class="control-label" for="name">Per hour rate</label>
+				<label class="control-label" for="name" style="font-weight:bold; font-size:20px">Per hour rate</label>
 				<input class="form-control" id="name" name="perhourrate" type="text" required/>
 			</div>
 			<div class="form-group"> <!-- Name field -->
-				<label class="control-label" for="name">Per day rate</label>
+				<label class="control-label" for="name" style="font-weight:bold; font-size:20px">Per day rate</label>
 				<input class="form-control" id="name" name="perdayrate" type="text" required/>
 			</div>
 			<div class="form-group"> <!-- Name field -->
-				<label class="control-label" for="name">No of Seat</label>
+				<label class="control-label" for="name" style="font-weight:bold; font-size:20px">No of Seat</label>
 				<input class="form-control" id="name" name="noofseat" type="text" required/>
 			</div>	
 			<div class="form-group"> <!-- Name field -->
-				<label class="control-label" for="name">Image:</label>
-				<input type="file" name="imagepath" id="image" required="">			
+				<label class="control-label" for="name" style="font-weight:bold; font-size:20px">Image:</label>
+				<input type="file" name="imagepath" id="image" required="" style="font-size: 20px">			
 			</div>
 			
             <br>
             <div class='row'>
             <div class='col-sm-offset-7'>
                 <button type='submit' name='add' value='add' onclick="return confirm('Confirm Add?')" class='btn btn-default btn-primary'
-                        style=" background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; margin-left:50px; padding: 10px 30px"
+                        style=" background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; font-size:22px; margin-left:18px; padding: 10px 50px"
                 >Add</button>
             </div>
             </div>

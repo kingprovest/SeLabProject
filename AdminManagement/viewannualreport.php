@@ -1,6 +1,6 @@
 <?php
 
-	include ('admin_header.php');
+	include ('manager_header.php');
 
 ?>
 		<!-- Start quote Area -->
@@ -11,9 +11,11 @@
 						<div class='row'>
 							<div class='col-sm-20'> 
 								<h3><strong>View Annual Sales Report</strong></h3>
+								<hr>
 								<br>
+								<p> Choose the year to view:</p>
 								<form method="post" action="generateannualreport.php">
-									<select name="year" style="display: inline-block; margin-left: 50px;">
+									<select name="year" style="display: inline-block; margin: -20px 0 0 200px; padding: 20px">
 										<option value="2018" selected>2018</option>
 										<?php 
 											$currentYear = date('Y');
@@ -32,8 +34,9 @@
 									</select
 									<br><br><br>
 							
-									<button type="submit" name="viewAnnualReportBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4">Generate Report</button>
+									<button type="submit" name="viewAnnualReportBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; margin: 20px 0 0 200px; padding: 20px">Generate Report</button>
 								</form>
+								<p class="text-center"><button type="submit" name="backBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; padding: 20px; width: 150px; margin: -90px 0 0 400px" onclick="document.location.href='viewsalesreport.php';">Back</button></p>
 							</div>
 						</div>
 					</div>

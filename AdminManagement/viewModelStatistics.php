@@ -1,6 +1,6 @@
 <?php
 
-	include ('admin_header.php');
+	include ('manager_header.php');
 
 ?>
 		<!-- Start quote Area -->
@@ -8,7 +8,7 @@
 			<div class="container">
 				<div class="account_grid">
 					<div class="col-md-20 login-left wow fadeInLeft" data-wow-delay="0.4s">
-						<h2>Model Statistics</h2>
+						<h3><strong>Model Statistics</strong></h3>
 						<br>
 						<div class='row' style="padding: 15px; margin-top: -30px">
 							<a class="acount-btn" href="viewMonthlyModelStatistics.php">View by Month </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		

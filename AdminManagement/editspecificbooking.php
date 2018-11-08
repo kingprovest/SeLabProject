@@ -47,45 +47,45 @@
 						echo "<form action=\"editspecificbooking_process.php\" method=\"post\">";				
 						echo "<div class=\"form-group row\">";
 						echo "<div class=\"col-5\">";
-						echo "<label for=\"exampleFormControlInput1\">User</label>";
+						echo "<label for=\"exampleFormControlInput1\"><strong>User</strong></label>";
 						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" value=".$row['Username']." name=\"brand\" readonly>";
 						echo "</div>";
 						echo "<div class=\"col-5\">";
-						echo "<label for=\"exampleFormControlInput1\">Brand</label>";
+						echo "<label for=\"exampleFormControlInput1\"><strong>Brand</strong></label>";
 						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" value=".$row['Brand']." name=\"model\" readonly>";
 						echo "</div>";
 						echo "</div>";
 
 						echo "<div class=\"form-group row\">";
 						echo "<div class=\"col-5\">";
-						echo "<label for=\"exampleFormControlInput1\">Model</label>";
+						echo "<label for=\"exampleFormControlInput1\"><strong>Model</strong></label>";
 						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" value=".$row['Model']." name=\"platenumber\" readonly>";
 						echo "</div>";
 						echo "<div class=\"col-5\">";
-						echo "<label for=\"exampleFormControlInput1\">PlateNumber</label>";
+						echo "<label for=\"exampleFormControlInput1\"><strong>PlateNumber</strong></label>";
 						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" value=".$row['PlateNumber']." name=\"perhourrate\" readonly>";
 						echo "</div>";
 						echo "</div>";
 
 						echo "<div class=\"form-group row\">";
 						echo "<div class=\"col-5\">";
-						echo "<label for=\"exampleFormControlInput1\">StartDate</label>";
+						echo "<label for=\"exampleFormControlInput1\"><strong>StartDate</strong></label>";
 						?>
 						<input type="model" class="form-control" id="startdatePicker" value="<?php echo $row['StartDate']?>" name="startdate">
 						</div>
 						<div class="col-5">
-						<label for="exampleFormControlInput1">EndDate</label>
+						<label for="exampleFormControlInput1"><strong>EndDate</strong></label>
 						<input type="model" class="form-control" id="enddatePicker" value="<?php echo $row['EndDate']?>" name="enddate">
 						</div>
 						</div>
 						<?php
 						echo "<div class=\"form-group row\">";
 						echo "<div class=\"col-5\">";
-						echo "<label for=\"exampleFormControlInput1\">PickUpPoint</label>";
+						echo "<label for=\"exampleFormControlInput1\"><strong>PickUpPoint</strong></label>";
 						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" value=".$row['PickUpPoint']." name=\"pickuppoint\">" ;
 						echo "</div>";
 						echo "<div class=\"col-5\">";
-						echo "<label for=\"exampleFormControlInput1\">Payment</label>";
+						echo "<label for=\"exampleFormControlInput1\"><strong>Payment</strong></label>";
 						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" value=".$row['Price']." name=\"noofseat\" readonly>";
 						echo "</div>";
 						echo "</div>";

@@ -1,6 +1,6 @@
 <?php
 
-	include ('admin_header.php');
+	include ('manager_header.php');
 
 ?>
 		<!-- Start quote Area -->
@@ -11,9 +11,10 @@
 						<div class='row'>
 							<div class='col-sm-20'> 
 								<h3><strong>View Sales Performance</strong></h3>
-								<br>
+								<hr><br>
+								<p> Choose the year to view:</p>
 								<form method="post" action="generatesalesperformance.php">
-									<select name="year" style="display: inline-block; margin-left: 50px;">
+									<select name="year" style="display: inline-block; margin: -20px 0 0 200px; padding: 20px">
 										<option value="2018" selected>2018</option>
 										<?php 
 											$currentYear = date('Y');
@@ -32,7 +33,7 @@
 									</select>
 									<br><br><br>
 							
-									<button type="submit" name="viewSalesPerformanceBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4">View Sales Performance</button>
+									<button type="submit" name="viewSalesPerformanceBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; margin: 20px 0 0 200px; padding: 20px">View Sales Performance</button>
 								</form>
 								<br>
 							</div>

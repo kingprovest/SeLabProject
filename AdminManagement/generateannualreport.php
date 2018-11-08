@@ -1,6 +1,6 @@
 <?php
 
-	include ('admin_header.php');
+	include ('manager_header.php');
 	
 	if(isset($_POST['viewAnnualReportBtn']))
 	{
@@ -123,7 +123,7 @@
 			</div>
 		</section>
 		
-		<p class="text-center"><button type="submit" name="backBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4" onclick="document.location.href='viewannualreport.php';">Back</button></p>
+		<p class="text-center"><button type="submit" name="backBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; padding: 20px; width: 200px" onclick="document.location.href='viewannualreport.php';">Back</button></p>
 
 		<section class="quote-area pt-100">
 		</section>

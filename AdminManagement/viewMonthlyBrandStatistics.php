@@ -1,6 +1,6 @@
 <?php
 
-	include ('admin_header.php');
+	include ('manager_header.php');
 
 ?>
 		<!-- Start quote Area -->
@@ -11,9 +11,11 @@
 						<div class='row'>
 							<div class='col-sm-20'> 
 								<h3><strong>View Most Popular Car Brand by Month</strong></h3>
+								<hr>
 								<br>
+								<p> Choose the month and year to view:</p>
 								<form method="post" action="generateMonthlyBrandStatistics.php">
-									<select name="month" style="display: inline-block;">
+									<select name="month" style="display: inline-block; margin: -20px 0 0 200px; padding: 20px">
 										<option value="1" selected>January</option>
 										<option value="2">February</option>
 										<option value="3">March</option>
@@ -28,7 +30,7 @@
 										<option value="12">December</option>		
 									</select>
 									
-									<select name="year" style="display: inline-block; margin-left: 50px;">
+									<select name="year" style="display: inline-block; margin: -20px 0 0 20px; padding: 20px">
 										<option value="2018" selected>2018</option>
 										<?php 
 											$currentYear = date('Y');
@@ -47,10 +49,10 @@
 									</select>
 									<br><br><br>
 							
-									<button type="submit" name="viewMonthlyBrandStatisticsBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4">View Statistics</button>
+									<button type="submit" name="viewMonthlyBrandStatisticsBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; margin: -10px 0 0 200px; padding: 20px; width: 270px">View Statistics</button>
 								</form>
 								<br>
-								<button type="submit" name="backBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4" onclick="document.location.href='viewBrandStatistics.php';">Back</button>
+								<button type="submit" name="backBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; margin: 20px 0 0 700px; padding: 20px; width: 200px" onclick="document.location.href='viewBrandStatistics.php';">Back</button>
 							</div>
 						</div>
 					</div>
