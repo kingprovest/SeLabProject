@@ -28,6 +28,7 @@
 				 <a class="acount-btn" href="viewbooking.php">View Booking</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				
 				 <a class="acount-btn" href="editbooking.php">Edit Booking</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				 <a class="acount-btn" href="bookingassignment.php">Runner Assignment</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <a class="acount-btn" href="verifybooking.php">Verify Booking</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				 <a class="acount-btn" href="deletebooking.php">Delete Booking</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				 								 
 				 </div>
 				 <br>	

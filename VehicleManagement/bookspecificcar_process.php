@@ -25,10 +25,13 @@
 	$UserId = $_SESSION['userID']; 
 	$CarId = $_SESSION['carID'];
 	$ReserveDate = date("d-m-Y");
+	$PickupTime = $_POST['pickuptime'];
+	$DropOffTIme = $_POST['dropofftime'];
 	$Runner = "None";
 	
 	
-	$sql ="INSERT INTO carbooking(ReserveDate,StartDate,EndDate,PickUpPoint,DropOffPoint,Id,CarID,Price,Runner) VALUES ('$ReserveDate','$StartDate','$EndDate','$PickUpPoint','$DropOffPoint','$UserId','$CarId','$Price','$Runner')";
+	$sql ="INSERT INTO carbooking(ReserveDate,StartDate,EndDate,PickUpPoint,DropOffPoint,Id,CarID,Price,Runner,PickUpTime,DropOffTime) 
+	VALUES ('$ReserveDate','$StartDate','$EndDate','$PickUpPoint','$DropOffPoint','$UserId','$CarId','$Price','$Runner','$PickupTime','$DropOffTIme')";
 	
 	if(!mysqli_query($con,$sql))
 	{

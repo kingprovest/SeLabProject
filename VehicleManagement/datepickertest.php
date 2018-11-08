@@ -120,9 +120,13 @@
 				<input class="form-control" id="startdatePicker" name="startdate" autocomplete="off" type="text" required/>
 				<label class="control-label " for="name">End Date</label>
 				<input class="form-control" id="enddatePicker" name="enddate" autocomplete="off" type="text" required/>
-				<label class="control-label " for="name">Pick Up Point</label>
+				<label class="control-label " for="name">PickUp Time</label>
+				<input class="form-control" id="pickuptimepicker" name="pickuptime" autocomplete="off" type="text" required/>
+				<label class="control-label " for="name">DropOff Time</label>
+				<input class="form-control" id="dropofftimepicker" name="dropofftime" autocomplete="off" type="text" required/>
+				<label class="control-label " for="name">PickUp Point</label>
 				<input class="form-control" id="name" name="pickuppoint" type="text" autocomplete="off" required/>
-				<label class="control-label " for="name">Drop Off Point</label>
+				<label class="control-label " for="name">DropOff Point</label>
 				<input class="form-control" id="name" name="dropoffpoint" type="text" autocomplete="off" required/>					
 				<label class="control-label " for="name">Price</label>
 				<input class="form-control" id="rentingprice" name="price" type="text" autocomplete="off" required />
@@ -157,13 +161,18 @@
 				
 			<link href="Bootstrap.Datepicker.1.7.1/content/Content/bootstrap.min.css" rel="stylesheet" />
 			<link href="Bootstrap.Datepicker.1.7.1/content/Content/jquery-ui.css" rel="stylesheet" />
+			<link href="Bootstrap.Datepicker.1.7.1/content/Scripts/jquery.timepicker.css" rel="stylesheet" />
 			<link href="Bootstrap.Datepicker.1.7.1/content/Content/bootstrap-datepicker3.css" rel="stylesheet" />
+			
+			
 			<script src="js/vendor/jquery-2.2.4.min.js"></script>	
 			<script src="Bootstrap.Datepicker.1.7.1/content/Scripts/jquery.min.js"></script>	
-			<script src="Bootstrap.Datepicker.1.7.1/content/Scripts/bootstrap.min.js"></script>
-			<script src="Bootstrap.Datepicker.1.7.1/content/Scripts/bootstrap-datepicker.js"></script>					
+			<script src="Bootstrap.Datepicker.1.7.1/content/Scripts/bootstrap.min.js"></script>		
+			<script src="Bootstrap.Datepicker.1.7.1/content/Scripts/jquery.timepicker.js"></script>			
+			<script src="Bootstrap.Datepicker.1.7.1/content/Scripts/bootstrap-datepicker.js"></script>						
 			<script src="Bootstrap.Datepicker.1.7.1/content/Scripts/jquery-ui.js"></script>	
 			<script src="Bootstrap.Datepicker.1.7.1/content/Scripts/moment.min.js"></script>	
+
 			
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
@@ -203,21 +212,56 @@
 				dateFormat: 'dd-mm-yy',
 				minDate: new Date()
 			  });
+			  
+			
 				$('div.ui-datepicker').css({ fontSize: '20px' });
+				$('#pickuptimepicker').timepicker();
+				$('#dropofftimepicker').timepicker();
+				
+				
+				
 			  $('#calculate').on('click', function() {
 
 				var fromDate = moment($('#startdatePicker').val(), 'DD-MM-YYYY');
 				var toDate = moment($('#enddatePicker').val(), 'DD-MM-YYYY'); 
-
+				var beginningTime = moment($('#pickuptimepicker').val(), 'h:mma');
+				var endTime = moment($('#dropofftimepicker').val(), 'h:mma');
+				var dayDifference = toDate.diff(fromDate,'days');
+				var hourdifference = endTime.diff(beginningTime,'hours');
+				
+				
 				if (fromDate.isValid() && toDate.isValid() && fromDate.isBefore(toDate)) {
 
-				  var duration = moment.duration(toDate.diff(fromDate));
-				  // $('#rentingprice').val( duration.days() + ' Day(s)');
-				  var dayDifference = toDate.diff(fromDate,'days');
-				  totalSum = dayDifference*dayRate;
-				  $('#rentingprice').val(totalSum);
+				 
+				 if(hourdifference>=0)
+				 {
+					
+					   totalSum = (dayDifference*dayRate)+dayRate;
+					   $('#rentingprice').val(totalSum);
+				 }
+				 else
+				 {
+					  
+					  totalSum = dayDifference*dayRate;
+					  $('#rentingprice').val(totalSum);
+				 }
+				
 
-				} else {
+				}
+				else if(dayDifference==0)
+				{
+					if(hourdifference>0)
+					{
+						totalSum = dayRate;
+					$('#rentingprice').val(totalSum);
+					}
+					else
+					{
+						alert('Invalid date input. Please try again!!')    
+					}
+					
+				}
+				else {
 					alert('Invalid date input. Please try again!!')    
 
 				}
