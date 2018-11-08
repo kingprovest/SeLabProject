@@ -61,7 +61,7 @@
 		  <header id="header" id="home">
 
 			      <div id="logo">
-			        <a href="#index"><img src="img/businesslogo.png" alt="" title="" style="width:140px;height:140px"/></a>
+			        <a href="#index"><img src="img/businesslogo.png" alt="" title="" style="width:100px;height:100px"/></a>
 			      </div>
 				  
 			      <nav id="nav-menu-container">
@@ -325,6 +325,3 @@
 			<script src="js/main.js"></script>	
 		</body>
 	</html>
-
-
-

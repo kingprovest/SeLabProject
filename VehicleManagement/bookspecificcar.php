@@ -3,14 +3,19 @@
 	include ('header.php');
 
 ?>	
-
-						<li><a href="../CarList/carlist.php">Car List</a></li>
-						<li><a href="../Login/logout_process.php">Logout</a></li>						
-			        </ul>
-			      </nav><!-- #nav-menu-container -->		    		
-
-		  </header><!-- #header -->
-
+<style>		
+	#header .nav-menu a:hover
+	{
+		color: blue;
+		font-size: 210%;
+	}
+				
+	.form-group .form-control
+	{
+		font-size:20px;
+		height: 50px;
+	}
+</style>
 
 			<!-- start banner Area -->
 			<section class="banner-area relative" id="home">	
@@ -18,8 +23,8 @@
 				<div class="container">
 					<div class="row fullscreen d-flex align-items-center justify-content-start">
 						<div class="banner-content col-lg-9 col-md-12">
-							<h1 class="text-white text-uppercase">
-								System Management			
+							<h1 class="text-white text-uppercase" style="font-family: PlayfairDisplay-Regular">
+								Book Specific Car			
 							</h1>
 							
 						</div>											
@@ -33,13 +38,28 @@
 			<section class="quote-area pt-100">
 				<div class="container">
 					 <div class="account_grid">
-			   <div class="col-md-8 login-left wow fadeInLeft" data-wow-delay="0.4s">
+			   <div class="col-md-15 login-left wow fadeInLeft" data-wow-delay="0.4s">
 			  	 <div class='row'>
                 <div class='col-sm-8'> 
-                    <h3><strong> Choice of Vehicle</strong></h3>
+                    <h3 style="font-size:30px"><strong> Choice of Vehicle</strong></h3>
                 </div>
             </div>
             <br>
+			
+			<table class="table table-striped" style="font-size: 18px">
+				  <thead>
+					<tr>
+					  <th scope="col">Car Image</th>
+					  <th scope="col">Brand</th>
+					  <th scope="col">Model</th>
+					  <th scope="col">Plate Number</th>
+					  <th scope="col">Per Hour Rate</th>
+					  <th scope="col">Per Day Rate</th>
+					  <th scope="col">No Of Seat</th>
+					</tr>
+				  </thead>
+				  <tbody>
+				  
 			<?php
 			
 			$id = array_search("Book", $_POST);
@@ -65,18 +85,15 @@
 				if(mysqli_num_rows($records)>0){
 					$row = mysqli_fetch_assoc($records);
 					
-					echo "<div class=\"row\">";
-						echo " <div class=\"col-sm-4\">";
-						echo "<img class=\"img-responsive img-thumbnail center-block\" style=\"background-color: white\" src=\"img/".$row['ImagePath']."\" width=\"300\" height=\"300\">";
-						echo "</div>";
-						echo " <div class=\"col-sm-4\">";
-						echo "<h3 class=\"text-center\">".$row['Brand']."</h3>";
-						echo "<p class=\"text-center\"><strong>Model:</strong>".$row['Model']."</p>";
-						echo "<p class=\"text-center\"><strong>Plate Number:</strong>".$row['PlateNumber']."</p>";
-						echo "<p class=\"text-center\"><strong>PerHourRate:</strong>".$row['PerHourRate']."</p>";
-						echo "<p class=\"text-center\"><strong>PerDayRate:</strong>".$row['PerDayRate']."</p>";
-						echo "<p class=\"text-center\"><strong>NoOfSeat:</strong>".$row['NoOfSeat']."</p>";
-						echo "</div>";	
+						echo "<tr>";
+						echo "<td><img src=\"img/".$row['ImagePath']."\" width=\"300\" height=\"200\"</td>";
+						echo "<td>".$row['Brand']."</td>";
+						echo "<td>".$row['Model']."</td>";
+						echo "<td>".$row['PlateNumber']."</td>";
+						echo "<td>".$row['PerHourRate']."</td>";
+						echo "<td>".$row['PerDayRate']."</td>";
+						echo "<td>".$row['NoOfSeat']."</td>";
+						echo "</tr>";
 															
 				}
 				
@@ -91,21 +108,13 @@
 
 						foreach($arr as $result=>$val) {
 						echo $val, '<br>';
-					  }
-					
-				
-				// var array = ["2013-03-14","2013-03-15","2013-03-16"]
-
-// $('input').datepicker({
-    // beforeShowDay: function(date){
-        // var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-        // return [ array.indexOf(string) == -1 ]
-    // }
-// });
-				
+					  }		
 				
 			?>
-			<div class="col-sm-4">
+			</tbody>
+			</table>
+			
+			<div class="col-sm-8">
 			
 			<form class="form-group " method="post" action="bookspecificcar_process.php"> <!-- Name field -->
 				<label class="control-label" for="name">Start Date</label>
@@ -118,7 +127,7 @@
 				<input class="form-control" id="name" name="dropoffpoint" type="text"/>
 				<br>
 				<button type='submit' name='add' value='add'  class='btn btn-default btn-primary'
-                        style=" background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; margin-left:32px; padding: 10px 30px"
+                        style=" background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; margin-left:32px; padding: 10px 30px; font-size: 22px"
                 >Submit</button>
 			</form>
 			

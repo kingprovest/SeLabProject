@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 04, 2018 at 11:19 AM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- Generation Time: Oct 31, 2018 at 12:22 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -44,7 +46,12 @@ CREATE TABLE `carbooking` (
 --
 
 INSERT INTO `carbooking` (`BookingID`, `ReserveDate`, `StartDate`, `EndDate`, `PickUpPoint`, `DropOffPoint`, `Price`, `Id`, `CarID`, `Runner`) VALUES
-(32, '04-11-2018', '06-11-2018', '08-11-2018', 'uj', 'uj', 900, 6, 5, 'None');
+(21, '', '16-10-2018', '18-10-2018', 'Pavilion2', '', 1920, 2, 3, 'Chicken'),
+(22, '', '29-10-2018', '31-10-2018', 'Sakura', '', 160, 2, 1, 'Piggy'),
+(23, '', '17-10-2018', '19-10-2018', 'Unijaya', '', 160, 2, 1, 'Piggy'),
+(24, '', '24-10-2018', '31-10-2018', 'Autumn', '', 6720, 3, 3, 'Chicken'),
+(25, '', '31-10-2018', '01-11-2018', 'Sakura', '', 80, 3, 1, 'Piggy'),
+(26, '31-10-2018', '01-12-2018', '02-12-2018', 'UNIMAS FIT', 'CAIS UNIMAS', 960, 3, 3, 'None');
 
 -- --------------------------------------------------------
 
@@ -69,8 +76,8 @@ CREATE TABLE `register` (
 INSERT INTO `register` (`Id`, `FullName`, `Username`, `HpNo`, `EmailAddress`, `Password`, `AccessLevel`) VALUES
 (1, 'admin', 'admin', '5678', '5678@gmail.com', 'admin', 'Manager'),
 (2, 'Piggy', 'pig', '012232345', 'pig@gmail.com', 'pig', 'Employee'),
-(5, 'Ali Bakar', 'ali', '019-3057677', 'ali@gmail.com', 'ali', 'User'),
-(6, 'william', 'william', '018-7262253', 'william@gmail.com', 'william', 'User');
+(3, 'Big bear', 'bear', '0164533423', 'bear@gmail.com', 'bear', 'User'),
+(4, 'Chicken', 'chick', '012-4672374', 'chich@gmail.com', 'chick', 'Employee');
 
 -- --------------------------------------------------------
 
@@ -94,9 +101,10 @@ CREATE TABLE `vehiclelist` (
 --
 
 INSERT INTO `vehiclelist` (`CarID`, `Brand`, `Model`, `PlateNumber`, `PerHourRate`, `PerDayRate`, `NoOfSeat`, `ImagePath`) VALUES
+(1, 'Proton', 'Saga', '12345', 8, 80, 8, 't3.png'),
 (2, 'Toyota', 'Vios', '34567', 10, 100, 4, 'header-bg.jpg'),
-(5, 'Proton', 'X70', 'X7001', 50, 450, 5, 'protonx70.jpg'),
-(6, 'BMW', 'M2', 'M8888', 100, 700, 5, 'index.jpg');
+(3, 'BMW', 'M2', 'M8888', 50, 960, 5, 'index.jpg'),
+(4, 'Toyota', 'BX', 'RX2000', 8, 300, 6, '8198.jpg');
 
 --
 -- Indexes for dumped tables
@@ -130,17 +138,20 @@ ALTER TABLE `vehiclelist`
 -- AUTO_INCREMENT for table `carbooking`
 --
 ALTER TABLE `carbooking`
-  MODIFY `BookingID` int(222) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `BookingID` int(222) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
 --
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `Id` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Id` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `vehiclelist`
 --
 ALTER TABLE `vehiclelist`
-  MODIFY `CarID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `CarID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- Constraints for dumped tables
 --
@@ -149,8 +160,9 @@ ALTER TABLE `vehiclelist`
 -- Constraints for table `carbooking`
 --
 ALTER TABLE `carbooking`
-  ADD CONSTRAINT `carbooking_ibfk_1` FOREIGN KEY (`Id`) REFERENCES `register` (`Id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `carbooking_ibfk_2` FOREIGN KEY (`CarID`) REFERENCES `vehiclelist` (`CarID`) ON DELETE CASCADE;
+  ADD CONSTRAINT `carbooking_ibfk_1` FOREIGN KEY (`Id`) REFERENCES `register` (`Id`),
+  ADD CONSTRAINT `carbooking_ibfk_2` FOREIGN KEY (`CarID`) REFERENCES `vehiclelist` (`CarID`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

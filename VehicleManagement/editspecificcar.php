@@ -1,39 +1,15 @@
 <?php
 
-	include ('header.php');
+	include ('admin_header.php');
 
 ?>	
-
-						<li class="menu-active"><a href="../AdminManagement/adminpage.php">System Management</a></li>		          
-			          <li><a href="../Login/logout_process.php">Logout</a></li>
-			        </ul>
-			      </nav><!-- #nav-menu-container -->		    		
-
-		  </header><!-- #header -->
-
-
-			<!-- start banner Area -->
-			<section class="banner-area relative" id="home">	
-				<div class="overlay overlay-bg"></div>
-				<div class="container">
-					<div class="row fullscreen d-flex align-items-center justify-content-start">
-						<div class="banner-content col-lg-9 col-md-12">
-							<h1 class="text-white text-uppercase">
-								System Management			
-							</h1>
-							
-						</div>											
-					</div>
-				</div>
-			</section>
-			<!-- End banner Area -->
 						
 			
 			<!-- Start quote Area -->
-			<section class="quote-area pt-100">
+			<section class="quote-area pt-100" style="font-size:20px">
 				<div class="container">
 					 <div class="account_grid">
-			   <div class="col-md-6 login-left wow fadeInLeft" data-wow-delay="0.4s">
+			   <div class="col-md-10 login-left wow fadeInLeft" data-wow-delay="0.4s">
 			  	 <div class='row'>
                 <div class='col-sm-8'> 
                     <h3><strong> Edit Choice of Vehicle</strong></h3>
@@ -62,21 +38,8 @@
 				$records = mysqli_query($con,$sql);
 				if(mysqli_num_rows($records)>0){
 					$row = mysqli_fetch_assoc($records);
-					
-					// echo "<div class=\"row\">";
-						// echo " <div class=\"col-sm-4\">";
-						// echo "<img class=\"img-responsive img-thumbnail center-block\" style=\"background-color: white\" src=\"".$row['ImagePath']."\" width=\"300\" height=\"300\">";
-						// echo "</div>";
-						// echo " <div class=\"col-sm-4\">";
-						// echo "<h3 class=\"text-center\">".$row['Brand']."</h3>";
-						// echo "<p class=\"text-center\"><strong>Model:</strong>".$row['Model']."</p>";
-						// echo "<p class=\"text-center\"><strong>Plate Number:</strong>".$row['PlateNumber']."</p>";
-						// echo "<p class=\"text-center\"><strong>PerHourRate:</strong>".$row['PerHourRate']."</p>";
-						// echo "<p class=\"text-center\"><strong>PerDayRate:</strong>".$row['PerDayRate']."</p>";
-						// echo "<p class=\"text-center\"><strong>NoOfSeat:</strong>".$row['NoOfSeat']."</p>";
-						// echo "</div>";						
-						// echo "</div>";
-						echo "<form action=\"editspecificcar_process.php\" method=\"post\">";
+				
+						echo "<form action=\"editspecificcar_process.php\" method=\"post\" style=\"padding: 50px\">";
 						echo "<img class=\"img-responsive img-thumbnail center-block\" style=\"background-color: white\" src=\"img/".$row['ImagePath']."\" width=\"250\" height=\"250\">";
 						echo "<div class=\"form-group row\">";
 						echo "<div class=\"col-5\">";
@@ -130,8 +93,8 @@
 				
 			?>
 			
-			
-			
+			</div>
+			</div>
 			</div>
 			</section>
 			<section class="quote-area pt-100">

@@ -1,41 +1,14 @@
 <?php
 
-	include ('header.php');
+	include ('admin_header.php');
 
-?>	
-
-						<li class="menu-active"><a href="../AdminManagement/adminpage.php">System Mangement</a></li>		          
-			          <li><a href="../Login/logout_process.php">Logout</a></li>
-			        </ul>
-			      </nav><!-- #nav-menu-container -->		    		
-
-		  </header><!-- #header -->
-
-
-			<!-- start banner Area -->
-			<section class="banner-area relative" id="home">	
-				<div class="overlay overlay-bg"></div>
-				<div class="container">
-					<div class="row fullscreen d-flex align-items-center justify-content-start">
-						<div class="banner-content col-lg-9 col-md-12">
-							<h1 class="text-white text-uppercase">
-								System Management			
-							</h1>
-							
-						</div>											
-					</div>
-				</div>
-			</section>
-			<!-- End banner Area -->
-			
-			
-			
+?>
 			
 			<!-- Start quote Area -->
 			<section class="quote-area pt-100">
 				<div class="container">
 					 <div class="account_grid">
-			   <div class="col-md-6 login-left wow fadeInLeft" data-wow-delay="0.4s">
+			   <div class="col-md-15 login-left wow fadeInLeft" data-wow-delay="0.4s">
 			  	 <div class='row'>
                 <div class='col-sm-20'> 
                     <h3><strong>Delete Vehicles</strong></h3>
@@ -45,6 +18,22 @@
 			
 			<form class='form-horizontal lg-2' action="deletevehicle_process.php" method="post" >
                 <br>
+				
+				<table class="table table-striped" style="font-size: 18px">
+				  <thead>
+					<tr>
+					  <th scope="col">Car Image</th>
+					  <th scope="col">Brand</th>
+					  <th scope="col">Model</th>
+					  <th scope="col">Plate Number</th>
+					  <th scope="col">Per Hour Rate</th>
+					  <th scope="col">Per Day Rate</th>
+					  <th scope="col">No Of Seat</th>
+					  <th scope="col">Delete Vehicle</th>
+					</tr>
+				  </thead>
+				  <tbody>
+				  
             <?php
 			
 				$con=mysqli_connect('127.0.0.1','root','', 'selabdb');
@@ -65,30 +54,21 @@
 				if(mysqli_num_rows($records)>0){
 					while($row = mysqli_fetch_assoc($records))
 					{
-						echo "<div class=\"row\">";
-						echo " <div class=\"col-sm-4\">";
-						echo "<img class=\"img-responsive img-thumbnail center-block\" style=\"background-color: white\" src=\"img/".$row['ImagePath']."\" width=\"300\" height=\"300\">";
-						echo "</div>";
-						echo " <div class=\"col-sm-8\" style=\"margin:-100px 0 50px 200px\">";
-						echo "<table style=\"border-collapse:collapse\" border=\"1px solid black\">";
-						echo "<h3 class=\"text-left\">".$row['Brand']."</h3>";
-						echo "<tr><th class=\"text-center\" style=\"padding: 10px\"><strong>Model:</strong></th>			<td class=\"text-center\" style=\"padding: 10px\">".$row['Model']."</td></tr>";
-						echo "<tr><th class=\"text-center\" style=\"padding: 10px\"><strong>Plate Number:</strong></th> 	<td class=\"text-center\" style=\"padding: 10px\">".$row['PlateNumber']."</td></tr>";
-						echo "<tr><th class=\"text-center\" style=\"padding: 10px\"><strong>Per Hour Rate:</strong></th>	<td class=\"text-center\" style=\"padding: 10px\">".$row['PerHourRate']."</td></tr>";
-						echo "<tr><th class=\"text-center\" style=\"padding: 10px\"><strong>Per Day Rate:</strong></th>		<td class=\"text-center\" style=\"padding: 10px\">".$row['PerDayRate']."</td></tr>";
-						echo "<tr><th class=\"text-center\" style=\"padding: 10px\"><strong>No. Of Seat:</strong></th>		<td class=\"text-center\" style=\"padding: 10px\">".$row['NoOfSeat']."</td></tr>";
-						echo "</table>";
-						
-						echo " <div class=\"col-sm-4\">";
-						echo "<input value=\"Delete\" name=\"".$row['CarID']."\" type=\"submit\" onclick=\"return confirm('Confirm delete vehicle?')\" style=\"padding: 10px 50px\">";
-						echo "</div>";
-						echo "</div>";
-						echo "</div>";
+						echo "<tr>";
+						echo "<td><img src=\"img/".$row['ImagePath']."\" width=\"300\" height=\"200\"</td>";
+						echo "<td>".$row['Brand']."</td>";
+						echo "<td>".$row['Model']."</td>";
+						echo "<td>".$row['PlateNumber']."</td>";
+						echo "<td>".$row['PerHourRate']."</td>";
+						echo "<td>".$row['PerDayRate']."</td>";
+						echo "<td>".$row['NoOfSeat']."</td>";
+						echo "<td><input value=\"Delete\" name=\"".$row['CarID']."\" type=\"submit\" onclick=\"return confirm('Confirm delete vehicle?')\" style=\"padding: 10px 50px\"</td>";
+						echo "</tr>";
 					}
 				}
 			?>
-            
-            
+            </tbody>
+            </table>
 			</div>
 				
 			</section>
@@ -99,9 +79,7 @@
 			
 			<!-- start footer Area -->				
 				<?php
-
 				include ('footer.php');
-
 				?>
 			<!-- End footer Area -->					
 				
@@ -125,4 +103,3 @@
 			<script src="js/main.js"></script>	
 		</body>
 	</html>
-

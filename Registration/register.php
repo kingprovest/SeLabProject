@@ -29,11 +29,11 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 </head>
-<body style="background-color: #000000;">
+<body style="background-color: #999999">
 	
 	<div class="limiter">
 		<div class="container-login100">
-			<div class="login100-more" style="background-image: url('img/businesslogo.png');"></div>
+			<div class="login100-more" style="background-image: url('img/v5.jpg');"></div>
 
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
 				<form class="login100-form validate-form" action="register_process.php" method="post">
@@ -61,7 +61,7 @@
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email address is required">
 						<span class="label-input100">Email Address</span>
-						<input class="input100" type="text" name="emailaddress" 
+						<input class="input100" type="text" name="emailaddress" placeholder="Email..." 
 						<span class="focus-input100"></span>
 					</div>
 

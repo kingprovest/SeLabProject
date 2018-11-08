@@ -71,13 +71,14 @@
 				{
 					font-weight: bold;
 					padding: 30px;
-					font-size: 20px;
+					font-size: 22px;
 				}
 				
 				.form-control
 				{
-					margin: -30px 0 30px 30px;
+					margin: -20px 0 30px 30px;
 					padding: 30px;
+					font-size: 24px;
 				}
 				
 				#calculate
@@ -90,7 +91,7 @@
 		  <header id="header" id="home">
 
 			      <div id="logo">
-			        <a href="#index"><img src="img/businesslogo.png" alt="" title="" style="width:140px;height:140px"/></a>
+			        <a href="#index"><img src="img/businesslogo.png" alt="" title="" style="width:100px;height:100px"/></a>
 			      </div>
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
@@ -108,3 +109,18 @@
 							 header('Location: ../Login/login.php');
 						 }
 						?></a></li>
+						
+						
+						<li><a href="selectbrand.php">Car List</a></li>
+						<li><a href="custbookingDetails.php">Manage My Bookings</a></li>
+						<li class="menu-has-children"><a href="">Account</a>
+			            <ul>
+			              <li><a href="../Login/forgotpassword.php">Change Password</a></li>
+			              <li><a href="../Login/logout_process.php">Logout</a></li>
+			            </ul>
+			          </li>					
+			        </ul>
+			      </nav><!-- #nav-menu-container -->		    		
+		    	
+		    
+		  </header><!-- #header -->
