@@ -233,7 +233,7 @@
 				if (fromDate.isValid() && toDate.isValid() && fromDate.isBefore(toDate)) {
 
 				 
-				 if(hourdifference>=0)
+				 if(hourdifference>0)
 				 {
 					
 					   totalSum = (dayDifference*dayRate)+dayRate;

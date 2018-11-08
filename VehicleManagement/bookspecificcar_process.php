@@ -28,10 +28,11 @@
 	$PickupTime = $_POST['pickuptime'];
 	$DropOffTIme = $_POST['dropofftime'];
 	$Runner = "None";
+	$Availability = "Null";
 	
 	
-	$sql ="INSERT INTO carbooking(ReserveDate,StartDate,EndDate,PickUpPoint,DropOffPoint,Id,CarID,Price,Runner,PickUpTime,DropOffTime) 
-	VALUES ('$ReserveDate','$StartDate','$EndDate','$PickUpPoint','$DropOffPoint','$UserId','$CarId','$Price','$Runner','$PickupTime','$DropOffTIme')";
+	$sql ="INSERT INTO carbooking(ReserveDate,StartDate,EndDate,PickUpPoint,DropOffPoint,Id,CarID,Price,Runner,PickUpTime,DropOffTime,Availability) 
+	VALUES ('$ReserveDate','$StartDate','$EndDate','$PickUpPoint','$DropOffPoint','$UserId','$CarId','$Price','$Runner','$PickupTime','$DropOffTIme','$Availability')";
 	
 	if(!mysqli_query($con,$sql))
 	{
@@ -54,5 +55,5 @@
 	}
 	mysqli_close($con);
 	
-	 header("refresh:2; url='generateinvoice.php'");
+	 header("refresh:0.2; url='generateinvoice.php'");
 ?>

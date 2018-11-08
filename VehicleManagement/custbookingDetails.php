@@ -47,7 +47,7 @@
 					  <th scope="col">StartDate</th>
 					  <th scope="col">EndDate</th>
 					  <th scope="col">PickUpPoint</th>
-					  <th scope="col">Payment</th>
+					  <th scope="col">Status</th>
 					  <th scope="col">Invoice</th>
 					</tr>
 				  </thead>
@@ -67,7 +67,7 @@
 				
 				$userid = $_SESSION['userID'];
 				
-				$sql ="SELECT carbooking.BookingID,carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.Price,
+				$sql ="SELECT carbooking.BookingID,carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.Price,carbooking.Availability,
 				vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,vehiclelist.NoOfSeat
 				FROM carbooking
 				INNER JOIN vehiclelist ON carbooking.CarID = vehiclelist.CarID
@@ -88,7 +88,19 @@
 							echo "<td>".$row['StartDate']."</td>";
 							echo "<td>".$row['EndDate']."</td>";
 							echo "<td>".$row['PickUpPoint']."</td>";
-							echo "<td>".$row['Price']."</td>";
+							if($row['Availability']== 'Available')
+							{
+								echo "<td>Confirmed</td>";
+							}
+							else if($row['Availability']=='Unavailable')
+							{
+								echo "<td>Unsuccessfull</td>";
+							}
+							else
+							{
+								echo "<td>Pending</td>";
+							}
+							
 			?>
 							
 							<td>

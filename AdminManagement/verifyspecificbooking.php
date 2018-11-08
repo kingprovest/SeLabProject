@@ -8,18 +8,18 @@
 			<section class="quote-area pt-100">
 				<div class="container">
 					 <div class="account_grid">
-			   <div class="col-md-20 login-left wow fadeInLeft" data-wow-delay="0.4s">
+			   <div class="col-md-6 login-left wow fadeInLeft" data-wow-delay="0.4s">
 			  	 <div class='row'>
-                <div class='col-sm-12'> 
+                <div class='col-sm-20'> 
                     <h3><strong>Booking Verification</strong></h3>
                 </div>
             </div>
             <br>
 			
-			<form class='form-horizontal lg-2' action="verifyspecificbooking.php" method="post" >
+			<form class='form-horizontal lg-2' action="verifyspecificbooking_process.php" method="post" >
                 <br>
 				
-				<table class="table table-striped">
+				<table class="table table-striped" style="margin-left:-60px">
 				  <thead>
 					<tr>
 					  <th scope="col">BookingID</th>
@@ -28,15 +28,19 @@
 					  <th scope="col">Model</th>
 					  <th scope="col">PlateNumber</th>					  
 					  <th scope="col">StartDate</th>
-					  <th scope="col">EndDate</th>	
+					  <th scope="col">EndDate</th>
 					  <th scope="col">PickUp Time</th>	
 					  <th scope="col">DropOff Time</th>	
-					  <th scope="col">Availability</th>
+					  <th scope="col">Car Status</th>					  
+					  <th scope="col">Select Car Status</th>
 					  <th scope="col">Action</th>
 					</tr>
 				  </thead>
 				  <tbody>
             <?php
+			
+				$bookingid = array_search("AssignRunner", $_POST);				
+				$employee = "Employee";
 				$con=mysqli_connect('127.0.0.1','root','', 'selabdb');
 				if(!$con)
 				{
@@ -53,11 +57,17 @@
 				carbooking.PickUpTime,carbooking.DropOffTime,carbooking.Availability,vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,register.Username
 				FROM carbooking
 				INNER JOIN vehiclelist ON carbooking.CarID = vehiclelist.CarID
-				INNER JOIN register ON carbooking.Id = register.Id";
+				INNER JOIN register ON carbooking.Id = register.Id
+				WHERE carbooking.BookingId = '$bookingid'";
+			
+				$sql1 ="SELECT FullName from register WHERE AccessLevel= '$employee'";
+											
 				
-				
+				$records1 = mysqli_query($con,$sql1);
 				$records = mysqli_query($con,$sql);
-				if(mysqli_num_rows($records)>0){
+				
+				
+				if(mysqli_num_rows($records)>0 && mysqli_num_rows($records)>0){
 					while($row = mysqli_fetch_assoc($records))
 					{						
 							  echo "<tr>";
@@ -67,13 +77,23 @@
 							  echo "<td>".$row['Model']."</td>";
 							  echo "<td>".$row['PlateNumber']."</td>";							
 							  echo "<td>".$row['StartDate']."</td>";
-							  echo "<td>".$row['EndDate']."</td>";		
-                              echo "<td>".$row['PickUpTime']."</td>";
+							  echo "<td>".$row['EndDate']."</td>";
+							  echo "<td>".$row['PickUpTime']."</td>";
 							  echo "<td>".$row['DropOffTime']."</td>";
-							  echo "<td>".$row['Availability']."</td>";							  
+							  echo "<td>".$row['Availability']."</td>";
+							  echo "<td>";
+							  echo "<select class=\"form-control\" id=\"runner\" name=\"availability\">";
+							while($row2 = mysqli_fetch_assoc($records1))			
+							{									
+							  echo "<option>Available</option>";	
+							  echo "<option>Unavailable</option>";
+							}							  
+							  echo "</select>";
+							  echo "</td>";
 							  echo "<td>";
 							  echo "<p data-placement=\"top\" data-toggle=\"tooltip\" title=\"Assign\">";
-							  echo "<button class=\"btn btn-success btn-xs \" name=\"".$row['BookingID']."\" value=\"AssignRunner\" href =\"editbookingassignment.php\" data-toggle=\"modal\" data-target=\"#delete\" >Verify Availability</button>";
+							  echo "<button class=\"btn btn-success btn-xs \"  onclick=\"return confirm('Confirm Submit?')\" name=\"".$row['BookingID']."\" value=\"Assign\" href =\"editbookingassignment_process.php\" data-toggle=\"modal\" data-target=\"#delete\" >Submit</button>";
+							  echo "<th><input type = hidden name=\"bookingid\" value='".$row['BookingID']."'</th>";
 							  echo "</p>";
 						      echo "</td>";
 							  echo "<tr>";						
@@ -81,7 +101,7 @@
 					}
 				}
 			?>
-            
+           
 			 </tbody>
 			</table>
 			</div>

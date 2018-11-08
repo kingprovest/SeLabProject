@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2018 at 09:42 AM
+-- Generation Time: Nov 08, 2018 at 03:10 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -38,17 +38,19 @@ CREATE TABLE `carbooking` (
   `Price` int(128) NOT NULL,
   `Id` int(128) DEFAULT NULL,
   `CarID` int(128) NOT NULL,
-  `Runner` varchar(125) NOT NULL
+  `Runner` varchar(125) NOT NULL,
+  `Availability` varchar(125) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `carbooking`
 --
 
-INSERT INTO `carbooking` (`BookingID`, `ReserveDate`, `StartDate`, `EndDate`, `PickUpTime`, `DropOffTime`, `PickUpPoint`, `DropOffPoint`, `Price`, `Id`, `CarID`, `Runner`) VALUES
-(32, '04-11-2018', '06-11-2018', '08-11-2018', '', '', 'uj', 'uj', 900, 6, 5, 'None'),
-(35, '08-11-2018', '16-11-2018', '17-11-2018', '', '', 'Dahlia', 'Dahlia', 100, 5, 2, 'None'),
-(39, '08-11-2018', '22-11-2018', '22-11-2018', '1:00am', '2:00am', 'x', 'x', 450, 2, 5, 'None');
+INSERT INTO `carbooking` (`BookingID`, `ReserveDate`, `StartDate`, `EndDate`, `PickUpTime`, `DropOffTime`, `PickUpPoint`, `DropOffPoint`, `Price`, `Id`, `CarID`, `Runner`, `Availability`) VALUES
+(32, '04-11-2018', '06-11-2018', '08-11-2018', '', '', 'uj', 'uj', 900, 6, 5, 'None', ''),
+(35, '08-11-2018', '16-11-2018', '17-11-2018', '', '', 'Dahlia', 'Dahlia', 100, 5, 2, 'None', ''),
+(39, '08-11-2018', '22-11-2018', '22-11-2018', '1:00am', '2:00am', 'x', 'x', 450, 2, 5, 'None', 'Available'),
+(40, '08-11-2018', '29-11-2018', '30-11-2018', '2:00am', '1:00am', 'Red Cafe', 'Yellow Cafe', 700, 6, 6, 'None', 'Available');
 
 -- --------------------------------------------------------
 
@@ -161,7 +163,7 @@ ALTER TABLE `vehiclelist`
 -- AUTO_INCREMENT for table `carbooking`
 --
 ALTER TABLE `carbooking`
-  MODIFY `BookingID` int(222) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `BookingID` int(222) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT for table `feedback`
 --
