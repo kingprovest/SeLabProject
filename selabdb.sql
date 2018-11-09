@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2018 at 03:10 PM
+-- Generation Time: Nov 09, 2018 at 09:35 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -71,6 +71,28 @@ CREATE TABLE `feedback` (
 
 INSERT INTO `feedback` (`feedbackID`, `title`, `message`, `Id`) VALUES
 (3, 'd', 'd', 6);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `maintanencerecord`
+--
+
+CREATE TABLE `maintanencerecord` (
+  `RecordID` int(11) NOT NULL,
+  `Date` varchar(128) NOT NULL,
+  `Description` varchar(128) NOT NULL,
+  `Cost` decimal(65,2) NOT NULL,
+  `Attachment` varchar(128) NOT NULL,
+  `CarID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `maintanencerecord`
+--
+
+INSERT INTO `maintanencerecord` (`RecordID`, `Date`, `Description`, `Cost`, `Attachment`, `CarID`) VALUES
+(6, '11-10-2018', '1', '12.50', '', 2);
 
 -- --------------------------------------------------------
 
@@ -144,6 +166,13 @@ ALTER TABLE `feedback`
   ADD KEY `FK_ID` (`Id`);
 
 --
+-- Indexes for table `maintanencerecord`
+--
+ALTER TABLE `maintanencerecord`
+  ADD PRIMARY KEY (`RecordID`),
+  ADD KEY `fkcarid` (`CarID`);
+
+--
 -- Indexes for table `register`
 --
 ALTER TABLE `register`
@@ -170,6 +199,11 @@ ALTER TABLE `carbooking`
 ALTER TABLE `feedback`
   MODIFY `feedbackID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
+-- AUTO_INCREMENT for table `maintanencerecord`
+--
+ALTER TABLE `maintanencerecord`
+  MODIFY `RecordID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
@@ -195,6 +229,12 @@ ALTER TABLE `carbooking`
 --
 ALTER TABLE `feedback`
   ADD CONSTRAINT `FK_ID` FOREIGN KEY (`Id`) REFERENCES `register` (`Id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `maintanencerecord`
+--
+ALTER TABLE `maintanencerecord`
+  ADD CONSTRAINT `fkcarid` FOREIGN KEY (`CarID`) REFERENCES `vehiclelist` (`CarID`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
