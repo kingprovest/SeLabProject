@@ -15,7 +15,15 @@
 				 <a class="acount-btn" href="../VehicleManagement/addvehicles.php"> Add Vehicles</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				 <a class="acount-btn" href="../VehicleManagement/editvehicles.php">Edit Vehicles</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
 				 <a class="acount-btn" href="../VehicleManagement/deletevehicle.php">Delete Vehicles</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				 <a class="acount-btn" href="../VehicleManagement/vehiclemaintanence.php">Vehicles Maintanence</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 
+				 </div>
+				 
+				 <h2>Vehicle Maintanence</h2>
+				 <div class='row' style="padding: 30px; margin-top: -30px">
+				 <a class="acount-btn" href="../VehicleManagement/viewvehiclemaintanence.php">View Record</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <a class="acount-btn" href="../VehicleManagement/vehiclemaintanence.php">Add Record</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+				 <a class="acount-btn" href="../VehicleManagement/editvehiclemaintanence.php">Edit Record</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+				 <a class="acount-btn" href="../VehicleManagement/deletevehiclemaintanence.php">Delete Record</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
 				 </div>
 				 
 				 <h2>User Management</h2>

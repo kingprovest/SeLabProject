@@ -12,13 +12,13 @@
 			   <div class="col-md-10 login-left wow fadeInLeft" data-wow-delay="0.4s">
 			  	 <div class='row'>
                 <div class='col-sm-8'> 
-                    <h3><strong> Add Maintanence Record</strong></h3>
+                    <h3><strong> Edit Maintanence Record</strong></h3>
                 </div>
             </div>
             <br>
 			<?php
 			
-			$id = array_search("Add", $_POST);
+			$id = array_search("Edit", $_POST);
 			echo $id;
 				$con=mysqli_connect('127.0.0.1','root','', 'selabdb');
 				if(!$con)
@@ -32,14 +32,18 @@
 					echo'Database not selected';
 				}
 				
-				$sql ="SELECT * FROM vehiclelist where CarID =".$id.";";
-				
+				//$sql ="SELECT * FROM vehiclelist where CarID =".$id.";";
+				$sql ="SELECT vehiclelist.CarID,vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,vehiclelist.ImagePath,maintanencerecord.Date,
+				maintanencerecord.Description,maintanencerecord.Cost,maintanencerecord.Attachment 
+				FROM vehiclelist
+				INNER JOIN maintanencerecord ON vehiclelist.CarID = maintanencerecord.CarID
+				WHERE vehiclelist.CarID =".$id."";
 				
 				$records = mysqli_query($con,$sql);
 				if(mysqli_num_rows($records)>0){
 					$row = mysqli_fetch_assoc($records);
 				
-						echo "<form action=\"addvehiclemaintanence_process.php\" method=\"post\" style=\"padding: 50px\">";
+						echo "<form action=\"editspecificvehiclemaintanence_process.php\" method=\"post\" style=\"padding: 50px\">";
 						echo "<img class=\"img-responsive img-thumbnail center-block\" style=\"background-color: white\" src=\"img/".$row['ImagePath']."\" width=\"250\" height=\"250\">";
 						echo "<div class=\"form-group row\">";
 						echo "<div class=\"col-3\">";
@@ -59,18 +63,18 @@
 						echo "<div class=\"form-group row\">";
 						echo "<div class=\"col-5\">";
 						echo "<label for=\"exampleFormControlInput1\">Date</label>";
-						echo "<input type=\"model\" class=\"form-control\" id=\"Date1\" name=\"date\">";
+						echo "<input type=\"model\" class=\"form-control\" value=".$row['Date']." name=\"date\">";
 						echo "</div>";
 						echo "<div class=\"col-5\">";
 						echo "<label for=\"exampleFormControlInput1\">Cost(RM)</label>";
-						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" name=\"cost\">";
+						echo "<input type=\"model\" class=\"form-control\" value=".$row['Cost']." name=\"cost\">";
 						echo "</div>";
 						echo "</div>";
 
 						echo "<div class=\"form-group row\">";
 						echo "<div class=\"col-5\">";
 						echo "<label for=\"exampleFormControlInput1\">Description</label><br>";
-						echo "<textarea name=\"description\" class=\"form-control\" placeholder=\"Description\" style=\"width: 95%; height: 115px;\"></textarea>" ;
+						echo "<textarea name=\"description\" class=\"form-control\"  style=\"width: 95%; height: 115px;\">".$row['Description']."</textarea>" ;
 						echo "</div>";
 	
 						echo "</div>";
@@ -78,6 +82,7 @@
 						echo "<div class=\"form-group\">";
 						echo "<label for=\"exampleFormControlInput1\">Attachment</label>";
 						echo "&nbsp;&nbsp;&nbsp;";
+						echo "<div>".$row['Attachment']."</div>";
 						echo "<input type=\"file\" name=\"attachment\" id=\"image\" >";		
 						echo "</div>";
 						

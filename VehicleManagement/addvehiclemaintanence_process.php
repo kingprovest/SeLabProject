@@ -28,5 +28,5 @@
 	echo 'Inserted';
 	}
 	mysqli_close($con);
-	header("refresh:2; url='../VehicleManagement/vehiclemaintanence.php'");
+	header("refresh:0.2; url='../VehicleManagement/vehiclemaintanence.php'");
 ?>
