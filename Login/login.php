@@ -63,7 +63,7 @@
 
 					<div class="w-full text-center p-t-27 p-b-169" style="margin:50px">
 
-						<a href="forgotpassword.php" class="txt2" style="font-size: 22px; font-weight:bold">
+						<a href="login.php" class="txt2" style="font-size: 22px; font-weight:bold">
 							Forgot Password?
 						</a>
 					</div>

@@ -15,21 +15,23 @@
 				 <a class="acount-btn" href="../VehicleManagement/addvehicles.php"> Add Vehicles</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				 <a class="acount-btn" href="../VehicleManagement/editvehicles.php">Edit Vehicles</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
 				 <a class="acount-btn" href="../VehicleManagement/deletevehicle.php">Delete Vehicles</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <a class="acount-btn" href="../VehicleManagement/vehiclemaintanence.php">Vehicles Maintanence</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				 </div>
 				 
-				 <h2>Customer Management</h2>
+				 <h2>User Management</h2>
 				 <div class='row' style="padding: 30px; margin-top: -30px">
-				 <a class="acount-btn" href="viewcustomer.php">View Customer </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		
-				 <a class="acount-btn" href="deletecustomer.php">Delete Customer</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+				 <a class="acount-btn" href="viewcustomer.php">View User </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		
+				 <a class="acount-btn" href="deletecustomer.php">Delete USer</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
 				 </div>
 				 
 				 <h2>Booking Management</h2>
 				  <div class='row' style="padding: 30px; margin-top: -30px">
 				 <a class="acount-btn" href="viewbooking.php">View Booking</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				
 				 <a class="acount-btn" href="editbooking.php">Edit Booking</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <a class="acount-btn" href="deletebooking.php">Delete Booking</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
 				 <a class="acount-btn" href="bookingassignment.php">Runner Assignment</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				 <a class="acount-btn" href="verifybooking.php">Verify Booking</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				 <a class="acount-btn" href="deletebooking.php">Delete Booking</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				 								 
+				 			 								 
 				 </div>
 				 <br>	
 
