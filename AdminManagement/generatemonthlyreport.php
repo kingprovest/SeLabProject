@@ -61,6 +61,7 @@
 			<div class="limiter">
 				<div class="container-table100">
 					<div class="wrap-table100">
+						<h2 class="text-center">Sales</h2>
 						<div class="table100 ver1 m-b-110">
 							<div class="table100-head">
 								<table>
@@ -114,7 +115,7 @@
 											   WHERE carbooking.EndDate LIKE '$period'";
 				
 										$count = 1;
-										$total = 0.00;
+										$totalSales = 0.00;
 										$records = mysqli_query($con,$sql);
 										if(mysqli_num_rows($records)>0)
 										{
@@ -140,7 +141,7 @@
 												</tr>
 									<?php		
 												$count += 1;
-												$total += $row['Price'];
+												$totalSales += $row['Price'];
 											}
 										}
 									?>
@@ -160,9 +161,105 @@
 											<th class="cell100 column7"></th>
 											<th class="cell100 column8"></th>
 											<th class="cell100 column9">Total (RM)</th>
-											<th class="cell100 column10"><?php echo $total.".00"; ?></th>
+											<th class="cell100 column10"><?php echo $totalSales.".00"; ?></th>
 										</tr>
 									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<h2 class="text-center">Vehicle Maintenance Summary</h2>
+						<div class="table100 ver1 m-b-110">
+							<div class="table100-head">
+								<table>
+									<thead>
+										<tr class="row100 head">
+											<th class="cell100 column11">#</th>
+											<th class="cell100 column12">Brand</th>
+											<th class="cell100 column13">Model</th>
+											<th class="cell100 column14">Car Plate No.</th>
+											<th class="cell100 column15">Date</th>
+											<th class="cell100 column16">Description</th>
+											<th class="cell100 column17">Cost (RM)</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+							
+							<div class="table100-body js-pscroll">
+								<table>
+									<tbody>
+									<?php 
+										$con=mysqli_connect('127.0.0.1','root','', 'selabdb');
+								
+										if(strlen($month) == 2)
+										{
+											$period = '%-'.$month.'-'.$year;
+										}
+									
+										else
+										{
+											$period = '%-0'.$month.'-'.$year;
+										}
+											   
+										$sql = "SELECT vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,maintanencerecord.Date,
+											   maintanencerecord.Description,maintanencerecord.Cost
+											   FROM vehiclelist
+											   INNER JOIN maintanencerecord ON vehiclelist.CarID = maintanencerecord.CarID
+											   WHERE maintanencerecord.Date LIKE '$period'";
+				
+										$count = 1;
+										$totalCost = 0.00;
+										$records = mysqli_query($con,$sql);
+										if(mysqli_num_rows($records)>0)
+										{
+											while($row = mysqli_fetch_assoc($records))
+											{	
+									?>
+												<tr class="row100 body">
+													<td class="cell100 column11"><?php echo $count; ?></td>
+													<td class="cell100 column12"><?php echo $row['Brand']; ?></td>
+													<td class="cell100 column13"><?php echo $row['Model']; ?></td>
+													<td class="cell100 column14"><?php echo $row['PlateNumber']; ?></td>
+													<td class="cell100 column15"><?php echo $row['Date']; ?></td>
+													<td class="cell100 column16"><?php echo $row['Description']; ?></td>
+													<td class="cell100 column17"><?php echo $row['Cost'].".00"; ?></td>
+												</tr>
+									<?php		
+												$count += 1;
+												$totalCost += $row['Cost'];
+											}
+										}
+									?>
+									</tbody>
+								</table>
+							</div>
+							<div class="table100-foot">
+								<table>
+									<tbody>
+										<tr class="row100 head">
+											<th class="cell100 column11"></th>
+											<th class="cell100 column12"></th>
+											<th class="cell100 column13"></th>
+											<th class="cell100 column14"></th>
+											<th class="cell100 column15"></th>
+											<th class="cell100 column16">Total (RM)</th>
+											<th class="cell100 column17"><?php echo $totalCost.".00"; ?></th>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						
+						<h2 class="text-center">Return on Investment (ROI)</h2>
+						<div class="table100 ver1 m-b-110">
+							<div class="table100-head">
+								<table>
+									<thead>
+										<tr class="row100 head">
+											<th class="text-center">Total Sales - Total Maintenance Cost = RM<?php echo ($totalSales - $totalCost).".00"; ?></th>
+										</tr>
+									</thead>
 								</table>
 							</div>
 						</div>

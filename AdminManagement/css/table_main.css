@@ -175,7 +175,7 @@ th, td {
 }
 
 .column1 {
-  width: 45px;
+  width: 60px;
   padding-left: 10px;
 }
 
@@ -213,7 +213,36 @@ th, td {
 }
 
 .column10 {
-  width: 100px;
+  width: 120px;
+}
+
+.column11 {
+  width: 60px;
+  padding-left: 10px;
+}
+
+.column12 {
+  width: 150px;
+}
+
+.column13 {
+  width: 150px;
+}
+
+.column14 {
+  width: 200px;
+}
+
+.column15 {
+  width: 200px;
+}
+
+.column16 {
+  width: 290px;
+}
+
+.column17 {
+  width: 120px;
 }
 
 .table100-head th {
@@ -225,6 +254,7 @@ th, td {
   padding-top: 16px;
   padding-bottom: 16px;
 }
+
 
 /*==================================================================
 [ Fix header ]*/
