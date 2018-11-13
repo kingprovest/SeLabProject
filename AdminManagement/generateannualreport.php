@@ -88,7 +88,7 @@
 													<td class="cell100 column7"><?php echo $row['Brand']; ?></td>
 													<td class="cell100 column8"><?php echo $row['Model']; ?></td>
 													<td class="cell100 column9"><?php echo $row['Runner']; ?></td>
-													<td class="cell100 column10"><?php echo $row['Price'].".00"; ?></td>
+													<td class="cell100 column10"><?php echo $row['Price']; ?></td>
 												</tr>
 										<?php		
 												$count += 1;
