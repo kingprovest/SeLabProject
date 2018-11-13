@@ -12,14 +12,15 @@
 		
 		echo'Database not selected';
 	}
+	
 	$Brand =$_POST['brand'];
 	$Model =$_POST['model'];
 	$PlateNumber =$_POST['platenumber'];
 	$PerHourRate =$_POST['perhourrate'];
 	$PerDayRate =$_POST['perdayrate'];
 	$NoOfSeat =$_POST['noofseat'];
-	$ImagePath =$_POST['imagepath'];
-	$sql ="INSERT INTO vehiclelist(Brand,Model,PlateNumber,PerHourRate,PerDayRate,NoOfSeat,ImagePath) VALUES ('$Brand','$Model','$PlateNumber','$PerHourRate','$PerDayRate','$NoOfSeat','$ImagePath')";
+	$Image = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
+	$sql ="INSERT INTO vehiclelist(Brand,Model,PlateNumber,PerHourRate,PerDayRate,NoOfSeat,Image) VALUES ('$Brand','$Model','$PlateNumber','$PerHourRate','$PerDayRate','$NoOfSeat','$Image')";
 	
 	if(!mysqli_query($con,$sql))
 	{

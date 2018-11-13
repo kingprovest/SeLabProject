@@ -18,7 +18,7 @@
             
             
             
-            <form class='form-horizontal ' method="post" action="addvehicle_process.php">
+            <form class='form-horizontal ' method="post" action="addvehicle_process.php" enctype="multipart/form-data">
                 <br>
            
             <div class="form-group"> <!-- Name field -->
@@ -48,7 +48,7 @@
 			</div>	
 			<div class="form-group"> <!-- Name field -->
 				<label class="control-label" for="name" style="font-weight:bold; font-size:20px">Image:</label>
-				<input type="file" name="imagepath" id="image" required="" style="font-size: 20px">			
+				<input type="file" name="image" id="image" required="" style="font-size: 20px">			
 			</div>
 			
             <br>

@@ -89,7 +89,7 @@
 					$row = mysqli_fetch_assoc($records);
 					
 						echo "<tr>";
-						echo "<td><img src=\"img/".$row['ImagePath']."\" width=\"300\" height=\"200\"</td>";
+						?>	<td><img src="data:image/jpg;base64,<?php echo base64_encode($row['Image']); ?>" width="300" height="200"></td> <?php
 						echo "<td>".$row['Brand']."</td>";
 						echo "<td>".$row['Model']."</td>";
 						echo "<td>".$row['PlateNumber']."</td>";

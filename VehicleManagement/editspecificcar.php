@@ -39,8 +39,8 @@
 				if(mysqli_num_rows($records)>0){
 					$row = mysqli_fetch_assoc($records);
 				
-						echo "<form action=\"editspecificcar_process.php\" method=\"post\" style=\"padding: 50px\">";
-						echo "<img class=\"img-responsive img-thumbnail center-block\" style=\"background-color: white\" src=\"img/".$row['ImagePath']."\" width=\"250\" height=\"250\">";
+						echo "<form action=\"editspecificcar_process.php\" method=\"post\" enctype=\"multipart/form-data\" style=\"padding: 50px\">";
+						?>	<td><img src="data:image/jpg;base64,<?php echo base64_encode($row['Image']); ?>" width="300" height="200"></td> <?php
 						echo "<div class=\"form-group row\">";
 						echo "<div class=\"col-5\">";
 						echo "<label for=\"exampleFormControlInput1\">Brand</label>";
@@ -77,7 +77,7 @@
 						echo "<div class=\"form-group\">";
 						echo "<label for=\"exampleFormControlInput1\">Choose Image</label>";
 						echo "&nbsp;&nbsp;&nbsp;";
-						echo "<input type=\"file\" name=\"imagepath\" id=\"image\" >";		
+						echo "<input type=\"file\" name=\"image\" id=\"image\" >";		
 						echo "</div>";
 						
 						echo "<th><input type = hidden name=\"CarID\" value='".$row['CarID']."'</th>";
