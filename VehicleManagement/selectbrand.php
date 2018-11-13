@@ -119,7 +119,7 @@
 						 
 						?></a></li>
 			          
-			          <li><a href="bookcar.php">Car List</a></li>
+			          <li><a href="selectbrand.php">Car List</a></li>
 			          <li><a href="custbookingDetails.php">Manage My Bookings</a></li>
 					   <li class="menu-has-children"><a href="">Account</a>
 			            <ul>

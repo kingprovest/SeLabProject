@@ -64,7 +64,7 @@
 					
 					<div class="w-full text-center p-t-27 p-b-189">
 						
-						<a href="../VehicleManagement/bookcar.php" class="txt2" style="font-size: 22px">
+						<a href="../VehicleManagement/selectbrand.php" class="txt2" style="font-size: 22px">
 							Return to Main Page
 						</a>
 					</div>

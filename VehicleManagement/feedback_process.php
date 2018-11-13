@@ -27,7 +27,7 @@
 				else
 				{
 					echo "<script type='text/javascript'>alert('Feedback Submitted!')</script>";
-					header("refresh:0.1; url='editvehicles.php'");
+					header("refresh:0.1; url='selectbrand.php'");
 				}
 				mysqli_close($con);
 				
