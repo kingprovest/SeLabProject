@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2018 at 04:20 PM
+-- Generation Time: Nov 13, 2018 at 04:39 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -27,6 +27,8 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `carbooking`
 --
+-- Creation: Nov 13, 2018 at 03:07 PM
+--
 
 CREATE TABLE `carbooking` (
   `BookingID` int(222) NOT NULL,
@@ -45,16 +47,85 @@ CREATE TABLE `carbooking` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- RELATIONSHIPS FOR TABLE `carbooking`:
+--   `Id`
+--       `register` -> `Id`
+--   `CarID`
+--       `vehiclelist` -> `CarID`
+--
+
+--
 -- Dumping data for table `carbooking`
 --
 
 INSERT INTO `carbooking` (`BookingID`, `ReserveDate`, `StartDate`, `EndDate`, `PickUpTime`, `DropOffTime`, `PickUpPoint`, `DropOffPoint`, `Price`, `Id`, `CarID`, `Runner`, `Availability`) VALUES
-(10001, '13-11-2018', '17-11-2018', '17-11-2018', '12:30am', '1:30am', 'asdasd', 'asdasd', 450, 7, 9, 'None', 'Null');
+(10001, '13-11-2018', '17-11-2018', '17-11-2018', '12:30am', '1:30am', 'asdasd', 'asdasd', 450, 7, 9, 'None', 'Available'),
+(10002, '13-11-2018', '18-11-2018', '19-11-2018', '1:30pm', '10:30am', 'FIT UNIMAS', 'CAIS UNIMAS', 100, 7, 7, 'None', 'Available');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+-- Creation: Nov 13, 2018 at 03:13 PM
+--
+
+CREATE TABLE `feedback` (
+  `feedbackID` int(11) NOT NULL,
+  `title` varchar(128) NOT NULL,
+  `message` varchar(128) NOT NULL,
+  `Id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONSHIPS FOR TABLE `feedback`:
+--   `Id`
+--       `register` -> `Id`
+--
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`feedbackID`, `title`, `message`, `Id`) VALUES
+(5, 'Nice', 'Really nice', 7);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `maintanencerecord`
+--
+-- Creation: Nov 13, 2018 at 03:13 PM
+--
+
+CREATE TABLE `maintanencerecord` (
+  `RecordID` int(11) NOT NULL,
+  `Date` varchar(128) NOT NULL,
+  `Description` varchar(128) NOT NULL,
+  `Cost` decimal(65,2) NOT NULL,
+  `Attachment` varchar(128) NOT NULL,
+  `CarID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONSHIPS FOR TABLE `maintanencerecord`:
+--   `CarID`
+--       `vehiclelist` -> `CarID`
+--
+
+--
+-- Dumping data for table `maintanencerecord`
+--
+
+INSERT INTO `maintanencerecord` (`RecordID`, `Date`, `Description`, `Cost`, `Attachment`, `CarID`) VALUES
+(11, '14-11-2018', 'Tyre puncture', '400.00', '', 7);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `register`
+--
+-- Creation: Nov 13, 2018 at 03:07 PM
 --
 
 CREATE TABLE `register` (
@@ -66,6 +137,10 @@ CREATE TABLE `register` (
   `Password` varchar(128) NOT NULL,
   `AccessLevel` varchar(125) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONSHIPS FOR TABLE `register`:
+--
 
 --
 -- Dumping data for table `register`
@@ -83,6 +158,8 @@ INSERT INTO `register` (`Id`, `FullName`, `Username`, `HpNo`, `EmailAddress`, `P
 --
 -- Table structure for table `vehiclelist`
 --
+-- Creation: Nov 13, 2018 at 03:07 PM
+--
 
 CREATE TABLE `vehiclelist` (
   `CarID` int(11) NOT NULL,
@@ -94,6 +171,10 @@ CREATE TABLE `vehiclelist` (
   `NoOfSeat` int(128) NOT NULL,
   `Image` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONSHIPS FOR TABLE `vehiclelist`:
+--
 
 --
 -- Dumping data for table `vehiclelist`
@@ -118,6 +199,20 @@ ALTER TABLE `carbooking`
   ADD KEY `carID` (`CarID`);
 
 --
+-- Indexes for table `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`feedbackID`),
+  ADD KEY `FK_ID` (`Id`);
+
+--
+-- Indexes for table `maintanencerecord`
+--
+ALTER TABLE `maintanencerecord`
+  ADD PRIMARY KEY (`RecordID`),
+  ADD KEY `fkcarid` (`CarID`);
+
+--
 -- Indexes for table `register`
 --
 ALTER TABLE `register`
@@ -137,7 +232,19 @@ ALTER TABLE `vehiclelist`
 -- AUTO_INCREMENT for table `carbooking`
 --
 ALTER TABLE `carbooking`
-  MODIFY `BookingID` int(222) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10002;
+  MODIFY `BookingID` int(222) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10003;
+
+--
+-- AUTO_INCREMENT for table `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `feedbackID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `maintanencerecord`
+--
+ALTER TABLE `maintanencerecord`
+  MODIFY `RecordID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `register`
@@ -161,6 +268,18 @@ ALTER TABLE `vehiclelist`
 ALTER TABLE `carbooking`
   ADD CONSTRAINT `carbooking_ibfk_1` FOREIGN KEY (`Id`) REFERENCES `register` (`Id`) ON DELETE CASCADE,
   ADD CONSTRAINT `carbooking_ibfk_2` FOREIGN KEY (`CarID`) REFERENCES `vehiclelist` (`CarID`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `feedback`
+--
+ALTER TABLE `feedback`
+  ADD CONSTRAINT `FK_ID` FOREIGN KEY (`Id`) REFERENCES `register` (`Id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `maintanencerecord`
+--
+ALTER TABLE `maintanencerecord`
+  ADD CONSTRAINT `fkcarid` FOREIGN KEY (`CarID`) REFERENCES `vehiclelist` (`CarID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

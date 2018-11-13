@@ -33,7 +33,7 @@
 				}
 				
 				//$sql ="SELECT * FROM vehiclelist where CarID =".$id.";";
-				$sql ="SELECT vehiclelist.CarID,vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,vehiclelist.ImagePath,maintanencerecord.Date,
+				$sql ="SELECT vehiclelist.CarID,vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,vehiclelist.Image,maintanencerecord.Date,
 				maintanencerecord.Description,maintanencerecord.Cost,maintanencerecord.Attachment 
 				FROM vehiclelist
 				INNER JOIN maintanencerecord ON vehiclelist.CarID = maintanencerecord.CarID
@@ -44,7 +44,7 @@
 					$row = mysqli_fetch_assoc($records);
 				
 						echo "<form action=\"editspecificvehiclemaintanence_process.php\" method=\"post\" style=\"padding: 50px\">";
-						echo "<img class=\"img-responsive img-thumbnail center-block\" style=\"background-color: white\" src=\"img/".$row['ImagePath']."\" width=\"250\" height=\"250\">";
+						?>	<td><img src="data:image/jpg;base64,<?php echo base64_encode($row['Image']); ?>" width="300" height="200"></td> <?php
 						echo "<div class=\"form-group row\">";
 						echo "<div class=\"col-3\">";
 						echo "<label for=\"exampleFormControlInput1\">Brand</label>";
