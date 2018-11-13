@@ -18,7 +18,7 @@
 				 
 				 </div>
 				 
-				 <h2>Vehicle Maintanence</h2>
+				 <h2>Vehicle Maintenence</h2>
 				 <div class='row' style="padding: 30px; margin-top: -30px">
 				 <a class="acount-btn" href="../VehicleManagement/viewvehiclemaintanence.php">View Record</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				 <a class="acount-btn" href="../VehicleManagement/vehiclemaintanence.php">Add Record</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
