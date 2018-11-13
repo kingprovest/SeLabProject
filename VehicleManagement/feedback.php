@@ -3,25 +3,6 @@
 	include ('header.php');
 
 ?>	
-			          
-			          <li><a href="bookcar.php">Car List</a></li>
-			          <li><a href="custbookingDetails.php">Manage My Bookings</a></li>
-			          <li><a href="#contact">Contact</a></li>
-					   <li class="menu-has-children"><a href="">Account</a>
-			            <ul>
-			              <li><a href="../Login/forgotpassword.php">Change Password</a></li>
-						  <li><a href="../Login/feedback.php">Feedback</a></li>
-			              <li><a href="../Login/logout_process.php">Logout</a></li>
-			            </ul>
-			          </li>
-												
-			        </ul>
-			      </nav><!-- #nav-menu-container -->		    		
-		    	</div>
-		    </div>
-		  </header><!-- #header -->
-
-
 			<!-- start banner Area -->
 			<section class="banner-area relative" id="home">	
 				<div class="overlay overlay-bg"></div>
@@ -67,7 +48,7 @@
                         </div>      
 							<br>
                         <div class="form-group">
-                            <input type="submit" name="btnSubmit" class="form-control" onclick="return confirm('Confirm submit feedback?')"style="width: 50%; height: 50px;"value="Submit Feedback" />
+                            <input type="submit" name="btnSubmit" class="form-control" onclick="return confirm('Confirm submit feedback?')"style="width: 50%; height: 60px; font-size: 22px"value="Submit Feedback" />
                         </div>
                     </div>
                    
