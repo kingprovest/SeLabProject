@@ -10,7 +10,7 @@
 			   <div class="col-md-15 login-left wow fadeInLeft" data-wow-delay="0.4s">
 			  	 <div class='row'>
                 <div class='col-sm-20'> 
-                    <h3><strong>View Vehicles Maintanence</strong></h3>
+                    <h3><strong>View Vehicles Maintenance</strong></h3>
                 </div>
             </div>
             <br>
