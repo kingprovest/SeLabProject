@@ -29,12 +29,12 @@
 				
 				if(!mysqli_query($con,$sql))
 				{
-					echo ' Update fail';
+					echo "<script type='text/javascript'>alert('Update Fail!')</script>";
 				}
 				else
 				{
-					echo 'Updated';
-					header("refresh:2; url='editbooking.php'");
+					echo "<script type='text/javascript'>alert('Update Success!')</script>";
+					header("refresh:0.2; url='editbooking.php'");
 				}
 				mysqli_close($con);
 				

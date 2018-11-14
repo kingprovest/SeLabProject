@@ -17,7 +17,7 @@
 				}
 				else
 				{
-					echo 'Record Deleted';
+					echo "<script type='text/javascript'>alert('Record Deleted!')</script>";
 					header("refresh:0.2; url='deletevehiclemaintanence.php'");
 				}
 ?>

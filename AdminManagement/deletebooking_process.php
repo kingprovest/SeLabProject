@@ -13,11 +13,12 @@
 		
 		if(!mysqli_query($con,$sql))
 				{
-					echo ' Delete fail';
+					echo "<script type='text/javascript'>alert('Car Booking Fail to Delete!')</script>";
+					header("refresh:0.2; url='deletebooking.php'");
 				}
 				else
 				{
-					echo 'Care Booking Deleted';
-					header("refresh:2; url='deletebooking.php'");
+					echo "<script type='text/javascript'>alert('Car Booking Deleted!')</script>";
+					header("refresh:0.2; url='deletebooking.php'");
 				}
 ?>

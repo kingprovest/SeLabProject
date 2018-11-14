@@ -57,10 +57,10 @@
 						echo "<label for=\"exampleFormControlInput1\">PlateNumber</label>";
 						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" value=".$row['PlateNumber']." name=\"platenumber\">";
 						echo "</div>";
-						echo "<div class=\"col-5\">";
-						echo "<label for=\"exampleFormControlInput1\">PerHourRate</label>";
-						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" value=".$row['PerHourRate']." name=\"perhourrate\">";
-						echo "</div>";
+                        echo "<div class=\"col-5\">";
+						echo "<label for=\"exampleFormControlInput1\">NoOfSeat</label>";
+						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" value=".$row['NoOfSeat']." name=\"noofseat\">";
+						echo "</div>";						
 						echo "</div>";
 
 						echo "<div class=\"form-group row\">";
@@ -68,10 +68,7 @@
 						echo "<label for=\"exampleFormControlInput1\">PerDayRate</label>";
 						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" value=".$row['PerDayRate']." name=\"perdayrate\">" ;
 						echo "</div>";
-						echo "<div class=\"col-5\">";
-						echo "<label for=\"exampleFormControlInput1\">NoOfSeat</label>";
-						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" value=".$row['NoOfSeat']." name=\"noofseat\">";
-						echo "</div>";
+						
 						echo "</div>";
 											
 						echo "<div class=\"form-group\">";

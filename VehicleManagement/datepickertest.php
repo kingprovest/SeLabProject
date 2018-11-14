@@ -55,9 +55,8 @@
 					  <th scope="col">Car Image</th>
 					  <th scope="col">Brand</th>
 					  <th scope="col">Model</th>
-					  <th scope="col">Plate Number</th>
-					  <th scope="col">Per Hour Rate</th>
-					  <th scope="col">Per Day Rate</th>
+					  <th scope="col">Plate Number</th>					
+					  <th scope="col">Per Day Rate(RM)</th>
 					  <th scope="col">No Of Seat</th>
 					</tr>
 				  </thead>
@@ -66,7 +65,7 @@
 			<?php
 			
 			$id = array_search("Book", $_POST);
-			echo $id;
+		
 				$con=mysqli_connect('127.0.0.1','root','', 'selabdb');
 				if(!$con)
 				{
@@ -92,8 +91,7 @@
 						?>	<td><img src="data:image/jpg;base64,<?php echo base64_encode($row['Image']); ?>" width="300" height="200"></td> <?php
 						echo "<td>".$row['Brand']."</td>";
 						echo "<td>".$row['Model']."</td>";
-						echo "<td>".$row['PlateNumber']."</td>";
-						echo "<td>".$row['PerHourRate']."</td>";
+						echo "<td>".$row['PlateNumber']."</td>";					
 						echo "<td>".$row['PerDayRate']."</td>";
 						echo "<td>".$row['NoOfSeat']."</td>";
 						echo "</tr>";											
@@ -128,7 +126,7 @@
 				<input class="form-control" id="name" name="pickuppoint" type="text" autocomplete="off" required/>
 				<label class="control-label " for="name">DropOff Point</label>
 				<input class="form-control" id="name" name="dropoffpoint" type="text" autocomplete="off" required/>					
-				<label class="control-label " for="name">Price</label>
+				<label class="control-label " for="name">Price(RM)</label>
 				<input class="form-control" id="rentingprice" name="price" type="text" autocomplete="off" required />
 				<input id="calculate" type="button" value="Calculate" style="width:220px"/>
 				<br>

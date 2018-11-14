@@ -194,9 +194,8 @@
 					  <th scope="col">Car Image</th>
 					  <th scope="col">Brand</th>
 					  <th scope="col">Model</th>
-					  <th scope="col">Plate Number</th>
-					  <th scope="col">Per Hour Rate</th>
-					  <th scope="col">Per Day Rate</th>
+					  <th scope="col">Plate Number</th>					 
+					  <th scope="col">Per Day Rate(RM)</th>
 					  <th scope="col">No Of Seat</th>
 					  <th scope="col">Book Car</th>
 					</tr>
@@ -212,8 +211,7 @@
 						?>	<td><img src="data:image/jpg;base64,<?php echo base64_encode($row['Image']); ?>" width="300" height="200"></td> <?php
 						echo "<td>".$row['Brand']."</td>";
 						echo "<td>".$row['Model']."</td>";
-						echo "<td>".$row['PlateNumber']."</td>";
-						echo "<td>".$row['PerHourRate']."</td>";
+						echo "<td>".$row['PlateNumber']."</td>";				
 						echo "<td>".$row['PerDayRate']."</td>";
 						echo "<td>".$row['NoOfSeat']."</td>";				
 						echo "<td><input value=\"Book\" name=\"".$row['CarID']."\" type=\"submit\" style=\"padding: 10px 50px\" </td>";			

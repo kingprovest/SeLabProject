@@ -33,11 +33,7 @@
 			<div class="form-group"> <!-- Name field -->
 				<label class="control-label" for="name" style="font-weight:bold; font-size:20px">Plate Number</label>
 				<input class="form-control" id="name" name="platenumber" type="text" required/>
-			</div>
-			<div class="form-group"> <!-- Name field -->
-				<label class="control-label" for="name" style="font-weight:bold; font-size:20px">Per hour rate</label>
-				<input class="form-control" id="name" name="perhourrate" type="text" required/>
-			</div>
+			</div>		
 			<div class="form-group"> <!-- Name field -->
 				<label class="control-label" for="name" style="font-weight:bold; font-size:20px">Per day rate</label>
 				<input class="form-control" id="name" name="perdayrate" type="text" required/>

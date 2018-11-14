@@ -24,12 +24,13 @@
 				
 				if(!mysqli_query($con,$sql))
 				{
-					echo ' Update fail';
+					echo "<script type='text/javascript'>alert('Fail to verify!')</script>";
+					header("refresh:0.2; url='verifybooking.php'");
 				}
 				else
 				{
-					echo 'Updated';
-					header("refresh:2; url='verifybooking.php'");
+					echo "<script type='text/javascript'>alert('Verified!')</script>";
+					header("refresh:0.2; url='verifybooking.php'");
 				}
 				mysqli_close($con);
 				

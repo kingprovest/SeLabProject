@@ -15,12 +15,11 @@
 	
 	$Brand =$_POST['brand'];
 	$Model =$_POST['model'];
-	$PlateNumber =$_POST['platenumber'];
-	$PerHourRate =$_POST['perhourrate'];
+	$PlateNumber =$_POST['platenumber'];	
 	$PerDayRate =$_POST['perdayrate'];
 	$NoOfSeat =$_POST['noofseat'];
 	$Image = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
-	$sql ="INSERT INTO vehiclelist(Brand,Model,PlateNumber,PerHourRate,PerDayRate,NoOfSeat,Image) VALUES ('$Brand','$Model','$PlateNumber','$PerHourRate','$PerDayRate','$NoOfSeat','$Image')";
+	$sql ="INSERT INTO vehiclelist(Brand,Model,PlateNumber,PerDayRate,NoOfSeat,Image) VALUES ('$Brand','$Model','$PlateNumber','$PerDayRate','$NoOfSeat','$Image')";
 	
 	if(!mysqli_query($con,$sql))
 	{
@@ -28,8 +27,8 @@
 	}
 	else
 	{
-	echo 'Inserted';
+	 echo "<script type='text/javascript'>alert('Successfully Added!')</script>";
 	}
 	mysqli_close($con);
-	header("refresh:2; url='../AdminManagement/adminpage.php'");
+	header("refresh:0.2; url='../AdminManagement/adminpage.php'");
 ?>

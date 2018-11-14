@@ -13,11 +13,12 @@
 		
 		if(!mysqli_query($con,$sql))
 				{
-					echo ' Delete fail';
+					echo "<script type='text/javascript'>alert('User Fail to Delete!')</script>";
+					header("refresh:0.2; url='../AdminManagement/deletecustomer.php'");
 				}
 				else
 				{
-					echo 'User Deleted';
-					header("refresh:2; url='../AdminManagement/deletecustomer.php'");
+					echo "<script type='text/javascript'>alert('User Deleted!')</script>";
+					header("refresh:0.2; url='../AdminManagement/deletecustomer.php'");
 				}
 ?>

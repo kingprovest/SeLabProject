@@ -25,7 +25,7 @@
 	}
 	else
 	{
-	echo 'Inserted';
+	  echo "<script type='text/javascript'>alert('Record Inserted!')</script>";
 	}
 	mysqli_close($con);
 	header("refresh:0.2; url='../VehicleManagement/vehiclemaintanence.php'");

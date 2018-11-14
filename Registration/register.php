@@ -70,6 +70,12 @@
 						<input class="input100" type="text" name="password" placeholder="*************">
 						<span class="focus-input100"></span>
 					</div>
+					
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<span class="label-input100">Retype Password</span>
+						<input class="input100" type="text" name="password2" placeholder="*************">
+						<span class="focus-input100"></span>
+					</div>
 
 					<div class="flex-m w-full p-b-33">
 						<div class="contact100-form-checkbox">

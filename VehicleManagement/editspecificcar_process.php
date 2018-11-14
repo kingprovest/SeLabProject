@@ -16,14 +16,13 @@
 				$ID =$_POST['CarID'];
 				$Brand =$_POST['brand'];
 				$Model =$_POST['model'];
-				$PlateNumber =$_POST['platenumber'];
-				$PerHourRate =$_POST['perhourrate'];
+				$PlateNumber =$_POST['platenumber'];				
 				$PerDayRate =$_POST['perdayrate'];
 				$NoOfSeat =$_POST['noofseat'];
 				$Image = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
 				
 				$sql ="UPDATE vehiclelist SET Brand= '$Brand',Model='$Model',PlateNumber='$PlateNumber',
-				PerHourRate='$PerHourRate',PerDayRate='$PerDayRate',NoOfSeat='$NoOfSeat',Image='$Image' WHERE CarID ='$ID'";
+				PerDayRate='$PerDayRate',NoOfSeat='$NoOfSeat',Image='$Image' WHERE CarID ='$ID'";
 				
 				
 				if(!mysqli_query($con,$sql))

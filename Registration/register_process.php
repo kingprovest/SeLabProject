@@ -17,17 +17,28 @@
 	$HpNo =$_POST['phonenumber'];
 	$EmailAddress =$_POST['emailaddress'];
 	$Password =$_POST['password'];
+	$Password2 =$_POST['password2'];
 	$AccessLevel = "User";
 	$sql ="INSERT INTO register(FullName,Username,HpNo,EmailAddress,Password,AccessLevel) VALUES ('$FullName','$Username','$HpNo','$EmailAddress','$Password','$AccessLevel')";
 	
-	if(!mysqli_query($con,$sql))
+	if($Password != $Password2)
 	{
-		echo ' Not inserting';
+		echo "<script type='text/javascript'>alert('Password Entered Does Not Match!')</script>";
+		header("refresh:2; url='../Registration/register.php'");
 	}
 	else
 	{
-	echo 'Inserted';
+		if(!mysqli_query($con,$sql))
+		{
+			echo ' Not inserting';
+		}
+		else
+		{
+		  echo "<script type='text/javascript'>alert('Registration Successfull!')</script>";
+		}
+		mysqli_close($con);
+		header("refresh:0.2; url='../Login/login.php'");
 	}
-	mysqli_close($con);
-	header("refresh:2; url='../Login/login.php'");
+	
+	
 ?>
