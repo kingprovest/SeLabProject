@@ -43,7 +43,7 @@
 				if(mysqli_num_rows($records)>0){
 					$row = mysqli_fetch_assoc($records);
 				
-						echo "<form action=\"editspecificvehiclemaintanence_process.php\" method=\"post\" style=\"padding: 50px\">";
+						echo "<form action=\"editspecificvehiclemaintanence_process.php\" method=\"post\" enctype=\"multipart/form-data\" style=\"padding: 50px\">";
 						?>	<td><img src="data:image/jpg;base64,<?php echo base64_encode($row['Image']); ?>" width="300" height="200"></td> <?php
 						echo "<div class=\"form-group row\">";
 						echo "<div class=\"col-3\">";
@@ -82,7 +82,9 @@
 						echo "<div class=\"form-group\">";
 						echo "<label for=\"exampleFormControlInput1\">Attachment</label>";
 						echo "&nbsp;&nbsp;&nbsp;";
-						echo "<div>".$row['Attachment']."</div>";
+						?>
+						<div><img src="data:image/jpg;base64,<?php echo base64_encode($row['Attachment']); ?>" ><div>
+						<?php
 						echo "<input type=\"file\" name=\"attachment\" id=\"image\" >";		
 						echo "</div>";
 						

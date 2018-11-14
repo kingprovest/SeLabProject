@@ -12,12 +12,12 @@
 		
 		echo'Database not selected';
 	}
-	$Date =$_POST['date'];
-	$Description =$_POST['description'];
-	$Cost =$_POST['cost'];
-	$Attachment =$_POST['attachment'];
-	$CarID =$_POST['CarID']; 
-	$sql ="INSERT INTO maintanencerecord(Date,Description,Cost,Attachment,CarID) VALUES ('$Date','$Description','$Cost','$Attachment','$CarID')";
+	$Date = $_POST['date'];
+	$Description = $_POST['description'];
+	$Cost = $_POST['cost'];
+	$Attachment = addslashes(file_get_contents($_FILES["attachment"]["tmp_name"]));
+	$CarID = $_POST['CarID']; 
+	$sql = "INSERT INTO maintanencerecord(Date,Description,Cost,Attachment,CarID) VALUES ('$Date','$Description','$Cost','$Attachment','$CarID')";
 	
 	if(!mysqli_query($con,$sql))
 	{
