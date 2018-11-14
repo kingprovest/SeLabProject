@@ -39,8 +39,8 @@
 				if(mysqli_num_rows($records)>0){
 					$row = mysqli_fetch_assoc($records);
 				
-						echo "<form action=\"addvehiclemaintanence_process.php\" method=\"post\" style=\"padding: 50px\">";
-						?>	<td><img src="data:image/jpg;base64,<?php echo base64_encode($row['Image']); ?>" width="300" height="200"></td> <?php
+						echo "<form action=\"addvehiclemaintanence_process.php\" method=\"post\" enctype=\"multipart/form-data\" style=\"padding: 50px\">";
+						?>	<img src="data:image/jpg;base64,<?php echo base64_encode($row['Image']); ?>" width="300" height="200"> <?php
 						echo "<div class=\"form-group row\">";
 						echo "<div class=\"col-3\">";
 						echo "<label for=\"exampleFormControlInput1\">Brand</label>";

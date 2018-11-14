@@ -16,7 +16,7 @@
 				$Date =$_POST['date'];
 				$Description =$_POST['description'];
 				$Cost =$_POST['cost'];
-				$Attachment =$_POST['attachment'];
+				$Attachment =addslashes(file_get_contents($_FILES["attachment"]["tmp_name"]));
 				$CarID =$_POST['CarID']; 
 				
 				$sql ="UPDATE maintanencerecord SET Date= '$Date',Description='$Description',Cost='$Cost',

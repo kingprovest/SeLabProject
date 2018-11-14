@@ -16,7 +16,7 @@
             <br>
 
 				  
-			<form class='form-horizontal lg-2' action="editspecificvehiclemaintanence.php" method="post" >
+			
                 <br>
 				
 				<table class="table table-striped" style="font-size: 18px">
@@ -46,7 +46,7 @@
 					echo'Database not selected';
 				}
 				
-				$sql ="SELECT vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,vehiclelist.CarID,maintanencerecord.Date,
+				$sql ="SELECT vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,vehiclelist.CarID,maintanencerecord.RecordID,maintanencerecord.Date,
 				maintanencerecord.Description,maintanencerecord.Cost,maintanencerecord.Attachment 
 				FROM vehiclelist
 				INNER JOIN maintanencerecord ON vehiclelist.CarID = maintanencerecord.CarID";
@@ -64,8 +64,19 @@
 						echo "<td>".$row['Date']."</td>";
 						echo "<td>".$row['Description']."</td>";
 						echo "<td>".$row['Cost']."</td>";
-						echo "<td><a href=\"http://localhost/SeLabProject/VehicleManagement/img/".$row['Attachment']."\">Receipt</a><td>";	
-						echo "<td><input value=\"Edit\" name=\"".$row['CarID']."\" type=\"submit\" style=\"padding: 10px 50px\"</td>";						
+						?> 
+						<td>
+							<form method="post" action="viewattachment.php" target="_blank">
+								<input type="hidden" name="id" value="<?php echo $row["RecordID"]; ?>" />
+								<button type="submit" name="Submit" value="Submit" onclick="document.location.href='viewattachment.php'">Receipt</button>
+							</form>
+						</td>
+						<td>
+							<form class='form-horizontal lg-2' action="editspecificvehiclemaintanence.php" method="post">
+								<input value="Edit" name="<?php echo $row['CarID'] ?>" type="submit">
+							</form>
+						</td>
+						<?php						
 						echo "</tr>";
 					}
 				}

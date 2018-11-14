@@ -14,9 +14,6 @@
                 </div>
             </div>
             <br>
-
-				  
-			<form class='form-horizontal lg-2' action="bookspecificcar.php" method="post" >
                 <br>
 				
 				<table class="table table-striped" style="font-size: 18px">
@@ -46,7 +43,7 @@
 					echo'Database not selected';
 				}
 				
-				$sql ="SELECT vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,maintanencerecord.Date,
+				$sql ="SELECT vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,maintanencerecord.RecordID,maintanencerecord.Date,
 				maintanencerecord.Description,maintanencerecord.Cost,maintanencerecord.Attachment 
 				FROM vehiclelist
 				INNER JOIN maintanencerecord ON vehiclelist.CarID = maintanencerecord.CarID";
@@ -56,7 +53,6 @@
 				if(mysqli_num_rows($records)>0){
 					while($row = mysqli_fetch_assoc($records))
 					{
-						
 						echo "<tr>";						
 						echo "<td>".$row['Brand']."</td>";
 						echo "<td>".$row['Model']."</td>";
@@ -64,7 +60,14 @@
 						echo "<td>".$row['Date']."</td>";
 						echo "<td>".$row['Description']."</td>";
 						echo "<td>".$row['Cost']."</td>";
-						echo "<td><a href=\"http://localhost/SeLabProject/VehicleManagement/img/".$row['Attachment']."\">Receipt</a><td>";					
+						?> 
+						<td>
+							<form method="post" action="viewattachment.php" target="_blank">
+								<input type="hidden" name="id" value="<?php echo $row["RecordID"]; ?>" />
+								<button type="submit" name="Submit" value="Submit" onclick="document.location.href='viewattachment.php'">Receipt</button>
+							</form>
+						</td>
+						<?php				
 						echo "</tr>";
 					}
 				}

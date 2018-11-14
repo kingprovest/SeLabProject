@@ -16,7 +16,7 @@
             <br>
 
 				  
-			<form class='form-horizontal lg-2' action="deletespecificvehiclemaintanence_process.php" method="post" >
+			
                 <br>
 				
 				<table class="table table-striped" style="font-size: 18px">
@@ -64,8 +64,19 @@
 						echo "<td>".$row['Date']."</td>";
 						echo "<td>".$row['Description']."</td>";
 						echo "<td>".$row['Cost']."</td>";
-						echo "<td><a href=\"http://localhost/SeLabProject/VehicleManagement/img/".$row['Attachment']."\">Receipt</a><td>";	
-						echo "<td><input value=\"Delete\" name=\"".$row['RecordID']."\" type=\"submit\" onclick=\"return confirm('Confirm Delete?')\" style=\"padding: 10px 50px\"</td>";						
+						?>
+						<td>
+							<form method="post" action="viewattachment.php" target="_blank">
+								<input type="hidden" name="id" value="<?php echo $row["RecordID"]; ?>" />
+								<button type="submit" name="Submit" value="Submit" onclick="document.location.href='viewattachment.php'">Receipt</button>
+							</form>
+						</td>
+						<td>
+							<form class='form-horizontal lg-2' action="deletespecificvehiclemaintanence_process.php" method="post" >
+								<input value="Delete" name="<?php echo $row['RecordID']; ?>" type="submit" onclick="return confirm('Confirm Delete?')">
+							</form>
+						</td>
+						<?php					
 						echo "</tr>";
 					}
 				}
