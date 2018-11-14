@@ -11,7 +11,7 @@
 			   <div class="col-md-15 login-left wow fadeInLeft" data-wow-delay="0.4s">
 			  	 <div class='row'>
                 <div class='col-sm-20'> 
-                    <h3><strong>Vehicles Maintanence</strong></h3>
+                    <h3><strong>Vehicles Maintenance</strong></h3>
                 </div>
             </div>
             <br>
@@ -26,7 +26,7 @@
 					  <th scope="col">Brand</th>
 					  <th scope="col">Model</th>
 					  <th scope="col">Plate Number</th>					  					  
-					  <th scope="col">Maintanence Record</th>
+					  <th scope="col">Maintenance Record</th>
 					</tr>
 				  </thead>
 				  <tbody>
