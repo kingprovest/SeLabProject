@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2018 at 05:20 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.8
+-- Generation Time: Nov 14, 2018 at 05:45 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -37,6 +35,7 @@ CREATE TABLE `carbooking` (
   `DropOffTime` varchar(128) NOT NULL,
   `PickUpPoint` varchar(128) NOT NULL,
   `DropOffPoint` varchar(128) NOT NULL,
+  `AddOnItem` varchar(125) NOT NULL,
   `Price` int(128) NOT NULL,
   `Id` int(128) DEFAULT NULL,
   `CarID` int(128) NOT NULL,
@@ -48,23 +47,23 @@ CREATE TABLE `carbooking` (
 -- Dumping data for table `carbooking`
 --
 
-INSERT INTO `carbooking` (`BookingID`, `ReserveDate`, `StartDate`, `EndDate`, `PickUpTime`, `DropOffTime`, `PickUpPoint`, `DropOffPoint`, `Price`, `Id`, `CarID`, `Runner`, `Availability`) VALUES
-(10001, '13-01-2018', '17-01-2018', '17-01-2018', '12:30am', '1:30am', 'Student Pavilion UNIMAS', 'Student Pavilion UNIMAS', 450, 7, 9, 'Piggy', 'Available'),
-(10002, '15-02-2018', '18-02-2018', '19-02-2018', '1:30pm', '10:30am', 'FIT UNIMAS', 'CAIS UNIMAS', 100, 8, 7, 'Michael', 'Available'),
-(10003, '14-03-2018', '04-03-2018', '07-03-2018', '7:00am', '10:00am', 'Cempaka UNIMAS', 'Cempaka UNIMAS', 400, 9, 7, 'Piggy', 'Available'),
-(10004, '14-04-2018', '16-04-2018', '17-04-2018', '8:00am', '8:00am', 'FSGK UNIMAS', 'CAIS UNIMAS', 1400, 5, 10, 'Michael', 'Available'),
-(10005, '01-05-2018', '11-05-2018', '11-05-2018', '7:00am', '11:30pm', 'ABC', 'DEF', 700, 9, 10, 'Piggy', 'Available'),
-(10006, '20-06-2018', '23-06-2018', '24-06-2018', '5:30am', '10:30am', 'FEB UNIMAS', 'FLC UNIMAS', 200, 5, 7, 'Michael', 'Available'),
-(10007, '19-07-2018', '29-07-2018', '30-07-2018', '8:30am', '2:00pm', 'PQR', 'XYZ', 1400, 9, 10, 'Piggy', 'Available'),
-(10008, '07-08-2018', '10-08-2018', '11-08-2018', '1:30pm', '10:30am', 'FIT UNIMAS', 'CAIS UNIMAS', 100, 7, 7, 'Michael', 'Available'),
-(10009, '15-09-2018', '18-09-2018', '22-09-2018', '1:30pm', '10:30am', 'FIT UNIMAS', 'CAIS UNIMAS', 400, 8, 7, 'Piggy', 'Available'),
-(10010, '10-10-2018', '16-10-2018', '19-10-2018', '8:30am', '8:30pm', 'BRC UNIMAS', 'Sakura UNIMAS', 400, 7, 7, 'Michael', 'Available'),
-(10011, '01-11-2018', '18-11-2018', '20-11-2018', '7:00am', '4:00pm', 'CAIS UNIMAS', 'CAIS UNIMAS', 1350, 8, 9, 'Piggy', 'Available'),
-(10012, '02-11-2018', '20-11-2018', '21-11-2018', '12:00am', '12:00am', 'ABC', 'XYZ', 450, 9, 9, 'Michael', 'Available'),
-(10015, '09-11-2018', '24-11-2018', '26-11-2018', '10:30am', '10:00am', 'XYZ', 'ABC', 900, 5, 9, 'Piggy', 'Available'),
-(10017, '14-11-2018', '20-11-2018', '21-11-2018', '1:00pm', '1:30pm', 'FIT UNIMAS', 'FIT UNIMAS', 100, 9, 7, 'Michael', 'Available'),
-(10018, '14-11-2018', '23-11-2018', '24-11-2018', '9:00am', '11:00pm', 'Student Pavilion UNIMAS', 'Student Pavilion UNIMAS', 1400, 8, 10, 'Piggy', 'Available'),
-(10019, '14-11-2018', '24-12-2018', '26-12-2018', '12:00am', '12:00am', 'QQQ', 'RRR', 1400, 9, 10, 'Michael', 'Available');
+INSERT INTO `carbooking` (`BookingID`, `ReserveDate`, `StartDate`, `EndDate`, `PickUpTime`, `DropOffTime`, `PickUpPoint`, `DropOffPoint`, `AddOnItem`, `Price`, `Id`, `CarID`, `Runner`, `Availability`) VALUES
+(10001, '13-01-2018', '17-01-2018', '17-01-2018', '12:30am', '1:30am', 'Student Pavilion UNIMAS', 'Student Pavilion UNIMAS', 'GPS', 450, 7, 9, 'Piggy', 'Available'),
+(10002, '15-02-2018', '18-02-2018', '19-02-2018', '1:30pm', '10:30am', 'FIT UNIMAS', 'CAIS UNIMAS', 'Ice Box', 100, 8, 7, 'Michael', 'Available'),
+(10003, '14-03-2018', '04-03-2018', '07-03-2018', '7:00am', '10:00am', 'Cempaka UNIMAS', 'Cempaka UNIMAS', 'Phone Charger', 400, 9, 7, 'Piggy', 'Available'),
+(10004, '14-04-2018', '16-04-2018', '17-04-2018', '8:00am', '8:00am', 'FSGK UNIMAS', 'CAIS UNIMAS', 'GPS', 1400, 5, 10, 'Michael', 'Available'),
+(10005, '01-05-2018', '11-05-2018', '11-05-2018', '7:00am', '11:30pm', 'ABC', 'DEF', 'Ice Box', 700, 9, 10, 'Piggy', 'Available'),
+(10006, '20-06-2018', '23-06-2018', '24-06-2018', '5:30am', '10:30am', 'FEB UNIMAS', 'FLC UNIMAS', 'Ice Box', 200, 5, 7, 'Michael', 'Available'),
+(10007, '19-07-2018', '29-07-2018', '30-07-2018', '8:30am', '2:00pm', 'PQR', 'XYZ', 'GPS', 1400, 9, 10, 'Piggy', 'Available'),
+(10008, '07-08-2018', '10-08-2018', '11-08-2018', '1:30pm', '10:30am', 'FIT UNIMAS', 'CAIS UNIMAS', 'GPS', 100, 7, 7, 'Michael', 'Available'),
+(10009, '15-09-2018', '18-09-2018', '22-09-2018', '1:30pm', '10:30am', 'FIT UNIMAS', 'CAIS UNIMAS', 'Ice Box', 400, 8, 7, 'Piggy', 'Available'),
+(10010, '10-10-2018', '16-10-2018', '19-10-2018', '8:30am', '8:30pm', 'BRC UNIMAS', 'Sakura UNIMAS', 'Phone Charger', 400, 7, 7, 'Michael', 'Available'),
+(10011, '01-11-2018', '18-11-2018', '20-11-2018', '7:00am', '4:00pm', 'CAIS UNIMAS', 'CAIS UNIMAS', 'Ice Box', 1350, 8, 9, 'Piggy', 'Available'),
+(10012, '02-11-2018', '20-11-2018', '21-11-2018', '12:00am', '12:00am', 'ABC', 'XYZ', 'Phone Charger', 450, 9, 9, 'Michael', 'Available'),
+(10015, '09-11-2018', '24-11-2018', '26-11-2018', '10:30am', '10:00am', 'XYZ', 'ABC', 'Ice Box', 900, 5, 9, 'Piggy', 'Available'),
+(10017, '14-11-2018', '20-11-2018', '21-11-2018', '1:00pm', '', 'FIT UNIMAS', 'FIT UNIMAS', '', 100, 9, 7, 'Michael', 'Available'),
+(10018, '14-11-2018', '23-11-2018', '24-11-2018', '9:00am', '11:00pm', 'Student Pavilion UNIMAS', 'Student Pavilion UNIMAS', '', 1400, 8, 10, 'Piggy', 'Available'),
+(10019, '14-11-2018', '24-12-2018', '26-12-2018', '12:00am', '12:00am', 'QQQ', 'RRR', '', 1400, 9, 10, 'Michael', 'Available');
 
 -- --------------------------------------------------------
 
@@ -214,31 +213,26 @@ ALTER TABLE `vehiclelist`
 --
 ALTER TABLE `carbooking`
   MODIFY `BookingID` int(222) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10020;
-
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
   MODIFY `feedbackID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `maintanencerecord`
 --
 ALTER TABLE `maintanencerecord`
   MODIFY `RecordID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
 --
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
   MODIFY `Id` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
 -- AUTO_INCREMENT for table `vehiclelist`
 --
 ALTER TABLE `vehiclelist`
   MODIFY `CarID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
 -- Constraints for dumped tables
 --
@@ -261,7 +255,6 @@ ALTER TABLE `feedback`
 --
 ALTER TABLE `maintanencerecord`
   ADD CONSTRAINT `fkcarid` FOREIGN KEY (`CarID`) REFERENCES `vehiclelist` (`CarID`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
