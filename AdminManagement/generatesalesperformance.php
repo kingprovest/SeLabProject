@@ -278,9 +278,15 @@
 						{
 							$row = mysqli_fetch_assoc($records);
 							
+							if($row['Sum'] == 0)
+							{
+								$row['Sum'] = 0;
+							}
+							
 							echo "{ x: new Date(".$year.", 11, 1), y: ".$row['Sum'].", markerColor: 'tomato'}";
 							
 						}
+						
 					?>
 					]
 				}]
