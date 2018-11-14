@@ -16,7 +16,10 @@
 		font-size:20px;
 		height: 50px;
 	}
-	
+	#item {
+   -webkit-appearance: menulist-button;
+   height: 50px;
+}
 	
 </style>
 		  
@@ -125,12 +128,18 @@
 				<label class="control-label " for="name">PickUp Point</label>
 				<input class="form-control" id="name" name="pickuppoint" type="text" autocomplete="off" required/>
 				<label class="control-label " for="name">DropOff Point</label>
-				<input class="form-control" id="name" name="dropoffpoint" type="text" autocomplete="off" required/>					
+				<input class="form-control" id="name" name="dropoffpoint" type="text" autocomplete="off" required/>	
+				<label class="control-label " for="name">Add-On Item (Free)</label>
+				<select class="form-control" id="item" name="addonitem" height="500px">
+				<option> </option>
+				<option> GPS </option>
+				<option> Phone Charger </option>
+				<option> Ice Box </option> </select>
 				<label class="control-label " for="name">Price(RM)</label>
 				<input class="form-control" id="rentingprice" name="price" type="text" autocomplete="off" required />
 				<input id="calculate" type="button" value="Calculate" style="width:220px"/>
 				<br>
-				<button type='submit' name='add' value='add'  class='btn btn-default btn-primary' onclick="return confirm('Are you sure to add?')"
+				<button type='submit' name='add' value='add'  class='btn btn-default btn-primary' onclick="return confirm('Are you sure to book?')"
                         style=" background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; width: 220px; padding: 10px; margin-left:30px; font-size: 18px"
                 >Reserve Now!!</button>
 			</form>

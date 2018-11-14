@@ -31,7 +31,7 @@
 				}
 				
 				$sql ="SELECT carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.Price,carbooking.BookingID,
-				carbooking.Id,carbooking.CarID,
+				carbooking.Id,carbooking.CarID,carbooking.PickUpTime,carbooking.DropOffTime,
 				vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,register.Username
 				FROM carbooking
 				INNER JOIN vehiclelist ON carbooking.CarID = vehiclelist.CarID
@@ -79,6 +79,17 @@
 						</div>
 						</div>
 						<?php
+						echo "<div class=\"form-group row\">";
+						echo "<div class=\"col-5\">";
+						echo "<label for=\"exampleFormControlInput1\"><strong>PickUpTime</strong></label>";
+						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" value=".$row['PickUpTime']." name=\"pickuptime\">" ;
+						echo "</div>";
+						echo "<div class=\"col-5\">";
+						echo "<label for=\"exampleFormControlInput1\"><strong>DropOffTime</strong></label>";
+						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" value=".$row['DropOffTime']." name=\"dropofftime\">";
+						echo "</div>";
+						echo "</div>";
+						
 						echo "<div class=\"form-group row\">";
 						echo "<div class=\"col-5\">";
 						echo "<label for=\"exampleFormControlInput1\"><strong>PickUpPoint</strong></label>";

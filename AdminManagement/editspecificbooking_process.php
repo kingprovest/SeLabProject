@@ -20,10 +20,12 @@
 				$PickUpPoint =$_POST['pickuppoint'];
 				$UserID =$_POST['userid'];
 				$CarID =$_POST['carid'];
+				$PickUpTime =$_POST['pickuptime'];
+				$DropOffTime =$_POST['dropofftime'];
 				
 				
 				$sql ="UPDATE carbooking SET StartDate= '$StartDate',EndDate='$EndDate',
-				PickUpPoint='$PickUpPoint',Id='$UserID',CarID='$CarID'
+				PickUpPoint='$PickUpPoint',Id='$UserID',PickUpTime='$PickUpTime',DropOffTime='$DropOffTime',CarID='$CarID'
 				 WHERE BookingID ='$BookingID'";
 				
 				

@@ -41,12 +41,12 @@
 					<tr>
 					  <th scope="col">#</th>
 					  <th scope="col">Brand</th>
-					  <th scope="col">Model</th>
-					  <th scope="col">PlateNumber</th>
-					  <th scope="col">NoOfSeat</th>
+					  <th scope="col">Model</th>				  				  
 					  <th scope="col">StartDate</th>
 					  <th scope="col">EndDate</th>
 					  <th scope="col">PickUpPoint</th>
+					  <th scope="col">PickUpTime</th>
+					  <th scope="col">Add-On</th>
 					  <th scope="col">Status</th>
 					  <th scope="col">Invoice</th>
 					</tr>
@@ -67,8 +67,9 @@
 				
 				$userid = $_SESSION['userID'];
 				
-				$sql ="SELECT carbooking.BookingID,carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.Price,carbooking.Availability,
-				vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,vehiclelist.NoOfSeat
+				$sql ="SELECT carbooking.BookingID,carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.Price,carbooking.PickUpTime,
+				carbooking.Availability,carbooking.AddOnItem,vehiclelist.Brand,vehiclelist.Model,
+				vehiclelist.PlateNumber,vehiclelist.NoOfSeat
 				FROM carbooking
 				INNER JOIN vehiclelist ON carbooking.CarID = vehiclelist.CarID
 				WHERE carbooking.Id = ".$userid.";";
@@ -82,12 +83,12 @@
 						echo "<tr>";
 							echo "<th scope=\"row\">$count</th>";
 							echo "<td>".$row['Brand']."</td>";
-							echo "<td>".$row['Model']."</td>";
-							echo "<td>".$row['PlateNumber']."</td>";
-							echo "<td>".$row['NoOfSeat']."</td>";
+							echo "<td>".$row['Model']."</td>";													
 							echo "<td>".$row['StartDate']."</td>";
 							echo "<td>".$row['EndDate']."</td>";
 							echo "<td>".$row['PickUpPoint']."</td>";
+							echo "<td>".$row['PickUpTime']."</td>";
+							echo "<td>".$row['AddOnItem']."</td>";
 							if($row['Availability']== 'Available')
 							{
 								echo "<td>Confirmed</td>";

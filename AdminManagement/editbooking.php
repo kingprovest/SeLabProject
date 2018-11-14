@@ -33,6 +33,8 @@
 					  <th scope="col">StartDate</th>
 					  <th scope="col">EndDate</th>
 					  <th scope="col">PickUpPoint</th>
+					  <th scope="col">PickUpTime</th>
+					  <th scope="col">DropOffTime</th>
 					  <th scope="col">Payment</th>
 					  <th scope="col">Action</th>
 					</tr>
@@ -51,8 +53,8 @@
 					echo'Database not selected';
 				}
 				
-				$sql ="SELECT carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.Price,carbooking.BookingID,
-				vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,register.Username
+				$sql ="SELECT carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.Price,carbooking.BookingID,carbooking.PickUpTime,
+				carbooking.DropOffTime,vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,register.Username
 				FROM carbooking
 				INNER JOIN vehiclelist ON carbooking.CarID = vehiclelist.CarID
 				INNER JOIN register ON carbooking.Id = register.Id";
@@ -71,6 +73,8 @@
 							  echo "<td>".$row['StartDate']."</td>";
 							  echo "<td>".$row['EndDate']."</td>";
 							  echo "<td>".$row['PickUpPoint']."</td>";
+							  echo "<td>".$row['PickUpTime']."</td>";
+							  echo "<td>".$row['DropOffTime']."</td>";
 							  echo "<td>".$row['Price']."</td>";
 							  echo "<td>";
 							  echo "<p data-placement=\"top\" data-toggle=\"tooltip\" title=\"Edit\">";

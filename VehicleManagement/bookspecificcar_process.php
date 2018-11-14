@@ -27,12 +27,13 @@
 	$ReserveDate = date("d-m-Y");
 	$PickupTime = $_POST['pickuptime'];
 	$DropOffTIme = $_POST['dropofftime'];
+	$AddOnItem = $_POST['addonitem'];
 	$Runner = "None";
 	$Availability = "Null";
 	
 	
-	$sql ="INSERT INTO carbooking(ReserveDate,StartDate,EndDate,PickUpPoint,DropOffPoint,Id,CarID,Price,Runner,PickUpTime,DropOffTime,Availability) 
-	VALUES ('$ReserveDate','$StartDate','$EndDate','$PickUpPoint','$DropOffPoint','$UserId','$CarId','$Price','$Runner','$PickupTime','$DropOffTIme','$Availability')";
+	$sql ="INSERT INTO carbooking(ReserveDate,StartDate,EndDate,PickUpPoint,DropOffPoint,Id,CarID,Price,Runner,PickUpTime,DropOffTime,Availability,AddOnItem) 
+	VALUES ('$ReserveDate','$StartDate','$EndDate','$PickUpPoint','$DropOffPoint','$UserId','$CarId','$Price','$Runner','$PickupTime','$DropOffTIme','$Availability','$AddOnItem')";
 	
 	if(!mysqli_query($con,$sql))
 	{
@@ -41,7 +42,7 @@
 	else
 	{
 	
-		echo 'Inserted';
+		echo "<script type='text/javascript'>alert('Booking Successfull!!')</script>";
 		
 		$sql = "SELECT BookingID from carbooking WHERE Id = '$UserId' AND StartDate = '$StartDate' AND EndDate = '$EndDate' AND CarID = '$CarId'";
 		
