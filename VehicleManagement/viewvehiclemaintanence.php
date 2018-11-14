@@ -14,9 +14,6 @@
                 </div>
             </div>
             <br>
-
-				  
-			<form class='form-horizontal lg-2' action="bookspecificcar.php" method="post" >
                 <br>
 				
 				<table class="table table-striped" style="font-size: 18px">
@@ -56,7 +53,6 @@
 				if(mysqli_num_rows($records)>0){
 					while($row = mysqli_fetch_assoc($records))
 					{
-						
 						echo "<tr>";						
 						echo "<td>".$row['Brand']."</td>";
 						echo "<td>".$row['Model']."</td>";
