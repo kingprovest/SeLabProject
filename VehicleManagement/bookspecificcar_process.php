@@ -42,7 +42,7 @@
 	else
 	{
 	
-		echo "<script type='text/javascript'>alert('Booking Successfull!!')</script>";
+		echo "<script type='text/javascript'>alert('Booking Successful!!')</script>";
 		
 		$sql = "SELECT BookingID from carbooking WHERE Id = '$UserId' AND StartDate = '$StartDate' AND EndDate = '$EndDate' AND CarID = '$CarId'";
 		

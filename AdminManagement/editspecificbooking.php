@@ -30,7 +30,7 @@
 					echo'Database not selected';
 				}
 				
-				$sql ="SELECT carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.Price,carbooking.BookingID,
+				$sql ="SELECT carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.DropOffPoint,carbooking.Price,carbooking.BookingID,
 				carbooking.Id,carbooking.CarID,carbooking.PickUpTime,carbooking.DropOffTime,
 				vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,register.Username
 				FROM carbooking
@@ -95,6 +95,13 @@
 						echo "<label for=\"exampleFormControlInput1\"><strong>PickUpPoint</strong></label>";
 						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" value=".$row['PickUpPoint']." name=\"pickuppoint\">" ;
 						echo "</div>";
+						echo "<div class=\"col-5\">";
+						echo "<label for=\"exampleFormControlInput1\"><strong>DropOffPoint</strong></label>";
+						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" value=".$row['DropOffPoint']." name=\"dropoffpoint\">" ;
+						echo "</div>";
+						echo "</div>";
+						
+						echo "<div class=\"form-group row\">";
 						echo "<div class=\"col-5\">";
 						echo "<label for=\"exampleFormControlInput1\"><strong>Payment</strong></label>";
 						echo "<input type=\"model\" class=\"form-control\" id=\"exampleFormControlInput1\" value=".$row['Price']." name=\"noofseat\" readonly>";

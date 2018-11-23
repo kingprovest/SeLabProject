@@ -31,7 +31,7 @@
 			
 			else 
 			{
-				echo "<script type='text/javascript'>alert('Password Successfully Reseted!')</script>";	
+				echo "<script type='text/javascript'>alert('Password Successfully Reset!')</script>";	
 								
 				header("refresh:0.1; url='forgotpassword.php'");
 			}

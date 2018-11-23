@@ -8,9 +8,9 @@
 			<section class="quote-area pt-100">
 				<div class="container">
 					 <div class="account_grid">
-			   <div class="col-md-20 login-left wow fadeInLeft" data-wow-delay="0.4s">
-			  	 <div class='row'>
-                <div class='col-sm-12'> 
+			   <div class="col-md-10 login-left wow fadeInLeft" data-wow-delay="0.4s">
+			  	 <div class='row' style="margin-left: -50px">
+                <div class='col-sm-5'> 
                     <h3><strong>Booking Assignment</strong></h3>
                 </div>
             </div>
@@ -19,17 +19,20 @@
 			<form class='form-horizontal lg-2' action="editbookingassignment.php" method="post" >
                 <br>
 				
-				<table class="table table-striped">
+				<table class="table table-striped" style="margin-left: -80px">
 				  <thead>
 					<tr>
 					  <th scope="col">BookingID</th>
 					  <th scope="col">User</th>
 					  <th scope="col">Brand</th>
 					  <th scope="col">Model</th>
-					  <th scope="col">PlateNumber</th>					  
+					  <th scope="col">Plate Number</th>					  
 					  <th scope="col">StartDate</th>
 					  <th scope="col">EndDate</th>
-					  <th scope="col">PickUpPoint</th>
+					  <th scope="col">PickUp Point</th>
+					  <th scope="col">PickUp Time</th>
+					  <th scope="col">DropOff Point</th>
+					  <th scope="col">DropOff Time</th>
 					  <th scope="col">Payment</th>
 					  <th scope="col">Runner</th>
 					  <th scope="col">Action</th>
@@ -49,7 +52,7 @@
 					echo'Database not selected';
 				}
 				
-				$sql ="SELECT carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.Price,carbooking.BookingID,carbooking.Runner,
+				$sql ="SELECT carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.PickUpTime,carbooking.DropOffPoint,carbooking.DropOffTime,carbooking.Price,carbooking.BookingID,carbooking.Runner,
 				vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,register.Username
 				FROM carbooking
 				INNER JOIN vehiclelist ON carbooking.CarID = vehiclelist.CarID
@@ -69,6 +72,9 @@
 							  echo "<td>".$row['StartDate']."</td>";
 							  echo "<td>".$row['EndDate']."</td>";
 							  echo "<td>".$row['PickUpPoint']."</td>";
+							  echo "<td>".$row['PickUpTime']."</td>";
+							  echo "<td>".$row['DropOffPoint']."</td>";
+							  echo "<td>".$row['DropOffTime']."</td>";
 							  echo "<td>".$row['Price']."</td>";
 							  echo "<td>".$row['Runner']."</td>";
 							  echo "<td>";
