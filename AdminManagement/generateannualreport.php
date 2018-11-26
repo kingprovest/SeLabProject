@@ -20,7 +20,7 @@
 			<hr>
 			<div class="limiter">
 				<div class="container-table100">
-					<div class="wrap-table100">
+					<div id="annualReport" class="wrap-table100">
 						<div class="table100 ver1 m-b-110">
 							<div class="table100-head">
 								<table>
@@ -217,12 +217,17 @@
 								</table>
 							</div>
 						</div>
+						
+						<form method="post" action="printannualreport.php" target="_blank">	
+							<input type="hidden" name="year" value="<?php echo $year; ?>"></input>
+							<p class="text-center"><button type="submit" name="printAnnualReportBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; padding: 20px; width: 150px">Print</button></p>
+						</form>
 					</div>
 				</div>
 			</div>
 		</section>
 		
-		<p class="text-center"><button type="submit" name="backBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; padding: 20px; width: 200px" onclick="document.location.href='viewannualreport.php';">Back</button></p>
+		<p class="text-center"><button type="submit" name="backBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; padding: 20px; width: 150px" onclick="document.location.href='viewannualreport.php';">Back</button></p>
 
 		<section class="quote-area pt-100">
 		</section>

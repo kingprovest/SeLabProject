@@ -1,29 +1,46 @@
-<?php
-
-	include ('manager_header.php');
+<html>
+	<head>
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/magnific-popup.css">
+		<link rel="stylesheet" href="css/nice-select.css">
+		<link rel="stylesheet" href="css/hexagons.min.css">										
+		<link rel="stylesheet" href="css/animate.min.css">
+		<link rel="stylesheet" href="css/owl.carousel.css">
+		<link rel="stylesheet" href="css/main.css">
+		<link href="css/styleadminbootstrap.css" rel="stylesheet" type="text/css" media="all" />
+		<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+		<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+		<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+		<link rel="stylesheet" type="text/css" href="css/table_util.css">
+		<link rel="stylesheet" type="text/css" href="css/table_main.css">
+	</head>
 	
-	if(isset($_POST['viewMonthlyReportBtn']))
-	{
-		$year = $_POST['year'];
-		$month = $_POST['month'];
-		
-		if($year == date("Y") && $month > date("m"))
-		{
-			?>
-			<script>notifyInvalidPeriod();</script>
-			<?php
-		}
-	}
-?>
-		<script type="text/javascript">
-			function notifyInvalidPeriod() 
+	<body>
+		<?php
+			if(isset($_POST['printMonthlyReportBtn']))
 			{
-				alert("Oops! The selected period is invalid.");
-				window.location.href = "viewmonthlyreport.php";
+				$year = $_POST['year'];
+				$month = $_POST['month'];
 			}
-		</script>
+		?>
 		
-		<!-- Start quote Area -->
+		<!--Javascript function to save data inside 'annualReport' div -->
+		<script language="javascript" type="text/javascript">
+		function printDiv(divID) 
+		{
+			var divElements = document.getElementById(divID).innerHTML;
+			var oldPage = document.body.innerHTML;
+ 
+			document.body.innerHTML = "<html><head><title></title></head><body>" + divElements + "</body></html>";
+ 
+			window.print();
+ 
+			document.body.innerHTML = oldPage;
+		}
+		</script>
+
+		<div id="monthlyReport">
 		<section class="quote-area pt-100">
 			<h1 class="text-center"><img src="img/businesslogo.png" height="200px" width="200px"></h1>
 			<h1 class="text-center" style="padding:30px;">Monthly Sales Report</h1>
@@ -82,7 +99,7 @@
 								</table>
 							</div>
 							
-							<div class="table100-body js-pscroll">
+							<div class="table100-print">
 								<table>
 									<tbody>
 									<?php 
@@ -186,7 +203,7 @@
 								</table>
 							</div>
 							
-							<div class="table100-body js-pscroll">
+							<div class="table100-print">
 								<table>
 									<tbody>
 									<?php 
@@ -262,63 +279,19 @@
 									</thead>
 								</table>
 							</div>
-						</div>
-						<form method="post" action="printmonthlyreport.php" target="_blank">	
-							<input type="hidden" name="year" value="<?php echo $year; ?>"></input>
-							<input type="hidden" name="month" value="<?php echo $month; ?>"></input>
-							<p class="text-center"><button type="submit" name="printMonthlyReportBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; padding: 20px; width: 150px">Print</button></p>
-						</form>
+						</div>						
 					</div>
 				</div>
 			</div>
 		</section>
+		</div>
 		
-		<p class="text-center"><button type="submit" name="backBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; padding: 20px; width: 150px" onclick="document.location.href='viewmonthlyreport.php';">Back</button></p>
-
+		<script>
+			printDiv('monthlyReport');
+		</script>
+		
 		<section class="quote-area pt-100">
 		</section>
 		<!-- End quote Area -->
-	
-				
-		<!-- start footer Area -->				
-		<?php
-
-		include ('footer.php');
-
-		?>
-		<!-- End footer Area -->	
-		
-		<script src="js/vendor/jquery-2.2.4.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		<script src="js/vendor/bootstrap.min.js"></script>			
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-  		<script src="js/easing.min.js"></script>			
-		<script src="js/hoverIntent.js"></script>
-		<script src="js/superfish.min.js"></script>	
-		<script src="js/jquery.ajaxchimp.min.js"></script>
-		<script src="js/jquery.magnific-popup.min.js"></script>	
-		<script src="js/owl.carousel.min.js"></script>			
-		<script src="js/jquery.sticky.js"></script>
-		<script src="js/jquery.nice-select.min.js"></script>	
-		<script src="js/hexagons.min.js"></script>					
-		<script src="js/waypoints.min.js"></script>			
-		<script src="js/jquery.counterup.min.js"></script>						
-		<script src="js/mail-script.js"></script>	
-		<script src="js/main.js"></script>	
-		<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-		<script src="vendor/bootstrap/js/popper.js"></script>
-		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-		<script src="vendor/select2/select2.min.js"></script>
-		<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-		<script>
-			$('.js-pscroll').each(function(){
-				var ps = new PerfectScrollbar(this);
-
-				$(window).on('resize', function(){
-					ps.update();
-				})
-			});
-		</script>
-		<script src="js/table_main.js"></script>
 	</body>
 </html>
