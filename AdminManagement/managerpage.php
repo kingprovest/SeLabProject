@@ -19,6 +19,11 @@
 				 <a class="acount-btn" href="viewstatistics.php">Statistics</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
 				 </div>
 				 
+				 <h2>Feedback Management</h2>
+				 <div class='row' style="padding: 30px; margin-top: -30px">
+				 <a class="acount-btn" href="customerfeedback.php">View Customer Feedback </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		
+				 </div>
+				 
 	
 								 
 				 </div>

@@ -40,11 +40,11 @@
                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" name="title" class="form-control" placeholder="Title *" value="" />
+                            <input type="text" name="title" class="form-control" placeholder="Title *" value="" required />
                         </div>
 						<br>
                          <div class="form-group">
-                            <textarea name="message" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;"></textarea>
+                            <textarea name="message" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;" required></textarea>
                         </div>      
 							<br>
                         <div class="form-group">
