@@ -46,6 +46,8 @@
 					  <th scope="col">EndDate</th>
 					  <th scope="col">PickUpPoint</th>
 					  <th scope="col">PickUpTime</th>
+					  <th scope="col">DropOffPoint</th>
+					  <th scope="col">DropOffTime</th>
 					  <th scope="col">Add-On</th>
 					  <th scope="col">Status</th>
 					  <th scope="col">Invoice</th>
@@ -67,7 +69,7 @@
 				
 				$userid = $_SESSION['userID'];
 				
-				$sql ="SELECT carbooking.BookingID,carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.Price,carbooking.PickUpTime,
+				$sql ="SELECT carbooking.BookingID,carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.Price,carbooking.PickUpTime,carbooking.DropOffPoint,carbooking.DropOffTime,
 				carbooking.Availability,carbooking.AddOnItem,vehiclelist.Brand,vehiclelist.Model,
 				vehiclelist.PlateNumber,vehiclelist.NoOfSeat
 				FROM carbooking
@@ -88,6 +90,8 @@
 							echo "<td>".$row['EndDate']."</td>";
 							echo "<td>".$row['PickUpPoint']."</td>";
 							echo "<td>".$row['PickUpTime']."</td>";
+							echo "<td>".$row['DropOffPoint']."</td>";
+							echo "<td>".$row['DropOffTime']."</td>";
 							echo "<td>".$row['AddOnItem']."</td>";
 							if($row['Availability']== 'Available')
 							{
@@ -120,7 +124,8 @@
 			 </tbody>
 			</table>
 			</div>
-				
+			</div>
+			</div>
 			</section>
 			<section class="quote-area pt-100">
 			</section>

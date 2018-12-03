@@ -263,12 +263,17 @@
 								</table>
 							</div>
 						</div>
+						<form method="post" action="printmonthlyreport.php" target="_blank">	
+							<input type="hidden" name="year" value="<?php echo $year; ?>"></input>
+							<input type="hidden" name="month" value="<?php echo $month; ?>"></input>
+							<p class="text-center"><button type="submit" name="printMonthlyReportBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; padding: 20px; width: 150px; margin-left: -15px">Print</button></p>
+						</form>
 					</div>
 				</div>
 			</div>
 		</section>
 		
-		<p class="text-center"><button type="submit" name="backBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; padding: 20px; width: 200px" onclick="document.location.href='viewmonthlyreport.php';">Back</button></p>
+		<p class="text-center"><button type="submit" name="backBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; padding: 20px; width: 150px" onclick="document.location.href='viewmonthlyreport.php';">Back</button></p>
 
 		<section class="quote-area pt-100">
 		</section>

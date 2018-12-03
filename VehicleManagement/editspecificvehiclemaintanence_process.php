@@ -24,11 +24,11 @@
 				
 				if(!mysqli_query($con,$sql))
 				{
-					echo ' Update fail';
+					echo ' Update failed';
 				}
 				else
 				{
-					echo "<script type='text/javascript'>alert('Update Success!')</script>";
+					echo "<script type='text/javascript'>alert('Update Successful!')</script>";
 					header("refresh:0.1; url='editvehiclemaintanence.php'");
 				}
 				mysqli_close($con);

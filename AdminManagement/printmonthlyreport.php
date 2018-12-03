@@ -1,26 +1,84 @@
-<?php
-
-	include ('manager_header.php');
+<html>
+	<head>
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/magnific-popup.css">
+		<link rel="stylesheet" href="css/nice-select.css">
+		<link rel="stylesheet" href="css/hexagons.min.css">										
+		<link rel="stylesheet" href="css/animate.min.css">
+		<link rel="stylesheet" href="css/owl.carousel.css">
+		<link rel="stylesheet" href="css/main.css">
+		<link href="css/styleadminbootstrap.css" rel="stylesheet" type="text/css" media="all" />
+		<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+		<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+		<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+		<link rel="stylesheet" type="text/css" href="css/table_util.css">
+		<link rel="stylesheet" type="text/css" href="css/table_main.css">
+	</head>
 	
-	if(isset($_POST['viewAnnualReportBtn']))
-	{
-		$year = $_POST['year'];
-	}
-?>
+	<body>
+		<?php
+			if(isset($_POST['printMonthlyReportBtn']))
+			{
+				$year = $_POST['year'];
+				$month = $_POST['month'];
+			}
+		?>
+		
+		<!--Javascript function to save data inside 'annualReport' div -->
+		<script language="javascript" type="text/javascript">
+		function printDiv(divID) 
+		{
+			var divElements = document.getElementById(divID).innerHTML;
+			var oldPage = document.body.innerHTML;
+ 
+			document.body.innerHTML = "<html><head><title></title></head><body>" + divElements + "</body></html>";
+ 
+			window.print();
+ 
+			document.body.innerHTML = oldPage;
+		}
+		</script>
 
-		<!-- Start quote Area -->
+		<div id="monthlyReport">
 		<section class="quote-area pt-100">
 			<h1 class="text-center"><img src="img/businesslogo.png" height="200px" width="200px"></h1>
-			<h1 class="text-center" style="padding:30px;">Annual Sales Report</h1>
+			<h1 class="text-center" style="padding:30px;">Monthly Sales Report</h1>
 			<h1 class="text-center">
-			<?php 				
+			<?php 
+				if($month == 1)
+					echo "January ";
+				if($month == 2)
+					echo "February ";
+				if($month == 3)
+					echo "March ";
+				if($month == 4)
+					echo "April ";
+				if($month == 5)
+					echo "May ";
+				if($month == 6)
+					echo "June ";
+				if($month == 7)
+					echo "July ";
+				if($month == 8)
+					echo "August ";
+				if($month == 9)
+					echo "September ";
+				if($month == 10)
+					echo "October ";
+				if($month == 11)
+					echo "November ";
+				if($month == 12)
+					echo "December ";
+				
 				echo $year;
 			?>
 			</h1>
 			<hr>
 			<div class="limiter">
 				<div class="container-table100">
-					<div id="annualReport" class="wrap-table100">
+					<div class="wrap-table100">
+						<h2 class="text-center">Sales</h2>
 						<div class="table100 ver1 m-b-110">
 							<div class="table100-head">
 								<table>
@@ -41,7 +99,7 @@
 								</table>
 							</div>
 							
-							<div class="table100-body js-pscroll">
+							<div class="table100-print">
 								<table>
 									<tbody>
 									<?php 
@@ -56,17 +114,25 @@
 										{
 											echo 'Database not selected';
 										}
-										
-										$period = '%-%-'.$year;
 								
+										if(strlen($month) == 2)
+										{
+											$period = '%-'.$month.'-'.$year;
+										}
+									
+										else
+										{
+											$period = '%-0'.$month.'-'.$year;
+										}
+										
 										$sql = "SELECT carbooking.BookingID,carbooking.StartDate,carbooking.EndDate,carbooking.Price,carbooking.Runner,
-											   vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber
+											   vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,vehiclelist.NoOfSeat
 											   FROM carbooking
 											   INNER JOIN vehiclelist ON carbooking.CarID = vehiclelist.CarID
 											   WHERE carbooking.EndDate LIKE '$period'";
 				
 										$count = 1;
-										$totalSales = 0.0;
+										$totalSales = 0.00;
 										$records = mysqli_query($con,$sql);
 										if(mysqli_num_rows($records)>0)
 										{
@@ -88,18 +154,17 @@
 													<td class="cell100 column7"><?php echo $row['Brand']; ?></td>
 													<td class="cell100 column8"><?php echo $row['Model']; ?></td>
 													<td class="cell100 column9"><?php echo $row['Runner']; ?></td>
-													<td class="cell100 column10"><?php echo $row['Price']; ?></td>
+													<td class="cell100 column10"><?php echo $row['Price'].".00"; ?></td>
 												</tr>
-										<?php		
+									<?php		
 												$count += 1;
 												$totalSales += $row['Price'];
 											}
 										}
-										?>
+									?>
 									</tbody>
 								</table>
 							</div>
-							
 							<div class="table100-foot">
 								<table>
 									<tbody>
@@ -119,7 +184,7 @@
 								</table>
 							</div>
 						</div>
-						
+
 						<h2 class="text-center">Vehicle Maintenance Summary</h2>
 						<div class="table100 ver1 m-b-110">
 							<div class="table100-head">
@@ -138,23 +203,21 @@
 								</table>
 							</div>
 							
-							<div class="table100-body js-pscroll">
+							<div class="table100-print">
 								<table>
 									<tbody>
 									<?php 
 										$con=mysqli_connect('127.0.0.1','root','', 'selabdb');
 								
-										if(!$con)
+										if(strlen($month) == 2)
 										{
-											echo 'Not Connected To Server';
+											$period = '%-'.$month.'-'.$year;
 										}
-				
-										if(!mysqli_select_db($con,'selabdb'))
+									
+										else
 										{
-											echo 'Database not selected';
+											$period = '%-0'.$month.'-'.$year;
 										}
-										
-										$period = '%-%-'.$year;
 											   
 										$sql = "SELECT vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,maintanencerecord.Date,
 											   maintanencerecord.Description,maintanencerecord.Cost
@@ -177,7 +240,7 @@
 													<td class="cell100 column14"><?php echo $row['PlateNumber']; ?></td>
 													<td class="cell100 column15"><?php echo $row['Date']; ?></td>
 													<td class="cell100 column16"><?php echo $row['Description']; ?></td>
-													<td class="cell100 column17"><?php echo $row['Cost'].".00"; ?></td>
+													<td class="cell100 column17"><?php echo $row['Cost']; ?></td>
 												</tr>
 									<?php		
 												$count += 1;
@@ -216,63 +279,19 @@
 									</thead>
 								</table>
 							</div>
-						</div>
-						
-						<form method="post" action="printannualreport.php" target="_blank">	
-							<input type="hidden" name="year" value="<?php echo $year; ?>"></input>
-							<p class="text-center"><button type="submit" name="printAnnualReportBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; padding: 20px; width: 150px; margin-left: -15px">Print</button></p>
-						</form>
+						</div>						
 					</div>
 				</div>
 			</div>
 		</section>
+		</div>
 		
-		<p class="text-center"><button type="submit" name="backBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; padding: 20px; width: 150px" onclick="document.location.href='viewannualreport.php';">Back</button></p>
-
+		<script>
+			printDiv('monthlyReport');
+		</script>
+		
 		<section class="quote-area pt-100">
 		</section>
 		<!-- End quote Area -->
-	
-				
-		<!-- start footer Area -->				
-		<?php
-
-		include ('footer.php');
-
-		?>
-		<!-- End footer Area -->	
-		
-		<script src="js/vendor/jquery-2.2.4.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		<script src="js/vendor/bootstrap.min.js"></script>			
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-  		<script src="js/easing.min.js"></script>			
-		<script src="js/hoverIntent.js"></script>
-		<script src="js/superfish.min.js"></script>	
-		<script src="js/jquery.ajaxchimp.min.js"></script>
-		<script src="js/jquery.magnific-popup.min.js"></script>	
-		<script src="js/owl.carousel.min.js"></script>			
-		<script src="js/jquery.sticky.js"></script>
-		<script src="js/jquery.nice-select.min.js"></script>	
-		<script src="js/hexagons.min.js"></script>					
-		<script src="js/waypoints.min.js"></script>			
-		<script src="js/jquery.counterup.min.js"></script>						
-		<script src="js/mail-script.js"></script>	
-		<script src="js/main.js"></script>	
-		<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-		<script src="vendor/bootstrap/js/popper.js"></script>
-		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-		<script src="vendor/select2/select2.min.js"></script>
-		<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-		<script>
-			$('.js-pscroll').each(function(){
-				var ps = new PerfectScrollbar(this);
-
-				$(window).on('resize', function(){
-					ps.update();
-				})
-			});
-		</script>
-		<script src="js/table_main.js"></script>
 	</body>
 </html>

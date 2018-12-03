@@ -19,18 +19,20 @@
 			<form class='form-horizontal lg-2' action="verifyspecificbooking_process.php" method="post" >
                 <br>
 				
-				<table class="table table-striped" style="margin-left:-60px">
+				<table class="table table-striped" style="margin-left:-80px">
 				  <thead>
 					<tr>
-					  <th scope="col">BookingID</th>
+					  <th scope="col">Booking ID</th>
 					  <th scope="col">User</th>
 					  <th scope="col">Brand</th>
 					  <th scope="col">Model</th>
-					  <th scope="col">PlateNumber</th>					  
+					  <th scope="col">Plate Number</th>					  
 					  <th scope="col">StartDate</th>
 					  <th scope="col">EndDate</th>
-					  <th scope="col">PickUp Time</th>	
-					  <th scope="col">DropOff Time</th>	
+					  <th scope="col">PickUp Point</th>
+					  <th scope="col">PickUp Time</th>
+					  <th scope="col">DropOff Point</th>
+					  <th scope="col">DropOff Time</th>
 					  <th scope="col">Car Status</th>					  
 					  <th scope="col">Select Car Status</th>
 					  <th scope="col">Action</th>
@@ -53,7 +55,7 @@
 					echo'Database not selected';
 				}
 				
-				$sql ="SELECT carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.Price,carbooking.BookingID,carbooking.Runner,
+				$sql ="SELECT carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.DropOffPoint,carbooking.Price,carbooking.BookingID,carbooking.Runner,
 				carbooking.PickUpTime,carbooking.DropOffTime,carbooking.Availability,vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,register.Username
 				FROM carbooking
 				INNER JOIN vehiclelist ON carbooking.CarID = vehiclelist.CarID
@@ -78,12 +80,14 @@
 							  echo "<td>".$row['PlateNumber']."</td>";							
 							  echo "<td>".$row['StartDate']."</td>";
 							  echo "<td>".$row['EndDate']."</td>";
+							  echo "<td>".$row['PickUpPoint']."</td>";
 							  echo "<td>".$row['PickUpTime']."</td>";
+							  echo "<td>".$row['DropOffPoint']."</td>";
 							  echo "<td>".$row['DropOffTime']."</td>";
 							  echo "<td>".$row['Availability']."</td>";
 							  echo "<td>";
 							  echo "<select class=\"form-control\" id=\"runner\" name=\"availability\">";
-							while($row2 = mysqli_fetch_assoc($records1))			
+							if($row2 = mysqli_fetch_assoc($records1))			
 							{									
 							  echo "<option>Available</option>";	
 							  echo "<option>Unavailable</option>";
