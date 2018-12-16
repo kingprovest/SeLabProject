@@ -37,7 +37,7 @@
 									<button type="submit" name="viewYearlyBrandStatisticsBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; margin: -10px 0 0 200px; padding: 20px; width: 200px">View Statistics</button>
 								</form>
 								<br>
-								<button type="submit" name="backBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; margin: 20px 0 0 500px; padding: 20px; width: 200px" onclick="document.location.href='viewBrandStatistics.php';">Back</button>
+								<button type="submit" name="backBtn" class='btn btn-default btn-primary' style="background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%); border: #6493c4; margin: -10px 0 0 200px; padding: 20px; width: 200px; display:inline;" onclick="document.location.href='viewBrandStatistics.php';">Back</button>
 							</div>
 						</div>
 					</div>
