@@ -17,7 +17,6 @@
             </div>
             <br>
 			<?php
-			
 			if(isset($_POST['editRecordBtn']))
 			{
 				$id= $_POST['CarID'];
@@ -91,7 +90,7 @@
 						echo "<input type=\"file\" name=\"attachment\" id=\"image\" >";		
 						echo "</div>";
 						
-						echo "<th><input type = hidden name=\"CarID\" value='".$row['CarID']."'</th>";
+						echo "<th><input type = hidden name=\"id\" value='".$recordid."'</th>";
 											
 						echo "<div class=\"form-group\">";
 						echo "<br>";

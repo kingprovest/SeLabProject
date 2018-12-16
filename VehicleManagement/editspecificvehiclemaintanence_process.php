@@ -17,25 +17,27 @@
 				$Description =$_POST['description'];
 				$Cost =$_POST['cost'];
 				
-				$RecordID =$_POST['RecordID']; 
+				$ID =$_POST['id']; 
 				
 				if($_FILES["attachment"]["tmp_name"] == '')
 				{
 					$sql = "UPDATE maintanencerecord SET Date= '$Date',Description='$Description',Cost='$Cost'
-						    WHERE CarID ='$RecordID'";
+						    WHERE RecordID ='$ID'";
 				}
 				
 				else
 				{
 					$Attachment =addslashes(file_get_contents($_FILES["attachment"]["tmp_name"]));
 					$sql = "UPDATE maintanencerecord SET Date= '$Date',Description='$Description',Cost='$Cost',
-						   Attachment='$Attachment' WHERE CarID ='$RecordID'";
+						   Attachment='$Attachment' WHERE RecordID ='$ID'";
 				}
 				
 				if(!mysqli_query($con,$sql))
 				{
-					echo ' Update failed';
+					echo "<script type='text/javascript'>alert('Update Failed!')</script>";
+					header("refresh:0.1; url='editvehiclemaintanence.php'");
 				}
+				
 				else
 				{
 					echo "<script type='text/javascript'>alert('Update Successful!')</script>";
