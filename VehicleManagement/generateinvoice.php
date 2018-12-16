@@ -140,7 +140,7 @@
 					</div>
 				</div>		
 				<?php
-					$sql="SELECT StartDate, EndDate, PickUpPoint, DropOffPoint, PickUpTime, DropOffTime, Price FROM carbooking WHERE BookingID = '$bookingId'";
+					$sql="SELECT StartDate, EndDate, PickUpPoint, DropOffPoint, PickUpTime, DropOffTime, AddOnItem, Price FROM carbooking WHERE BookingID = '$bookingId'";
 					$result = mysqli_query($con,$sql);
 					$row = mysqli_fetch_assoc($result);
 				?>				
@@ -162,6 +162,7 @@
 												<td class="text-center">Pickup Time</td>
 												<td class="text-center">Dropoff Location</td>
 												<td class="text-center">Dropoff Time</td>
+												<td class="text-center">Add-On Item</td>
 											</tr>
 										</thead>
 										<tbody>
@@ -178,8 +179,22 @@
 												<td class="text-center"><?php echo $row['PickUpTime'] ?></td>
 												<td class="text-center"><?php echo $row['DropOffPoint'] ?></td>
 												<td class="text-center"><?php echo $row['DropOffTime'] ?></td>
+												<td class="text-center">
+												<?php 
+													if($row['AddOnItem'] == NULL)
+													{
+														echo "-";
+													}
+													
+													else
+													{
+														echo $row['AddOnItem'];
+													}
+												?>
+												</td>
 											</tr>                       
 											<tr>
+												<td class="no-line"></td>
 												<td class="no-line"></td>
 												<td class="no-line"></td>
 												<td class="no-line"></td>
