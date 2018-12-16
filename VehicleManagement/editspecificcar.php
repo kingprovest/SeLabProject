@@ -19,7 +19,7 @@
 			<?php
 			
 			$id = array_search("Edit", $_POST);
-			echo $id;
+			
 				$con=mysqli_connect('127.0.0.1','root','', 'selabdb');
 				if(!$con)
 				{
@@ -74,7 +74,7 @@
 						echo "<div class=\"form-group\">";
 						echo "<label for=\"exampleFormControlInput1\">Choose Image</label>";
 						echo "&nbsp;&nbsp;&nbsp;";
-						echo "<input type=\"file\" name=\"image\" id=\"image\" >";		
+						echo "<input type=\"file\" name=\"image\" id=\"image\">";		
 						echo "</div>";
 						
 						echo "<th><input type = hidden name=\"CarID\" value='".$row['CarID']."'</th>";

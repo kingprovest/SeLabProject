@@ -9,7 +9,6 @@
 				
 				if(!mysqli_select_db($con,'selabdb'))
 				{
-					
 					echo'Database not selected';
 				}
 				
@@ -19,16 +18,26 @@
 				$PlateNumber =$_POST['platenumber'];				
 				$PerDayRate =$_POST['perdayrate'];
 				$NoOfSeat =$_POST['noofseat'];
-				$Image = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
 				
-				$sql ="UPDATE vehiclelist SET Brand= '$Brand',Model='$Model',PlateNumber='$PlateNumber',
+				if($_FILES["image"]["tmp_name"] == '')
+				{
+					$sql = "UPDATE vehiclelist SET Brand = '$Brand',Model='$Model',PlateNumber='$PlateNumber',
+							PerDayRate='$PerDayRate',NoOfSeat='$NoOfSeat' WHERE CarID ='$ID'";
+				}
+				
+				else
+				{
+					$Image = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
+					$sql ="UPDATE vehiclelist SET Brand= '$Brand',Model='$Model',PlateNumber='$PlateNumber',
 				PerDayRate='$PerDayRate',NoOfSeat='$NoOfSeat',Image='$Image' WHERE CarID ='$ID'";
-				
+				}
 				
 				if(!mysqli_query($con,$sql))
 				{
-					echo ' Update failed';
+					echo "<script type='text/javascript'>alert('Update Failed!')</script>";
+					header("refresh:0.1; url='editvehicles.php'");
 				}
+				
 				else
 				{
 					echo "<script type='text/javascript'>alert('Update Successful!')</script>";
