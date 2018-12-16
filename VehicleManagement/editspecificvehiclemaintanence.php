@@ -18,8 +18,11 @@
             <br>
 			<?php
 			
-			$id = array_search("Edit", $_POST);
-			echo $id;
+			if(isset($_POST['editRecordBtn']))
+			{
+				$id= $_POST['CarID'];
+				$recordid = $_POST['RecordID'];
+				
 				$con=mysqli_connect('127.0.0.1','root','', 'selabdb');
 				if(!$con)
 				{
@@ -35,9 +38,9 @@
 				//$sql ="SELECT * FROM vehiclelist where CarID =".$id.";";
 				$sql ="SELECT vehiclelist.CarID,vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,vehiclelist.Image,maintanencerecord.Date,
 				maintanencerecord.Description,maintanencerecord.Cost,maintanencerecord.Attachment 
-				FROM vehiclelist
-				INNER JOIN maintanencerecord ON vehiclelist.CarID = maintanencerecord.CarID
-				WHERE vehiclelist.CarID =".$id."";
+				FROM maintanencerecord
+				INNER JOIN vehiclelist ON vehiclelist.CarID = maintanencerecord.CarID
+				WHERE maintanencerecord.RecordID =".$recordid."";
 				
 				$records = mysqli_query($con,$sql);
 				if(mysqli_num_rows($records)>0){
@@ -91,12 +94,13 @@
 						echo "<th><input type = hidden name=\"CarID\" value='".$row['CarID']."'</th>";
 											
 						echo "<div class=\"form-group\">";
+						echo "<br>";
 						echo "<button type=\"submit\" name=\"Submit\" value=\"Submit\" onclick=\"return confirm('Confirm Submit?')\" class=\"btn btn-default btn-primary\"
 							style=\"background:linear-gradient(to bottom, #6493c4 0%,#375a7f 100%)\"; border: \"#6493c4\">Submit</button>";
 						echo "</div>";																	
 						 echo "</form>";
 				}
-				
+			}
 			?>
 			
 			</div>

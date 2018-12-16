@@ -16,11 +16,21 @@
 				$Date =$_POST['date'];
 				$Description =$_POST['description'];
 				$Cost =$_POST['cost'];
-				$Attachment =addslashes(file_get_contents($_FILES["attachment"]["tmp_name"]));
-				$CarID =$_POST['CarID']; 
 				
-				$sql ="UPDATE maintanencerecord SET Date= '$Date',Description='$Description',Cost='$Cost',
-				Attachment='$Attachment' WHERE CarID ='$CarID'";
+				$RecordID =$_POST['RecordID']; 
+				
+				if($_FILES["attachment"]["tmp_name"] == '')
+				{
+					$sql = "UPDATE maintanencerecord SET Date= '$Date',Description='$Description',Cost='$Cost'
+						    WHERE CarID ='$RecordID'";
+				}
+				
+				else
+				{
+					$Attachment =addslashes(file_get_contents($_FILES["attachment"]["tmp_name"]));
+					$sql = "UPDATE maintanencerecord SET Date= '$Date',Description='$Description',Cost='$Cost',
+						   Attachment='$Attachment' WHERE CarID ='$RecordID'";
+				}
 				
 				if(!mysqli_query($con,$sql))
 				{

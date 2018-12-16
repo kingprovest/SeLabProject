@@ -73,7 +73,9 @@
 						</td>
 						<td>
 							<form class='form-horizontal lg-2' action="editspecificvehiclemaintanence.php" method="post">
-								<input value="Edit" name="<?php echo $row['CarID'] ?>" type="submit">
+								<input type="hidden" name="RecordID" value="<?php echo $row["RecordID"]; ?>" />
+								<input type="hidden" name="CarID" value="<?php echo $row["CarID"]; ?>" />
+								<button type="submit" name="editRecordBtn">Edit</button>
 							</form>
 						</td>
 						<?php						
