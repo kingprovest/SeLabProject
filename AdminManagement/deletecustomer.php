@@ -23,8 +23,8 @@
 									<tr>
 									  <th scope="col">#</th>
 									  <th scope="col">Full Name</th>
-									  <th scope="col">UserName</th>
-									  <th scope="col">HpNo</th>
+									  <th scope="col">Username</th>
+									  <th scope="col">H/P No</th>
 									  <th scope="col">Email Address</th>
 									  <th scope="col">Delete</th>
 									</tr>
@@ -43,7 +43,7 @@
 									echo'Database not selected';
 								}
 								
-								$sql ="SELECT * FROM register";
+								$sql ="SELECT * FROM register WHERE NOT AccessLevel='Manager'";
 								
 								$records = mysqli_query($con,$sql);
 								if(mysqli_num_rows($records)>0){
