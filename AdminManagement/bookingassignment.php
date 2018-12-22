@@ -52,7 +52,9 @@
 					echo'Database not selected';
 				}
 				
-				$sql ="SELECT carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.PickUpTime,carbooking.DropOffPoint,carbooking.DropOffTime,carbooking.Price,carbooking.BookingID,carbooking.Runner,
+				$sql ="SELECT carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.DropOffPoint,
+				date_format(carbooking.PickUpTime, '%h:%i%p') AS PickUpTime,carbooking.DropOffPoint,date_format(carbooking.DropOffTime, '%h:%i%p') AS DropOffTime,
+				carbooking.Price,carbooking.BookingID,carbooking.Runner,
 				vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,register.Username
 				FROM carbooking
 				INNER JOIN vehiclelist ON carbooking.CarID = vehiclelist.CarID

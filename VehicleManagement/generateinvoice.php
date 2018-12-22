@@ -140,10 +140,11 @@
 					</div>
 				</div>		
 				<?php
-					$sql="SELECT StartDate, EndDate, PickUpPoint, DropOffPoint, PickUpTime, DropOffTime, AddOnItem, Price FROM carbooking WHERE BookingID = '$bookingId'";
+					$sql="SELECT StartDate, EndDate, PickUpPoint, DropOffPoint, AddOnItem, Price, date_format(PickUpTime, '%h:%i %p') AS PickUpTime, date_format(DropOffTime, '%h:%i %p') AS DropOffTime FROM carbooking WHERE BookingID = '$bookingId'";
 					$result = mysqli_query($con,$sql);
 					$row = mysqli_fetch_assoc($result);
-				?>				
+				?>
+				
 				<div class="row" style="display:block;">
 					<div class="col-md-12">
 						<div class="panel panel-default">

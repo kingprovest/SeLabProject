@@ -25,8 +25,10 @@
 	$UserId = $_SESSION['userID']; 
 	$CarId = $_SESSION['carID'];
 	$ReserveDate = date("d-m-Y");
-	$PickupTime = $_POST['pickuptime'];
-	$DropOffTIme = $_POST['dropofftime'];
+	//$PickupTime = $_POST['pickuptime'];
+	$PickupTime = date("Y-m-d H:i:s", strtotime($_POST['pickuptime']));
+	//$DropOffTIme = $_POST['dropofftime'];
+	$DropOffTIme = date("Y-m-d H:i:s", strtotime($_POST['dropofftime']));
 	$AddOnItem = $_POST['addonitem'];
 	$Runner = "None";
 	$Availability = "Null";

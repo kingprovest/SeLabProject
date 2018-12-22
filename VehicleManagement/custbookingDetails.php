@@ -69,7 +69,7 @@
 				
 				$userid = $_SESSION['userID'];
 				
-				$sql ="SELECT carbooking.BookingID,carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.Price,carbooking.PickUpTime,carbooking.DropOffPoint,carbooking.DropOffTime,
+				$sql ="SELECT carbooking.BookingID,carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.Price,date_format(carbooking.PickUpTime, '%h:%i %p') AS PickUpTime,carbooking.DropOffPoint,date_format(carbooking.DropOffTime, '%h:%i %p') AS DropOffTime,
 				carbooking.Availability,carbooking.AddOnItem,vehiclelist.Brand,vehiclelist.Model,
 				vehiclelist.PlateNumber,vehiclelist.NoOfSeat
 				FROM carbooking
