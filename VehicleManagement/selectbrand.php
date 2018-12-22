@@ -168,7 +168,13 @@
 						while($row1 = mysqli_fetch_array($result1,MYSQLI_ASSOC))
 						{
 						?>
+						
+						<?php if ($brand == trim($row1['Brand'])) { ?>
+						<option value="<?php echo $row1['Brand'] ?>" selected><?php echo $row1['Brand'] ?></option>
+						<?php } else { ?>
 						<option value="<?php echo $row1['Brand'] ?>"><?php echo $row1['Brand'] ?></option>
+						<?php } ?>
+						
 						<?php
 						}
 						?>
