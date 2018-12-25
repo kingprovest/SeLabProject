@@ -18,6 +18,7 @@
 				$StartDate =$_POST['startdate'];
 				$EndDate =$_POST['enddate'];
 				$PickUpPoint =$_POST['pickuppoint'];
+				$DropOffPoint =$_POST['dropoffpoint'];
 				$UserID =$_POST['userid'];
 				$CarID =$_POST['carid'];
 				$PickUpTime =$_POST['pickuptime'];
@@ -25,8 +26,8 @@
 				
 				
 				$sql ="UPDATE carbooking SET StartDate= '$StartDate',EndDate='$EndDate',
-				PickUpPoint='$PickUpPoint',Id='$UserID',PickUpTime='$PickUpTime',DropOffTime='$DropOffTime',CarID='$CarID'
-				 WHERE BookingID ='$BookingID'";
+				PickUpPoint='$PickUpPoint', DropOffPoint='$DropOffPoint', Id='$UserID',PickUpTime='$PickUpTime',DropOffTime='$DropOffTime',CarID='$CarID'
+				WHERE BookingID ='$BookingID'";
 				
 				
 				if(!mysqli_query($con,$sql))

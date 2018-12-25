@@ -31,7 +31,8 @@
 				}
 				
 				$sql ="SELECT carbooking.StartDate,carbooking.EndDate,carbooking.PickUpPoint,carbooking.DropOffPoint,carbooking.Price,carbooking.BookingID,
-				carbooking.Id,carbooking.CarID,carbooking.PickUpTime,carbooking.DropOffTime,
+				carbooking.Id,carbooking.CarID,
+				date_format(carbooking.PickUpTime, '%h:%i%p') AS PickUpTime,carbooking.DropOffPoint,date_format(carbooking.DropOffTime, '%h:%i%p') AS DropOffTime,
 				vehiclelist.Brand,vehiclelist.Model,vehiclelist.PlateNumber,register.Username
 				FROM carbooking
 				INNER JOIN vehiclelist ON carbooking.CarID = vehiclelist.CarID
