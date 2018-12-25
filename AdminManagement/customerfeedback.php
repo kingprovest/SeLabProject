@@ -1,6 +1,6 @@
 <?php
 
-	include ('admin_header.php');
+	include ('manager_header.php');
 
 ?>				
 			<!-- Start quote Area -->
