@@ -26,7 +26,7 @@
 				}
 				else
 				{
-					echo "<script type='text/javascript'>alert('Feedback Submitted!')</script>";
+					echo "<script type='text/javascript'>alert('Feedback Submitted! Thanks for giving us feedback.')</script>";
 					header("refresh:0.1; url='selectbrand.php'");
 				}
 				mysqli_close($con);
