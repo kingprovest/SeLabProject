@@ -122,9 +122,9 @@
 				<label class="control-label " for="name">End Date</label>
 				<input class="form-control" id="enddatePicker" name="enddate" autocomplete="off" type="text" required/>
 				<label class="control-label " for="name">PickUp Time</label>
-				<input class="form-control" id="pickuptimepicker" name="pickuptime" autocomplete="off" type="time" required/>
+				<input class="form-control" id="pickuptimepicker" name="pickuptime" autocomplete="off" type="text" required/>
 				<label class="control-label " for="name">DropOff Time</label>
-				<input class="form-control" id="dropofftimepicker" name="dropofftime" autocomplete="off" type="time" required/>
+				<input class="form-control" id="dropofftimepicker" name="dropofftime" autocomplete="off" type="text" required/>
 				<label class="control-label " for="name">PickUp Point</label>
 				<input class="form-control" id="name" name="pickuppoint" type="text" autocomplete="off" required/>
 				<label class="control-label " for="name">DropOff Point</label>
@@ -222,7 +222,8 @@
 			  
 			
 			  $('div.ui-datepicker').css({ fontSize: '20px' });
-			
+				$('#pickuptimepicker').timepicker();
+				$('#dropofftimepicker').timepicker();
 				
 			  $('#calculate').on('click', function() {
 
