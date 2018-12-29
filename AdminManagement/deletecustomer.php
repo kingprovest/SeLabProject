@@ -47,10 +47,11 @@
 								
 								$records = mysqli_query($con,$sql);
 								if(mysqli_num_rows($records)>0){
+									$num=1;
 									while($row = mysqli_fetch_assoc($records))
 									{						
 										echo "<tr>";
-										echo "<th scope=\"row\" value=\"Delete\">".$row['Id']."</th>";
+										echo "<th scope=\"row\" value=\"Delete\">".$num."</th>";
 										echo "<td>".$row['FullName']."</td>";
 										echo "<td>".$row['Username']."</td>";
 										echo "<td>".$row['HpNo']."</td>";
@@ -60,7 +61,9 @@
 										echo "<button class=\"btn btn-danger btn-xs \" name=\"".$row['Id']."\" value=\"Delete\" href =\"deletecustomer_process.php\" onclick=\"return confirm('Are you sure to delete?')\"data-toggle=\"modal\" data-target=\"#delete\" >Delete</button>";							 
 										echo "</p>";
 										echo "</td>";
-										echo "<tr>";						
+										echo "<tr>";
+
+										$num++;										
 															
 									}
 								}
