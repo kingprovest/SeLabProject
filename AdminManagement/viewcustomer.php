@@ -42,20 +42,23 @@
 					echo'Database not selected';
 				}
 				
-				$sql ="SELECT * FROM register";
+				$sql ="SELECT * FROM register WHERE AccessLevel='User'";
 				
 				$records = mysqli_query($con,$sql);
 				if(mysqli_num_rows($records)>0){
+					$num=1;
+					
 					while($row = mysqli_fetch_assoc($records))
 					{						
 							echo "<tr>";
-							  echo "<th scope=\"row\">".$row['Id']."</th>";
+							  echo "<th scope=\"row\">".$num."</th>";
 							  echo "<td>".$row['FullName']."</td>";
 							  echo "<td>".$row['Username']."</td>";
 							  echo "<td>".$row['HpNo']."</td>";
 							  echo "<td>".$row['EmailAddress']."</td>";
 							echo "<tr>";						
-											
+									
+							$num++;
 					}
 				}
 			?>
