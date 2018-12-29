@@ -43,7 +43,7 @@
 									echo'Database not selected';
 								}
 								
-								$sql ="SELECT * FROM register WHERE NOT AccessLevel='Manager'";
+								$sql ="SELECT * FROM register WHERE AccessLevel='User'";
 								
 								$records = mysqli_query($con,$sql);
 								if(mysqli_num_rows($records)>0){
