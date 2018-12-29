@@ -19,7 +19,6 @@
 			<?php
 			
 			$id = array_search("Add", $_POST);
-			echo $id;
 				$con=mysqli_connect('127.0.0.1','root','', 'selabdb');
 				if(!$con)
 				{
