@@ -177,7 +177,7 @@
 													<td class="cell100 column14"><?php echo $row['PlateNumber']; ?></td>
 													<td class="cell100 column15"><?php echo $row['Date']; ?></td>
 													<td class="cell100 column16"><?php echo $row['Description']; ?></td>
-													<td class="cell100 column17"><?php echo $row['Cost'].".00"; ?></td>
+													<td class="cell100 column17"><?php echo $row['Cost']; ?></td>
 												</tr>
 									<?php		
 												$count += 1;
