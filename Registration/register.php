@@ -67,13 +67,13 @@
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
 						<span class="label-input100">Password</span>
-						<input class="input100" type="text" name="password" placeholder="*************">
+						<input class="input100" type="password" name="password" placeholder="*************">
 						<span class="focus-input100"></span>
 					</div>
 					
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
 						<span class="label-input100">Retype Password</span>
-						<input class="input100" type="text" name="password2" placeholder="*************">
+						<input class="input100" type="password" name="password2" placeholder="*************">
 						<span class="focus-input100"></span>
 					</div>
 
